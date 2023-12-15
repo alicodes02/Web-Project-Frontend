@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import Base from '../Components/Base';
 
 const ProjectManagement = () => {
@@ -31,9 +32,69 @@ const ProjectManagement = () => {
     <Base>
     <div className="container mt-5">
       <div className="row">
-        <div className="col-md-8 offset-md-2">
+      <motion.div
+  initial={{ opacity: 0, x: -100 }}
+  animate={{ opacity: 1, x: 0 }}
+  exit={{ opacity: 0, x: -100 }}
+  transition={{ duration: 0.5 }}
+  className="col-md-8 offset-md-2"
+  style={{
+    border: '10px solid transparent',
+    padding: '45px',
+    borderRadius: '25px',
+    position: 'relative',
+    overflow: 'hidden',
+  }}
+>
+  <motion.div
+    initial={{ width: 0, left: 0 }}
+    animate={{ width: '1%', left: 0 }}
+    transition={{ duration: 0.5, delay: 0.5 }}
+    style={{
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      background: 'purple',
+    }}
+  />
+
+  <motion.div
+    initial={{ width: 0, right: 0 }}
+    animate={{ width: '1%', right: 0 }}
+    transition={{ duration: 0.5, delay: 0.5 }}
+    style={{
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      background: 'purple',
+    }}
+  />
+
+  <motion.div
+    initial={{ height: 0, top: 0 }}
+    animate={{ height: '1%', top: 0 }}
+    transition={{ duration: 0.5, delay: 0.5 }}
+    style={{
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      background: 'purple',
+    }}
+  />
+
+  <motion.div
+    initial={{ height: 0, bottom: 0 }}
+    animate={{ height: '1%', bottom: 0 }}
+    transition={{ duration: 0.5, delay: 0.5 }}
+    style={{
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      background: 'purple',
+    }}
+  />
           <h2>Create a New Project</h2>
-          <form onSubmit={handleSubmit}>
+          <motion.form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="projectName" className="form-label">
                 Project Name
@@ -114,13 +175,18 @@ const ProjectManagement = () => {
                 <option value="privateToMembers">Private to Members</option>
               </select>
             </div>
-            <button type="submit" className="btn btn-dark mt-3 btn-purple">
+            <motion.button
+                type="submit"
+                className="btn btn-dark mt-3 btn-purple w-100"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
               Create Project
-            </button>
-          </form>
-        </div>
+              </motion.button>
+              </motion.form>
+              </motion.div>
+            </div>
       </div>
-    </div>
     </Base>
   );
 };
