@@ -12,7 +12,7 @@ const Home = () => {
             <p className="lead">
               Your go-to destination for streamlined collaboration and productivity.
             </p>
-            <Link to="/Posts" className="btn btn-success mt-3">
+            <Link to="/Posts" className="btn btn-dark mt-3 btn-purple">
               Explore Collaborations
             </Link>
           </div>
