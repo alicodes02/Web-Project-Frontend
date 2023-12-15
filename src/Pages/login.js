@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Base from '../Components/Base';
-import { Button } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle, faFacebook, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'; 
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -103,6 +104,7 @@ const LoginPage = () => {
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
+                <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '10px' }} /> Email {/* Email icon */}
                   Email
                 </label>
                 <input
@@ -116,6 +118,7 @@ const LoginPage = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="password" className="form-label">
+                <FontAwesomeIcon icon={faLock} style={{ marginRight: '10px' }} /> Password {/* Password icon */}
                   Password
                 </label>
                 <input
@@ -137,15 +140,36 @@ const LoginPage = () => {
               </motion.button>
             </form>
 
-             {/* Google Login Button */}
-        <Button onClick={handleGoogleLogin} color="danger" style={{ marginTop: '10px' }}>
-          Continue with Google
-        </Button>
+            <p style={{ textAlign: 'center', marginTop: '10px', marginBottom: '10px' }}>OR</p>
 
-        {/* Facebook Login Button */}
-        <Button onClick={handleFacebookLogin} color="primary" style={{ marginTop: '10px' }}>
-          Continue with Facebook
-        </Button>
+           {/* Google Login Button as motion.button */}
+           <motion.button
+              onClick={handleGoogleLogin}
+              className="btn btn-white"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              style={{
+                width: '100%',
+                marginTop: '10px',
+                border: '1px solid black', // Add border style here
+                borderRadius: '4px', // Optional: Add border radius
+              }}
+            >
+              <FontAwesomeIcon icon={faGoogle} style={{ marginRight: '10px' }} />
+              Continue with Google
+            </motion.button>
+
+            {/* Facebook Login Button as motion.button */}
+            <motion.button
+              onClick={handleFacebookLogin}
+              className="btn btn-primary"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              style={{ width: '100%', marginTop: '10px' }}
+            >
+              <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '10px' }} />
+              Continue with Facebook
+            </motion.button>
           </motion.div>
         </div>
       </div>
