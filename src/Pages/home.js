@@ -1,6 +1,8 @@
 import React from 'react';
 import Base from '../Components/Base';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
   return (
@@ -9,6 +11,7 @@ const Home = () => {
         <div className="row">
           <div className="col-md-8 offset-md-2 text-center">
             <h1 className="display-4 mb-4">Welcome to CollaboraHub</h1>
+            <FontAwesomeIcon icon={faUsers} />
             <p className="lead">
               Your go-to destination for streamlined collaboration and productivity.
             </p>
