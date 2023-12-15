@@ -2,6 +2,7 @@ import React from 'react';
 import About from './Pages/about';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ProjectManagement from './Pages/project_management';
 
 import Home from './Pages/home';
 import { ToastContainer } from 'react-toastify';
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/projectmanagement" element={<ProjectManagement />} />
       </Routes>
       
       <ToastContainer position="bottom-center" />
