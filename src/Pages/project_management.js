@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Base from '../Components/Base';
 
 const ProjectManagement = () => {
   const [projectData, setProjectData] = useState({
@@ -27,6 +28,7 @@ const ProjectManagement = () => {
   };
 
   return (
+    <Base>
     <div className="container mt-5">
       <div className="row">
         <div className="col-md-8 offset-md-2">
@@ -112,13 +114,14 @@ const ProjectManagement = () => {
                 <option value="privateToMembers">Private to Members</option>
               </select>
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-dark mt-3 btn-purple">
               Create Project
             </button>
           </form>
         </div>
       </div>
     </div>
+    </Base>
   );
 };
 
