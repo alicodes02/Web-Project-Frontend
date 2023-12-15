@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Base from '../Components/Base';
+import { Button } from 'reactstrap';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +21,16 @@ const LoginPage = () => {
     e.preventDefault();
     // Implement your login logic here
     console.log('Form submitted:', formData);
+  };
+
+  const handleGoogleLogin = () => {
+    // Placeholder function for Google login
+    console.log('Perform Google login');
+  };
+
+  const handleFacebookLogin = () => {
+    // Placeholder function for Facebook login
+    console.log('Perform Facebook login');
   };
 
   return (
@@ -125,6 +136,16 @@ const LoginPage = () => {
                 Login
               </motion.button>
             </form>
+
+             {/* Google Login Button */}
+        <Button onClick={handleGoogleLogin} color="danger" style={{ marginTop: '10px' }}>
+          Continue with Google
+        </Button>
+
+        {/* Facebook Login Button */}
+        <Button onClick={handleFacebookLogin} color="primary" style={{ marginTop: '10px' }}>
+          Continue with Facebook
+        </Button>
           </motion.div>
         </div>
       </div>
