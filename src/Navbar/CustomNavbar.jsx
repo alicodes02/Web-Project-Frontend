@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink as ReactLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import {
   Collapse,
@@ -27,7 +26,7 @@ function CustomNavbar(args) {
       <div>
         <Navbar {...args} color="dark" dark expand="md" fixed="">
           <NavbarBrand tag={ReactLink} to="/">
-          <FontAwesomeIcon icon={faUsers} />
+            <FontAwesomeIcon icon={faUsers} />
             CollaboraHub
           </NavbarBrand>
           <NavbarToggler onClick={toggle} />
