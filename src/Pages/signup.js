@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import Base from '../Components/Base';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock,faUser  } from '@fortawesome/free-solid-svg-icons';
 
-const LoginPage = () => {
+const SignupPage = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -118,7 +118,7 @@ const LoginPage = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="lastName" className="form-label">
-                  Last Name
+                <FontAwesomeIcon icon={faUser} style={{ marginRight: '10px' }} /> Last Name
                 </label>
                 <input
                   type="text"
@@ -157,7 +157,7 @@ const LoginPage = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="confirmPassword" className="form-label">
-                  Confirm Password
+                <FontAwesomeIcon icon={faLock} style={{ marginRight: '10px' }} /> Confirm Password
                 </label>
                 <input
                   type="password"
@@ -215,4 +215,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;
