@@ -3,28 +3,35 @@ import { motion } from 'framer-motion';
 import Base from '../Components/Base';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faEyeSlash, faEye ,faLock } from '@fortawesome/free-solid-svg-icons';
 
 const LoginPage = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
+    const [formData, setFormData] = useState({
+      email: '',
+      password: '',
+      showPassword: false,
     });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Implement your login logic here
-    console.log('Form submitted:', formData);
-  };
-
+  
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    };
+  
+    const handleTogglePassword = () => {
+      setFormData({
+        ...formData,
+        showPassword: !formData.showPassword,
+      });
+    };
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      // Implement your login logic here
+      console.log('Form submitted:', formData);
+    };
   const handleGoogleLogin = () => {
     // Placeholder function for Google login
     console.log('Perform Google login');
@@ -118,19 +125,27 @@ const LoginPage = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="password" className="form-label">
+              <label htmlFor="password" className="form-label">
                 <FontAwesomeIcon icon={faLock} style={{ marginRight: '10px' }} /> Password {/* Password icon */}
-                 
-                </label>
+              </label>
+              <div className="input-group">
                 <input
-                  type="password"
+                  type={formData.showPassword ? 'text' : 'password'}
                   className="form-control"
                   id="password"
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
                 />
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  onClick={handleTogglePassword}
+                >
+                  <FontAwesomeIcon icon={formData.showPassword ? faEyeSlash : faEye} />
+                </button>
               </div>
+            </div>
               <motion.button
                 type="submit"
                 className="btn btn-dark mt-3 btn-purple w-100"
