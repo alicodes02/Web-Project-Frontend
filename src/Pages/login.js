@@ -56,7 +56,9 @@ const LoginPage = () => {
   return (
     <Base>
       <div className="container mt-5">
-        <div className="row" style={textStyle}>
+      <div className="container" style={textStyle}>
+
+        <div className="row" >
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
@@ -201,6 +203,7 @@ const LoginPage = () => {
             </motion.button>
           </motion.div>
         </div>
+      </div>
       </div>
     </Base>
   );

@@ -16,7 +16,6 @@ const SignupPage = () => {
     color: '#FFFFFF',
     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.1)', // Adding a subtle shadow for depth
   };
-
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -58,7 +57,8 @@ const SignupPage = () => {
   return (
     <Base>
       <div className="container mt-5">
-        <div className="row" style={textStyle}>
+      <div className="container" style={textStyle}>
+        <div className="row" >
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
@@ -250,6 +250,8 @@ const SignupPage = () => {
               Continue with Facebook
             </motion.button>
           </motion.div>
+        </div>
+
         </div>
       </div>
     </Base>
