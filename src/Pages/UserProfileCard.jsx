@@ -1,4 +1,4 @@
-import Base from "./src/Components/Base";
+import Base from "../Components/Base";
 const UserProfileCard = () => {
   return (
     <Base>
