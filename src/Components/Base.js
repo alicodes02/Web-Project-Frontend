@@ -5,7 +5,7 @@ const Base = ({ children }) => {
 
 
   const backgroundStyle = {
-    backgroundImage: `url('/giphy2.gif')`,
+    backgroundImage: `url('/giphy3.jpg')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     margin: '0', // Remove default margins
