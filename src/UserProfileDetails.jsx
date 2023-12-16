@@ -1,5 +1,8 @@
+
+import Base from "./src/Components/Base";
 const UserProfileDetails = () => {
   return (
+    <Base>
     <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
       <div className="card h-100">
         <div className="card-body">
@@ -67,6 +70,7 @@ const UserProfileDetails = () => {
         </div>
       </div>
     </div>
+    </Base>
   );
 };
 

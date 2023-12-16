@@ -1,5 +1,7 @@
+import Base from "./src/Components/Base";
 const UserProfileCard = () => {
   return (
+    <Base>
     <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
       <div className="card h-100">
         <div className="card-body">
@@ -19,6 +21,7 @@ const UserProfileCard = () => {
         </div>
       </div>
     </div>
+    </Base>
   );
 };
 
