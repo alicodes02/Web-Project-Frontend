@@ -81,7 +81,7 @@ const LoginPage = () => {
                 position: 'absolute',
                 top: 0,
                 bottom: 0,
-                background: 'black',
+                background: 'white',
               }}
             />
 
@@ -93,7 +93,7 @@ const LoginPage = () => {
                 position: 'absolute',
                 top: 0,
                 bottom: 0,
-                background: 'black',
+                background: 'white',
               }}
             />
 
@@ -105,7 +105,7 @@ const LoginPage = () => {
                 position: 'absolute',
                 left: 0,
                 right: 0,
-                background: 'black',
+                background: 'white',
               }}
             />
 
@@ -117,7 +117,7 @@ const LoginPage = () => {
                 position: 'absolute',
                 left: 0,
                 right: 0,
-                background: 'black',
+                background: 'white',
               }}
             />
 
@@ -159,14 +159,15 @@ const LoginPage = () => {
                 </button>
               </div>
             </div>
-              <motion.button
-                type="submit"
-                className="btn btn-dark mt-3 btn-purple w-100"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                Login
-              </motion.button>
+            <motion.button
+  type="submit"
+  className="btn btn-dark mt-3 w-100"
+  style={{ backgroundColor: 'purple' }}
+  whileHover={{ scale: 1.1 }}
+  whileTap={{ scale: 0.9 }}
+>
+  Login
+</motion.button>
             </form>
 
             <p style={{ textAlign: 'center', marginTop: '10px', marginBottom: '10px' }}>OR</p>

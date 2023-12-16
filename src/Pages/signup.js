@@ -81,7 +81,7 @@ const SignupPage = () => {
                 position: 'absolute',
                 top: 0,
                 bottom: 0,
-                background: 'black',
+                background: 'white',
               }}
             />
 
@@ -93,7 +93,7 @@ const SignupPage = () => {
                 position: 'absolute',
                 top: 0,
                 bottom: 0,
-                background: 'black',
+                background: 'white',
               }}
             />
 
@@ -105,7 +105,7 @@ const SignupPage = () => {
                 position: 'absolute',
                 left: 0,
                 right: 0,
-                background: 'black',
+                background: 'white',
               }}
             />
 
@@ -117,7 +117,7 @@ const SignupPage = () => {
                 position: 'absolute',
                 left: 0,
                 right: 0,
-                background: 'black',
+                background: 'white',
               }}
             />
 
@@ -210,10 +210,11 @@ const SignupPage = () => {
               <motion.button
                 type="submit"
                 className="btn btn-dark mt-3 btn-purple w-100"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                style={{ backgroundColor: 'purple' }}
+               whileHover={{ scale: 1.1 }}
+               whileTap={{ scale: 0.9 }}
               >
-                Login
+                Signup
               </motion.button>
             </form>
 
