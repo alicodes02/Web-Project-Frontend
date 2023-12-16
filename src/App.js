@@ -29,7 +29,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/profiledetails" element={<UserProfileDetails/>} />
-        <Route path="/profile" element={<UserProfileCard />} />
+        <Route path="/userprofile" element={<UserProfileCard />} />
       </Routes>
       
       <ToastContainer position="bottom-center" />
