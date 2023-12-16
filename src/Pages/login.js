@@ -9,15 +9,15 @@ const LoginPage = () => {
 
 
   const textStyle = {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    padding: '50px',
-    borderRadius: '8px',
-    marginTop: 'auto', // Enclosed in quotes as it's a string value
-    marginBottom: 'auto', // Enclosed in quotes as it's a string value
-    boxShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.1)',
-  
-  };
-  
+  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+  padding: '50px',
+  borderRadius: '8px',
+  marginTop: 'auto', // Enclosed in quotes as it's a string value
+  marginBottom: 'auto', // Enclosed in quotes as it's a string value
+  boxShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.1)',
+ 
+};
+
     const [formData, setFormData] = useState({
       email: '',
       password: '',
