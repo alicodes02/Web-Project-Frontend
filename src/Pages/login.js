@@ -9,7 +9,7 @@ const LoginPage = () => {
 
 
   const textStyle = {
-    backgroundColor: 'rgb(33, 53, 85,0.8)',
+    backgroundColor: 'rgb(128,0,128,0.7)',
     padding: '50px',
     borderRadius: '8px',
     marginTop: '30px',

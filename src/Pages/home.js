@@ -9,7 +9,7 @@ const Home = () => {
 
   const textStyle = {
     //backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    backgroundColor: 'rgb(33, 53, 85,0.7)',
+    backgroundColor: 'rgb(128,0,128,0.7)',
     padding: '100px',
     borderRadius: '8px',
     marginTop: '3.5%',
