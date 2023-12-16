@@ -55,6 +55,19 @@ function CustomNavbar(args) {
                     Signup
                   </NavLink>
                 </NavItem>
+
+                <NavItem>
+                  <NavLink tag={ReactLink} to="/userprofile" className="nav-link">
+                    User Profile
+                  </NavLink>
+                </NavItem>
+
+                <NavItem>
+                  <NavLink tag={ReactLink} to="/projectmanagement" className="nav-link">
+                    Project Management
+                  </NavLink>
+                </NavItem>
+
               </>
             </Nav>
           </Collapse>

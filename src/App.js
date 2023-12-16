@@ -6,6 +6,7 @@ import ProjectManagement from './Pages/project_management';
 import LoginPage from './Pages/login';
 import SignupPage from './Pages/signup';
 import Home from './Pages/home';
+import UserProfile from './Pages/UserProfile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/projectmanagement" element={<ProjectManagement />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/userprofile" element={<UserProfile />} />
       </Routes>
       
       <ToastContainer position="bottom-center" />
