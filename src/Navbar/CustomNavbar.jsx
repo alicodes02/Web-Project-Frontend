@@ -68,6 +68,12 @@ function CustomNavbar(args) {
                   </NavLink>
                 </NavItem>
 
+                <NavItem>
+                  <NavLink tag={ReactLink} to="/taskmanagement" className="nav-link">
+                    Task Management
+                  </NavLink>
+                </NavItem>
+
               </>
             </Nav>
           </Collapse>

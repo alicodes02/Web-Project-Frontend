@@ -3,6 +3,7 @@ import About from './Pages/about';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProjectManagement from './Pages/project_management';
+import TaskManagement from './Pages/TaskManagement';
 import LoginPage from './Pages/login';
 import SignupPage from './Pages/signup';
 import Home from './Pages/home';
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/userprofile" element={<UserProfile />} />
+        <Route path="/taskmanagement" element={<TaskManagement />} />
       </Routes>
       
       <ToastContainer position="bottom-center" />
