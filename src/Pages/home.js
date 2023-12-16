@@ -3,7 +3,7 @@ import Base from '../Components/Base';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
-import './home.css';
+import './user.css';
 
 const Home = () => {
 
