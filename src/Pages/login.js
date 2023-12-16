@@ -66,16 +66,16 @@ const LoginPage = () => {
             transition={{ duration: 0.5 }}
             className="col-md-8 offset-md-2"
             style={{
-              border: '10px solid transparent',
+              border: '2px solid transparent',
               padding: '45px',
-              borderRadius: '25px',
+              borderRadius: '5px',
               position: 'relative',
               overflow: 'hidden',
             }}
           >
             <motion.div
               initial={{ width: 0, left: 0 }}
-              animate={{ width: '1%', left: 0 }}
+              animate={{ width: '0.2%', left: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               style={{
                 position: 'absolute',
@@ -87,7 +87,7 @@ const LoginPage = () => {
 
             <motion.div
               initial={{ width: 0, right: 0 }}
-              animate={{ width: '1%', right: 0 }}
+              animate={{ width: '0.2%', right: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               style={{
                 position: 'absolute',
@@ -99,7 +99,7 @@ const LoginPage = () => {
 
             <motion.div
               initial={{ height: 0, top: 0 }}
-              animate={{ height: '1%', top: 0 }}
+              animate={{ height: '0.2%', top: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               style={{
                 position: 'absolute',
@@ -111,7 +111,7 @@ const LoginPage = () => {
 
             <motion.div
               initial={{ height: 0, bottom: 0 }}
-              animate={{ height: '1%', bottom: 0 }}
+              animate={{ height: '0.2%', bottom: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               style={{
                 position: 'absolute',
@@ -155,7 +155,11 @@ const LoginPage = () => {
                   className="btn btn-outline-secondary"
                   onClick={handleTogglePassword}
                 >
-                  <FontAwesomeIcon icon={formData.showPassword ? faEyeSlash : faEye} />
+                  <FontAwesomeIcon
+  icon={formData.showPassword ? faEyeSlash : faEye}
+  style={{ color: 'white' }}
+/>
+
                 </button>
               </div>
             </div>
