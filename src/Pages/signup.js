@@ -6,6 +6,16 @@ import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faEyeSlash, faEye,faLock,faUser  } from '@fortawesome/free-solid-svg-icons';
 
 const SignupPage = () => {
+
+  const textStyle = {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    padding: '50px',
+    borderRadius: '8px',
+    marginTop: '30px',
+    marginBottom: '30px',
+    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.1)', // Adding a subtle shadow for depth
+  };
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -47,7 +57,7 @@ const SignupPage = () => {
   return (
     <Base>
       <div className="container mt-5">
-        <div className="row">
+        <div className="row" style={textStyle}>
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
@@ -70,7 +80,7 @@ const SignupPage = () => {
                 position: 'absolute',
                 top: 0,
                 bottom: 0,
-                background: 'purple',
+                background: 'black',
               }}
             />
 
@@ -82,7 +92,7 @@ const SignupPage = () => {
                 position: 'absolute',
                 top: 0,
                 bottom: 0,
-                background: 'purple',
+                background: 'black',
               }}
             />
 
@@ -94,7 +104,7 @@ const SignupPage = () => {
                 position: 'absolute',
                 left: 0,
                 right: 0,
-                background: 'purple',
+                background: 'black',
               }}
             />
 
@@ -106,7 +116,7 @@ const SignupPage = () => {
                 position: 'absolute',
                 left: 0,
                 right: 0,
-                background: 'purple',
+                background: 'black',
               }}
             />
 

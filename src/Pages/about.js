@@ -1,12 +1,23 @@
 import React from 'react';
 import Base from '../Components/Base';
 
+
 const About = () => {
+
+
+  const textStyle = {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    padding: '100px',
+    borderRadius: '8px',
+    marginTop: '20px',
+    marginBottom: '20px',
+  };
+
   return (
     <Base>
-      <div className="container mt-5">
+      <div className="container mt-5" >
         <div className="row">
-          <div className="col-md-8 offset-md-2">
+          <div className="col-md-8 offset-md-2" style={textStyle}>
             <h1 className="display-4 mb-4 text-center">About Us</h1>
             <p className="lead text-center">Welcome to our website!</p>
             <div className="text-justify">
