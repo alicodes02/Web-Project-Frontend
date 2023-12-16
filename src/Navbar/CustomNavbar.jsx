@@ -24,7 +24,7 @@ function CustomNavbar(args) {
   
     return (
       <div>
-        <Navbar {...args} color="dark" dark expand="md" fixed="">
+       <Navbar {...args} style={{ backgroundColor: 'purple' }} className="custom-navbar" dark expand="md" fixed="">
           <NavbarBrand tag={ReactLink} to="/">
             <FontAwesomeIcon icon={faUsers} />
             CollaboraHub
