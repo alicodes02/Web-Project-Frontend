@@ -5,11 +5,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
+
+  const textStyle = {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    padding: '100px',
+    borderRadius: '8px',
+    marginTop: '20px',
+    marginBottom: '20px',
+  };
   return (
     <Base>
       <div className="container mt-5">
         <div className="row">
-          <div className="col-md-8 offset-md-2 text-center">
+          <div className="col-md-8 offset-md-2 text-center" style={textStyle}>
             <h1 className="display-4 mb-4">Welcome to CollaboraHub</h1>
             <FontAwesomeIcon icon={faUsers} />
             <p className="lead">
