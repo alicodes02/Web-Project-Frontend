@@ -1,0 +1,83 @@
+body{margin-top:20px;
+  color: #bcd0f7;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+      21deg,
+      rgba(64, 83, 206, 0.3697003234675773) 68%,
+      rgba(255, 206, 196, 0.5) 163%
+    ),
+    linear-gradient(
+      163deg,
+      rgba(49, 146, 170, 0.07944489965716128) 86%,
+      rgba(239, 112, 138, 0.5) 40%
+    ),
+    linear-gradient(30deg, rgba(76, 79, 173, 0.6173675716587805) 22%, rgba(237, 106, 134, 0.5) 169%),
+    linear-gradient(48deg, rgba(31, 85, 147, 0.7323890641868473) 64%, rgba(247, 126, 132, 0.5) 43%);
+  background-blend-mode: overlay, multiply, color, normal;
+  
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+  }
+h6{
+  margin-top: 30px;
+}
+  .account-settings .user-profile {
+      margin: 0 0 1rem 0;
+      padding-bottom: 1rem;
+      text-align: center;
+  }
+  .account-settings .user-profile .user-avatar {
+      margin: 0 0 1rem 0;
+  }
+  .account-settings .user-profile .user-avatar img {
+      width: 90px;
+      height: 90px;
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      border-radius: 100px;
+  }
+  .account-settings .user-profile h5.user-name {
+      margin: 0 0 0.5rem 0;
+  }
+  .account-settings .user-profile h6.user-email {
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: 400;
+  }
+  .account-settings .about {
+      margin: 1rem 0 0 0;
+      font-size: 0.8rem;
+      text-align: center;
+  }
+  .card {
+      background: #a2b6ff;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      border: 0;
+      margin-bottom: 1rem;
+  }
+  .form-control {
+      border: 1px solid #2e57dd;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      font-size: .825rem;
+      background: #cbd8f9;
+      color: #bcd0f7;
+  }
+
+  .text-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 25px;
+    
+  }
