@@ -18,9 +18,9 @@ const UserProfileCard = () => {
     
     <Base>
     
-      <div className="row" style={textStyle}>
+      <div className="row" >
         {/* User Profile Card */}
-        <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+        <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12"  style={textStyle}>
           <div className="card h-100">
             <div className="card-body">
               <div className="account-settings">
@@ -41,7 +41,7 @@ const UserProfileCard = () => {
         </div>
 
         {/* User Profile Details */}
-        <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+        <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12"  style={textStyle}>
           <div className="card h-100">
             <div className="card-body">
               <div className="row gutters">
@@ -70,7 +70,8 @@ const UserProfileCard = () => {
   <div className="form-group">
     <label htmlFor="website">Website URL</label>
     <input type="url" className="form-control" id="website" placeholder="Website url" />
-    <h4 className="mb-3" style={{ marginLeft: '-410px', marginTop:'5%' }}>Address</h4>
+    <h4 className="mb-3" style={{ marginLeft: '-106%', marginTop: '5vw' }}>Address</h4>
+
   </div>
 </div>
             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
