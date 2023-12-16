@@ -3,18 +3,24 @@ import Base from '../Components/Base';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import './home.css';
 
 const Home = () => {
 
   const textStyle = {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    //backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backgroundColor: 'rgb(33, 53, 85,0.7)',
     padding: '100px',
     borderRadius: '8px',
-    marginTop: '20px',
-    marginBottom: '20px',
+    marginTop: '3.5%',
+    color: '#FFFFFF',
+
+
   };
   return (
+
     <Base>
+
       <div className="container mt-5">
         <div className="row">
           <div className="col-md-8 offset-md-2 text-center" style={textStyle}>

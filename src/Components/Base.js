@@ -2,23 +2,20 @@ import React from 'react';
 import CustomNavbar from '../Navbar/CustomNavbar';
 
 const Base = ({ children }) => {
-
-
   const backgroundStyle = {
-    backgroundImage: `url('/giphy3.jpg')`,
-    backgroundSize: 'cover',
+    backgroundImage: `url('/background_vector1.jpg')`,
+    backgroundSize: '100% 100%',
     backgroundPosition: 'center',
     margin: '0', // Remove default margins
-    padding: '0', // Remove default padding
-    marginTop: '-50px',
-    marginBottom: '-50px', // Adjust the negative margin with a unit (e.g., pixels)
+    padding: '1%', // Remove default padding
+    height: '100vh', // Set the height to 100vh
+    display: 'flex',
   };
 
   return (
     <div>
       {/* Common Header */}
-      <CustomNavbar/>
-
+      <CustomNavbar />
 
       {/* Main Content */}
       <main style={backgroundStyle}>
@@ -27,7 +24,7 @@ const Base = ({ children }) => {
 
       {/* Common Footer */}
       <footer>
-       
+        {/* Your footer content goes here */}
       </footer>
     </div>
   );

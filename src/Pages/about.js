@@ -6,11 +6,12 @@ const About = () => {
 
 
   const textStyle = {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgb(33, 53, 85,0.7)',
     padding: '100px',
     borderRadius: '8px',
     marginTop: '20px',
     marginBottom: '20px',
+    color: '#FFFFFF',
   };
 
   return (

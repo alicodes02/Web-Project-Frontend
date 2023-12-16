@@ -8,11 +8,12 @@ import { faEnvelope, faEyeSlash, faEye,faLock,faUser  } from '@fortawesome/free-
 const SignupPage = () => {
 
   const textStyle = {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgb(33, 53, 85,0.8)',
     padding: '50px',
     borderRadius: '8px',
     marginTop: '30px',
     marginBottom: '30px',
+    color: '#FFFFFF',
     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.1)', // Adding a subtle shadow for depth
   };
 
@@ -227,6 +228,8 @@ const SignupPage = () => {
               style={{
                 width: '100%',
                 marginTop: '10px',
+                backgroundColor: '#FFFFFF',
+                color: '#000000',
                 border: '1px solid black', // Add border style here
                 borderRadius: '4px', // Optional: Add border radius
               }}
