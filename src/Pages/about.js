@@ -6,7 +6,7 @@ const About = () => {
 
 
   const textStyle = {
-    backgroundColor: 'rgb(33, 53, 85,0.7)',
+    backgroundColor: 'rgb(128,0,128,0.7)',
     padding: '100px',
     borderRadius: '8px',
     marginTop: '20px',
