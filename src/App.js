@@ -10,6 +10,7 @@ import Home from './Pages/home';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UserProfileCard from './Pages/UserProfileCard';
+import GetAllProjects from './Pages/all_projects';
 
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/userprofile" element={<UserProfileCard />} />
+        <Route path="/allprojects" element={<GetAllProjects/>} />
       </Routes>
       
       <ToastContainer position="bottom-center" />
