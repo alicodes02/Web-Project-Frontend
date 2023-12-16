@@ -3,6 +3,16 @@ import { motion } from 'framer-motion';
 import Base from '../Components/Base';
 
 const ProjectManagement = () => {
+
+  const textStyle = {
+    backgroundColor: 'rgb(128,0,128,0.7)',
+    padding: '50px',
+    borderRadius: '8px',
+    marginTop: '30px',
+    marginBottom: '30px',
+    color: '#FFFFFF'
+  };
+
   const [projectData, setProjectData] = useState({
     projectName: '',
     description: '',
@@ -31,6 +41,7 @@ const ProjectManagement = () => {
   return (
     <Base>
     <div className="container mt-5">
+    <div className="container" style={textStyle}>
       <div className="row">
       <motion.div
   initial={{ opacity: 0, x: -100 }}
@@ -39,58 +50,58 @@ const ProjectManagement = () => {
   transition={{ duration: 0.5 }}
   className="col-md-8 offset-md-2"
   style={{
-    border: '10px solid transparent',
+    border: '2px solid transparent',
     padding: '45px',
-    borderRadius: '25px',
+    borderRadius: '5px',
     position: 'relative',
     overflow: 'hidden',
   }}
 >
   <motion.div
     initial={{ width: 0, left: 0 }}
-    animate={{ width: '1%', left: 0 }}
+    animate={{ width: '0.2%', left: 0 }}
     transition={{ duration: 0.5, delay: 0.5 }}
     style={{
       position: 'absolute',
       top: 0,
       bottom: 0,
-      background: 'purple',
+      background: 'white',
     }}
   />
 
   <motion.div
     initial={{ width: 0, right: 0 }}
-    animate={{ width: '1%', right: 0 }}
+    animate={{ width: '0.2%', right: 0 }}
     transition={{ duration: 0.5, delay: 0.5 }}
     style={{
       position: 'absolute',
       top: 0,
       bottom: 0,
-      background: 'purple',
+      background: 'white',
     }}
   />
 
   <motion.div
     initial={{ height: 0, top: 0 }}
-    animate={{ height: '1%', top: 0 }}
+    animate={{ height: '0.2%', top: 0 }}
     transition={{ duration: 0.5, delay: 0.5 }}
     style={{
       position: 'absolute',
       left: 0,
       right: 0,
-      background: 'purple',
+      background: 'white',
     }}
   />
 
   <motion.div
     initial={{ height: 0, bottom: 0 }}
-    animate={{ height: '1%', bottom: 0 }}
+    animate={{ height: '0.2%', bottom: 0 }}
     transition={{ duration: 0.5, delay: 0.5 }}
     style={{
       position: 'absolute',
       left: 0,
       right: 0,
-      background: 'purple',
+      background: 'white',
     }}
   />
           <h2>Create a New Project</h2>
@@ -178,6 +189,7 @@ const ProjectManagement = () => {
             <motion.button
                 type="submit"
                 className="btn btn-dark mt-3 btn-purple w-100"
+                style={{ backgroundColor: 'purple' }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -185,6 +197,7 @@ const ProjectManagement = () => {
               </motion.button>
               </motion.form>
               </motion.div>
+            </div>
             </div>
       </div>
     </Base>
