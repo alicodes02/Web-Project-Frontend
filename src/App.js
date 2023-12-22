@@ -11,6 +11,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UserProfileCard from './Pages/UserProfileCard';
 import GetAllProjects from './Pages/all_projects';
+import MeetingScheduler from './Pages/meeting_scheduler';
 
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/userprofile" element={<UserProfileCard />} />
         <Route path="/allprojects" element={<GetAllProjects/>} />
+        <Route path="/meetingscheduler" element={<MeetingScheduler/>} />
       </Routes>
       
       <ToastContainer position="bottom-center" />
