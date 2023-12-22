@@ -1,8 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
-import { FormGroup, Label, Input, Button } from 'reactstrap';
+import { FormGroup, Label, Input} from 'reactstrap';
 import { motion } from 'framer-motion';
+
 import './MeetingForm.css'; // Import your CSS file
 
 const MeetingForm = ({
@@ -66,9 +67,15 @@ const MeetingForm = ({
             />
           </Label>
         </FormGroup>
-        <Button type="submit" className="submit-button">
+        <motion.button
+          type="submit"
+          className="btn btn-dark mt-3 w-100"
+          style={{ backgroundColor: 'purple' }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <FontAwesomeIcon icon={faClock} /> Schedule Meeting
-        </Button>
+        </motion.button>
       </motion.form>
     </motion.div>
   );

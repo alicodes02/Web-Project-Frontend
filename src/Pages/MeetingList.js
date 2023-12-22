@@ -1,7 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
-import { ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { ListGroup, ListGroupItem} from 'reactstrap';
+
 import { motion } from 'framer-motion';
 import './MeetingList.css'; // Import your CSS file
 
@@ -37,9 +38,15 @@ const MeetingList = ({
           </ListGroupItem>
         ))}
       </ListGroup>
-      <Button onClick={deleteMeeting} disabled={selectedMeeting === null} className="delete-button">
-        Delete Selected Meeting
-      </Button>
+      <motion.button
+          type="submit"
+          className="btn btn-dark mt-3 w-100"
+          style={{ backgroundColor: 'purple' }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+         Delete Selected Meeting
+        </motion.button>
     </motion.div>
   );
 };
