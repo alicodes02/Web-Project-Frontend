@@ -1,33 +1,8 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import Base from '../Components/Base';
-
-// Simulated data
-const users = [
-  { id: 1, name: 'Alice' },
-  { id: 2, name: 'Bob' },
-  { id: 3, name: 'Charlie' },
-  // ... add more users as needed
-];
-
-const projects = [
-  { id: 101, name: 'Project A' },
-  { id: 102, name: 'Project B' },
-  { id: 103, name: 'Project C' },
-  // ... add more projects as needed
-];
-
-const tasks = [
-  { id: 201, title: 'Task 1', projectId: 101, userId: 1, deadline: '2023-12-25' },
-  { id: 202, title: 'Task 2', projectId: 102, userId: 2, deadline: '2024-01-10' },
-  { id: 203, title: 'Task 3', projectId: 103, userId: 3, deadline: '2024-02-05' },
-  // ... add more tasks as needed
-];
-
-const meetings = [
-  { id: 301, title: 'Meeting 1', projectId: 101, startTime: '2023-12-20T09:00', endTime: '2023-12-20T10:00', attendees: [1, 2] },
-  { id: 302, title: 'Meeting 2', projectId: 102, startTime: '2024-01-05T14:00', endTime: '2024-01-05T15:30', attendees: [2, 3] },
-  // ... add more meetings as needed
-];
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 const MeetingScheduler = () => {
   const [proposedTime, setProposedTime] = useState('');
@@ -44,27 +19,71 @@ const MeetingScheduler = () => {
     setProposedTime('');
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.5 } },
+  };
+
   return (
     <Base>
-    <div>
-      <h2>Meeting Scheduler</h2>
-      <form onSubmit={scheduleMeeting}>
-        <label>
-          Proposed Time:
-          <input type="datetime-local" value={proposedTime} onChange={handleTimeChange} />
-        </label>
-        <button type="submit">Schedule Meeting</button>
-      </form>
+      <motion.div initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        style={{
+          backgroundColor: 'rgb(128, 0, 128, 0.7)',
+          width:'250vh',
+          padding: '50px',
+          borderRadius: '8px',
+          marginTop: '30px',
+          marginBottom: '30px',
+          color: '#FFFFFF',
+          display: 'flex',
+       
+          justifyContent: 'center', // Center vertically          
+        }}
+      >
+        
+      
+      <motion.div
+        
+      >
+        <h2>
+          <FontAwesomeIcon icon={faClock} /> Meeting Scheduler
+        </h2>
+        <form onSubmit={scheduleMeeting}>
+          <label>
+            <FontAwesomeIcon icon={faClock} /> Proposed Time:
+            <input type="datetime-local" value={proposedTime} onChange={handleTimeChange} />
+          </label>
+          <button type="submit">
+            <FontAwesomeIcon icon={faClock} /> Schedule Meeting
+          </button>
+        </form>
 
-      <div>
-        <h3>Scheduled Meetings:</h3>
-        <ul>
-          {scheduledMeetings.map((meeting, index) => (
-            <li key={index}>{meeting}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={itemVariants}
+          style={{ marginTop: '20px' }}
+        >
+          <h3>
+            <FontAwesomeIcon icon={faClock} /> Scheduled Meetings:
+          </h3>
+          <ul>
+            {scheduledMeetings.map((meeting, index) => (
+              <motion.li key={index} variants={itemVariants}>
+                <FontAwesomeIcon icon={faClock} /> {meeting}
+              </motion.li>
+            ))}
+          </ul>
+        </motion.div>
+      </motion.div>
+      </motion.div>
     </Base>
   );
 };
