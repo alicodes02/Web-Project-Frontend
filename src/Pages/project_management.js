@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Base from '../Components/Base';
 import './project_management.css'
-import ProjectIcon from '@mui/icons-material/Assignment';
-import DescriptionIcon from '@mui/icons-material/Description';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import PersonIcon from '@mui/icons-material/Person';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTh } from '@fortawesome/free-solid-svg-icons';
+import { faClipboard } from '@fortawesome/free-solid-svg-icons';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { IoMdApps } from 'react-icons/io';
+import { faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUserCheck } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
@@ -118,7 +120,8 @@ const ProjectManagement = () => {
           <motion.form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="projectName" className="form-label">
-              <ProjectIcon /> Project Name
+              <FontAwesomeIcon icon={faClipboard} style={{ marginRight: '10px', color:'white' }} />
+                    Project Name
               </label>
               <input
                 type="text"
@@ -134,6 +137,7 @@ const ProjectManagement = () => {
                   outline: 'none', // Remove outline when focused
                   color: 'white', // Input text color
                   marginBottom: '5px', // Some spacing at the bottom
+                  height: '8vh',
                   width: 'calc(100% - 38px)', // Adjust width considering button width
                   padding: '5px 10px', // Adjust padding
                   borderRadius: '10px',
@@ -145,7 +149,10 @@ const ProjectManagement = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="description" className="form-label">
-              <DescriptionIcon />Description
+              <FontAwesomeIcon icon={faFileAlt} style={{ marginRight: '10px', color:'white' }}/>
+
+
+Description
               </label>
               <textarea
                 className="form-control"
@@ -160,6 +167,7 @@ const ProjectManagement = () => {
                   outline: 'none', // Remove outline when focused
                   color: 'white', // Input text color
                   marginBottom: '5px', // Some spacing at the bottom
+                  height: '8vh',
                   width: 'calc(100% - 38px)', // Adjust width considering button width
                   padding: '5px 10px', // Adjust padding
                   borderRadius: '10px',
@@ -171,7 +179,8 @@ const ProjectManagement = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="projectCategory" className="form-label">
-              <IoMdApps /> Project Category
+              <FontAwesomeIcon icon={faTh}  style={{ marginRight: '10px', color:'white' }}/>
+                     Project Category
               </label>
               <input
                 type="text"
@@ -187,6 +196,7 @@ const ProjectManagement = () => {
                   outline: 'none', // Remove outline when focused
                   color: 'white', // Input text color
                   marginBottom: '5px', // Some spacing at the bottom
+                  height: '8vh',
                   width: 'calc(100% - 38px)', // Adjust width considering button width
                   padding: '5px 10px', // Adjust padding
                   borderRadius: '10px',
@@ -198,7 +208,8 @@ const ProjectManagement = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="dueDate" className="form-label">
-              <CalendarTodayIcon />Due Date
+              <FontAwesomeIcon icon={faCalendarAlt} style={{ marginRight: '10px', color:'white' }} />
+                  Due Date
               </label>
               <input
                 type="date"
@@ -214,6 +225,7 @@ const ProjectManagement = () => {
                   outline: 'none', // Remove outline when focused
                   color: 'white', // Input text color
                   marginBottom: '5px', // Some spacing at the bottom
+                  height: '8vh',
                   width: 'calc(100% - 38px)', // Adjust width considering button width
                   padding: '5px 10px', // Adjust padding
                   borderRadius: '10px',
@@ -225,7 +237,8 @@ const ProjectManagement = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="assignTo" className="form-label">
-              <PersonIcon /> Assign To
+              <FontAwesomeIcon icon={faUserCheck} style={{ marginRight: '10px', color:'white' }}/>
+                  Assign To
               </label>
               <input
                 type="text"
@@ -241,6 +254,7 @@ const ProjectManagement = () => {
                   outline: 'none', // Remove outline when focused
                   color: 'white', // Input text color
                   marginBottom: '5px', // Some spacing at the bottom
+                  height: '8vh',
                   width: 'calc(100% - 38px)', // Adjust width considering button width
                   padding: '5px 10px', // Adjust padding
                   borderRadius: '10px',
@@ -267,6 +281,7 @@ const ProjectManagement = () => {
                   backgroundColor: 'transparent', // Set transparent background
                   outline: 'none', // Remove outline when focused
                   color: 'white', // Input text color
+                  height: '8vh',
                   marginBottom: '5px', // Some spacing at the bottom
                   width: 'calc(100% - 38px)', // Adjust width considering button width
                   padding: '5px 10px', // Adjust padding

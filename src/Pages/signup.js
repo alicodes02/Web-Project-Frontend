@@ -15,6 +15,7 @@ const SignupPage = () => {
     backdropFilter: 'blur(5px)',
     padding: '50px',
     borderRadius: '8px',
+    width:'85%',
     marginTop: '30px',
     marginBottom: '30px',
     color: '#FFFFFF',
@@ -26,7 +27,7 @@ const SignupPage = () => {
     email: '',
     password: '',
     confirmPassword:'',
-    role: 'employee',
+    role: '',
     showPassword: false,
   });
 
@@ -259,7 +260,7 @@ const SignupPage = () => {
                   borderBottom: 'none', // Show only bottom border
                   backgroundColor: 'transparent', // Set transparent background
                   outline: 'none', // Remove outline when focused
-                  color:formData.role.length> 0 ?'white': 'black', // Input text color
+                  color:formData.role.length> 0 ?'white': '#404040', // Input text color
                   marginBottom: '5px', // Some spacing at the bottom
                   height: '8vh',
                   width: '100%', // Set width to fill container
@@ -271,8 +272,8 @@ const SignupPage = () => {
                 placeholder="Enter your role"
                 
                 >
-                  <option value="employee">employee</option>
-                  <option value="manager">manager</option>
+                  <option value="employee">Employee</option>
+                  <option value="manager">Manager</option>
                 </select>
               </div>
 
