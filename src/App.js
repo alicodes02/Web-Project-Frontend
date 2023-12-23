@@ -12,6 +12,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import UserProfileCard from './Pages/UserProfileCard';
 import GetAllProjects from './Pages/all_projects';
 import MeetingScheduler from './Pages/meeting_scheduler';
+import Layout from './Components/shared/Layout.js'
+import Dashboard from './Pages/Dashboard.js'
+import Products from './Pages/Products.js'
+import Message from './Pages/Message.js'
+import Calendar from './Pages/Calendar.js'
+import Meet from './Pages/Meet.js'
 
 function App() {
   return (
@@ -27,6 +33,15 @@ function App() {
         <Route path="/userprofile" element={<UserProfileCard />} />
         <Route path="/allprojects" element={<GetAllProjects/>} />
         <Route path="/meetingscheduler" element={<MeetingScheduler/>} />
+
+        <Route path="/dashboard" element={<Layout />}>    
+          <Route index element={<Dashboard />} />
+          <Route path="products" element={<Products />} />
+          <Route path="messages" element={<Message />} />
+          <Route path="calendar" element={<Calendar />} />
+          <Route path="meet" element={<Meet />} />
+        </Route>
+
       </Routes>
       
       <ToastContainer position="bottom-center" />
