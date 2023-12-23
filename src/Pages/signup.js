@@ -135,6 +135,22 @@ const SignupPage = () => {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleInputChange}
+                  style={{
+
+   
+                    border: 'none', // Hide default border
+                    borderBottom: 'none', // Show only bottom border
+                    backgroundColor: 'transparent', // Set transparent background
+                    outline: 'none', // Remove outline when focused
+                    color: 'white', // Input text color
+                    marginBottom: '5px', // Some spacing at the bottom
+                    width: '100%', // Set width to fill container
+                    padding: '5px 10px', // Adjust padding
+                    borderRadius: '10px',
+                    boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+                  }}
+              
+                  placeholder="Enter your first name"
                 />
               </div>
               <div className="mb-3">
@@ -148,6 +164,22 @@ const SignupPage = () => {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleInputChange}
+                  style={{
+
+   
+                    border: 'none', // Hide default border
+                    borderBottom: 'none', // Show only bottom border
+                    backgroundColor: 'transparent', // Set transparent background
+                    outline: 'none', // Remove outline when focused
+                    color: 'white', // Input text color
+                    marginBottom: '5px', // Some spacing at the bottom
+                    width: '100%', // Set width to fill container
+                    padding: '5px 10px', // Adjust padding
+                    borderRadius: '10px',
+                    boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+                  }}
+              
+                  placeholder="Enter your last name"
                 />
               </div>
               <div className="mb-3">
@@ -161,6 +193,22 @@ const SignupPage = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
+                  style={{
+
+   
+                    border: 'none', // Hide default border
+                    borderBottom: 'none', // Show only bottom border
+                    backgroundColor: 'transparent', // Set transparent background
+                    outline: 'none', // Remove outline when focused
+                    color: 'white', // Input text color
+                    marginBottom: '5px', // Some spacing at the bottom
+                    width: '100%', // Set width to fill container
+                    padding: '5px 10px', // Adjust padding
+                    borderRadius: '10px',
+                    boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+                  }}
+              
+                  placeholder="Enter your email"
                 />
               </div>
               <div className="mb-3">
@@ -175,13 +223,44 @@ const SignupPage = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
+                  style={{
+
+   
+                    border: 'none', // Hide default border
+                    borderBottom: 'none', // Show only bottom border
+                    backgroundColor: 'transparent', // Set transparent background
+                    outline: 'none', // Remove outline when focused
+                    color: 'white', // Input text color
+                    marginBottom: '5px', // Some spacing at the bottom
+                    width: '90%', // Set width to fill container
+                    padding: '5px 10px', // Adjust padding
+                    borderRadius: '10px',
+                    boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+                  }}
+              
+                  placeholder="Enter your password"
+                  
                 />
                 <button
                   type="button"
                   className="btn btn-outline-secondary"
                   onClick={handleTogglePassword}
+                  style={{
+                    border: 'none', // Hide button border
+                    backgroundColor: 'transparent', // Transparent background
+                    outline: 'none', // Remove outline when focused
+                    padding: '0', // Adjust padding
+                    position: 'absolute',
+                    right: '0',
+                    top: '0',
+                    bottom: '0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    
+                  }}
                 >
-                  <FontAwesomeIcon icon={formData.showPassword ? faEyeSlash : faEye} style={{ color: 'white' }} />
+                  <FontAwesomeIcon icon={formData.showPassword ? faEyeSlash : faEye} style={{ color: 'white',  marginRight:'10px'  }} />
                 </button>
               </div>
             </div>
@@ -198,20 +277,52 @@ const SignupPage = () => {
       name="confirmPassword"
       value={formData.confirmPassword}
       onChange={handleInputChange}
+      style={{
+
+   
+        border: 'none', // Hide default border
+        borderBottom: 'none', // Show only bottom border
+        backgroundColor: 'transparent', // Set transparent background
+        outline: 'none', // Remove outline when focused
+        color: 'white', // Input text color
+        marginBottom: '5px', // Some spacing at the bottom
+        width: '90%', // Set width to fill container
+        padding: '5px 10px', // Adjust padding
+        borderRadius: '10px',
+        boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+      }}
+  
+      placeholder="Confirm your password"
+      
     />
     <button
       type="button"
       className="btn btn-outline-secondary"
       onClick={() => setFormData({...formData, showConfirmPassword: !formData.showConfirmPassword})}
+      style={{
+        border: 'none', // Hide button border
+        backgroundColor: 'transparent', // Transparent background
+        outline: 'none', // Remove outline when focused
+        padding: '0', // Adjust padding
+        position: 'absolute',
+        right: '0',
+        top: '0',
+        bottom: '0',
+        display: 'flex',
+        alignItems: 'center',
+        cursor: 'pointer',
+        
+      }}
     >
-      <FontAwesomeIcon icon={formData.showConfirmPassword ? faEyeSlash : faEye}  style={{ color: 'white' }}/>
+      <FontAwesomeIcon icon={formData.showConfirmPassword ? faEyeSlash : faEye}  style={{ color: 'white',marginRight:'10px' }}/>
     </button>
   </div>
 </div>
               <motion.button
                 type="submit"
                 className="btn btn-dark mt-3 btn-purple w-100"
-                style={{ backgroundColor: 'purple' }}
+                style={{ backgroundColor: 'purple' ,  borderRadius: '10px', border:'none',
+                boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)', }}
                whileHover={{ scale: 1.1 }}
                whileTap={{ scale: 0.9 }}
               >
@@ -228,15 +339,17 @@ const SignupPage = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               style={{
+                
                 width: '100%',
                 marginTop: '10px',
-                backgroundColor: '#FFFFFF',
-                color: '#000000',
-                border: '1px solid black', // Add border style here
-                borderRadius: '4px', // Optional: Add border radius
+                backgroundColor: ' #404040',
+                color: 'white',
+                border:'none',
+                borderRadius: '10px',
+                boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
               }}
             >
-              <FontAwesomeIcon icon={faGoogle} style={{ marginRight: '10px' }} />
+              <FontAwesomeIcon icon={faGoogle} style={{ marginRight: '10px' , color:'white' }} />
               Continue with Google
             </motion.button>
 
@@ -246,7 +359,8 @@ const SignupPage = () => {
               className="btn btn-primary"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              style={{ width: '100%', marginTop: '10px' }}
+              style={{ width: '100%', marginTop: '10px',  borderRadius: '10px',
+              boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)' }}
             >
               <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '10px' }} />
               Continue with Facebook
