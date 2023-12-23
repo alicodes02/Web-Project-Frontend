@@ -1,8 +1,20 @@
 import React, { useState } from 'react';
-import { Modal, Button, Table } from 'react-bootstrap';
+import { Modal, Table } from 'react-bootstrap';
 import CustomNavbar from '../Navbar/CustomNavbar';
+import { motion } from 'framer-motion';
 
 const TaskManagement = () => {
+
+
+  const textStyle = {
+    backgroundColor: 'rgb(128,0,128,0.7)',
+    padding: '50px',
+    borderRadius: '8px',
+    marginTop: '30px',
+    marginBottom: '30px',
+    color: '#FFFFFF'
+  };
+
  const [tasks, setTasks] = useState([
     { id: 1, title: 'Task 1', description: 'Task 1 Description', dueDate: '2022-05-01', priority: 'High', assignee: 'John', status: false, progress: 0 },
     { id: 2, title: 'Task 2', description: 'Task 2 Description', dueDate: '2022-05-10', priority: 'Low', assignee: 'Doe', status: false, progress: 0 },
@@ -44,7 +56,7 @@ const TaskManagement = () => {
     <div>
 
         <CustomNavbar/>
-      
+     <div style={textStyle}>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -99,7 +111,7 @@ const TaskManagement = () => {
         <Modal.Header closeButton>
           <Modal.Title>Add Task</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={textStyle}>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="title">Title</label>
@@ -128,9 +140,17 @@ const TaskManagement = () => {
 
             <div className='add-task-btn'>
 
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
+          <motion.button
+          type="submit"
+          variant="primary"
+          className="btn btn-dark mt-3"
+          style={{ width: '30%', backgroundColor: 'purple' }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={handleShow}
+        >
+          submit
+        </motion.button>
 
       </div>
 
@@ -138,12 +158,23 @@ const TaskManagement = () => {
         </Modal.Body>
       </Modal>
 
-      <div className='add-task-btn'>
+      
 
-            <Button variant="primary" onClick={handleShow}>
-                Add Task
-            </Button>
+            
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+        <motion.button
+          type="submit"
+          className="btn btn-dark mt-3"
+          style={{ width: '30%', backgroundColor: 'purple' }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={handleShow}
+        >
+          Add Task
+        </motion.button>
+      </div>
 
+      
       </div>
 
     </div>
