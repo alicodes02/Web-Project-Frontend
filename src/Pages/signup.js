@@ -18,8 +18,11 @@ const SignupPage = () => {
     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.1)', // Adding a subtle shadow for depth
   };
   const [formData, setFormData] = useState({
+    firstName:'',
+    lastName:'',
     email: '',
     password: '',
+    confirmPassword:'',
     showPassword: false,
   });
 
@@ -138,7 +141,7 @@ const SignupPage = () => {
                   style={{
 
    
-                    border: 'none', // Hide default border
+                    border:formData.firstName.length> 0 ? '1px solid white' : 'none',// Hide default border
                     borderBottom: 'none', // Show only bottom border
                     backgroundColor: 'transparent', // Set transparent background
                     outline: 'none', // Remove outline when focused
@@ -167,7 +170,7 @@ const SignupPage = () => {
                   style={{
 
    
-                    border: 'none', // Hide default border
+                    border:formData.lastName.length> 0 ? '1px solid white' : 'none', // Hide default border
                     borderBottom: 'none', // Show only bottom border
                     backgroundColor: 'transparent', // Set transparent background
                     outline: 'none', // Remove outline when focused
@@ -196,7 +199,7 @@ const SignupPage = () => {
                   style={{
 
    
-                    border: 'none', // Hide default border
+                    border:formData.email.length> 0 ? '1px solid white' : 'none', // Hide default border
                     borderBottom: 'none', // Show only bottom border
                     backgroundColor: 'transparent', // Set transparent background
                     outline: 'none', // Remove outline when focused
@@ -226,7 +229,7 @@ const SignupPage = () => {
                   style={{
 
    
-                    border: 'none', // Hide default border
+                    border:formData.password.length> 0 ? '1px solid white' : 'none',// Hide default border
                     borderBottom: 'none', // Show only bottom border
                     backgroundColor: 'transparent', // Set transparent background
                     outline: 'none', // Remove outline when focused
@@ -260,7 +263,7 @@ const SignupPage = () => {
                     
                   }}
                 >
-                  <FontAwesomeIcon icon={formData.showPassword ? faEyeSlash : faEye} style={{ color: 'white',  marginRight:'10px'  }} />
+                  <FontAwesomeIcon icon={formData.showPassword ? faEyeSlash : faEye} style={{ color: 'white',  marginRight:'10px'  ,marginBottom:'5px'}} />
                 </button>
               </div>
             </div>
@@ -280,7 +283,7 @@ const SignupPage = () => {
       style={{
 
    
-        border: 'none', // Hide default border
+        border:formData.confirmPassword.length> 0 ? '1px solid white' : 'none', // Hide default border
         borderBottom: 'none', // Show only bottom border
         backgroundColor: 'transparent', // Set transparent background
         outline: 'none', // Remove outline when focused
@@ -314,7 +317,7 @@ const SignupPage = () => {
         
       }}
     >
-      <FontAwesomeIcon icon={formData.showConfirmPassword ? faEyeSlash : faEye}  style={{ color: 'white',marginRight:'10px' }}/>
+      <FontAwesomeIcon icon={formData.showConfirmPassword ? faEyeSlash : faEye}  style={{ color: 'white',marginRight:'10px' ,marginBottom:'5px'}}/>
     </button>
   </div>
 </div>

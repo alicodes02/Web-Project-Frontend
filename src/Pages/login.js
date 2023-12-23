@@ -140,8 +140,8 @@ const LoginPage = () => {
     style={{
 
    
-      border: 'none', // Hide default border
-      borderBottom: formData.email.length> 0 ? '1px solid white' : 'none', // Show only bottom border
+      border:formData.email.length> 0 ? '1px solid white' : 'none',  // Hide default border
+      borderBottom: 'none', // Show only bottom border
       backgroundColor: 'transparent', // Set transparent background
       outline: 'none', // Remove outline when focused
       color: 'white', // Input text color
@@ -169,8 +169,8 @@ const LoginPage = () => {
       value={formData.password}
       onChange={handleInputChange}
       style={{
-        border: 'none', // Hide default border
-        borderBottom: formData.password.length> 0 ? '1px solid white' : 'none', // Show only bottom border
+        border:formData.password.length> 0 ? '1px solid white' : 'none', // Hide default border
+        borderBottom:  'none', // Show only bottom border
         backgroundColor: 'transparent', // Set transparent background
         outline: 'none', // Remove outline when focused
         color: 'white', // Input text color
@@ -204,7 +204,7 @@ const LoginPage = () => {
     >
       <FontAwesomeIcon
         icon={formData.showPassword ? faEyeSlash : faEye}
-        style={{ color: 'white'  , marginRight:'10px'}}
+        style={{ color: 'white'  , marginRight:'10px' , marginBottom:'5px'}}
       />
     </button>
   </div>
