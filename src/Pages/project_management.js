@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Base from '../Components/Base';
 
+
 const ProjectManagement = () => {
 
   const textStyle = {
-    
     backgroundColor: 'rgb(128,0,128,0.7)',
-    backdropFilter: 'blur(5px)',
     padding: '50px',
     borderRadius: '8px',
     marginTop: '30px',
