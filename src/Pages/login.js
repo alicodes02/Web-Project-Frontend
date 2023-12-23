@@ -141,7 +141,7 @@ const LoginPage = () => {
 
    
       border: 'none', // Hide default border
-      borderBottom: 'none', // Show only bottom border
+      borderBottom: formData.email.length> 0 ? '1px solid white' : 'none', // Show only bottom border
       backgroundColor: 'transparent', // Set transparent background
       outline: 'none', // Remove outline when focused
       color: 'white', // Input text color
@@ -170,7 +170,7 @@ const LoginPage = () => {
       onChange={handleInputChange}
       style={{
         border: 'none', // Hide default border
-        borderBottom: 'none', // Show only bottom border
+        borderBottom: formData.password.length> 0 ? '1px solid white' : 'none', // Show only bottom border
         backgroundColor: 'transparent', // Set transparent background
         outline: 'none', // Remove outline when focused
         color: 'white', // Input text color
@@ -179,10 +179,6 @@ const LoginPage = () => {
         padding: '5px 10px', // Adjust padding
         borderRadius: '10px',
         boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
-
-        '::placeholder': {
-          color: 'white', 
-        },
       }}
 
       placeholder="Enter your password"
