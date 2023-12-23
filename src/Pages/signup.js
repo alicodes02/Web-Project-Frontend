@@ -24,6 +24,7 @@ const SignupPage = () => {
     email: '',
     password: '',
     confirmPassword:'',
+    role: 'employee',
     showPassword: false,
   });
 
