@@ -4,7 +4,9 @@ import axios from 'axios';
 import Base from '../Components/Base';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faEyeSlash, faEye,faLock,faUser  } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faEyeSlash, faEye,faLock,faUser,  } from '@fortawesome/free-solid-svg-icons';
+import { faUserShield } from '@fortawesome/free-solid-svg-icons';
+import './signup.css'
 
 const SignupPage = () => {
 
@@ -245,8 +247,8 @@ const SignupPage = () => {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="email" className="form-label">
-                  <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '10px' }} /> Role
+                <label htmlFor="role" className="form-label">
+                  <FontAwesomeIcon icon={faUserShield} style={{ marginRight: '10px' }} /> Role
                 </label>
                 <select className="form-control" id="role" name="role" value={formData.role}
                 
@@ -257,7 +259,7 @@ const SignupPage = () => {
                   borderBottom: 'none', // Show only bottom border
                   backgroundColor: 'transparent', // Set transparent background
                   outline: 'none', // Remove outline when focused
-                  color: 'white', // Input text color
+                  color:formData.role.length> 0 ?'white': 'black', // Input text color
                   marginBottom: '5px', // Some spacing at the bottom
                   height: '8vh',
                   width: '100%', // Set width to fill container
