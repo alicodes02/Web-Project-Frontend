@@ -20,6 +20,7 @@ const ProjectManagement = () => {
     backgroundColor: 'rgb(128,0,128,0.7)',
     padding: '50px',
     borderRadius: '8px',
+    width:'80%',
     marginTop: '30px',
     marginBottom: '30px',
     color: '#FFFFFF'
