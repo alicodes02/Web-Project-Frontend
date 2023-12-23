@@ -35,6 +35,7 @@ function CustomNavbar(args) {
           <>
             <NavbarToggler onClick={toggle} />
             <NavbarBrand tag={ReactLink} to="/" className="mr-auto">
+            <FontAwesomeIcon icon={faUsers} />
               CollaboraHub
             </NavbarBrand>
           </>
