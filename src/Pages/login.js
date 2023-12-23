@@ -6,7 +6,10 @@ import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faEyeSlash, faEye ,faLock } from '@fortawesome/free-solid-svg-icons';
 
 const LoginPage = () => {
-  
+
+
+
+
   const textStyle = {
     backdropFilter: 'blur(5px)',
     backgroundColor: 'rgb(128,0,128,0.7)',
@@ -144,6 +147,7 @@ const LoginPage = () => {
       color: 'white', // Input text color
       marginBottom: '5px', // Some spacing at the bottom
       width: '100%', // Set width to fill container
+      height: '8vh',
       padding: '5px 10px', // Adjust padding
       borderRadius: '10px',
       boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
@@ -172,6 +176,7 @@ const LoginPage = () => {
         outline: 'none', // Remove outline when focused
         color: 'white', // Input text color
         marginBottom: '5px', // Some spacing at the bottom
+        height: '8vh',
         width: 'calc(100% - 38px)', // Adjust width considering button width
         padding: '5px 10px', // Adjust padding
         borderRadius: '10px',
@@ -213,11 +218,6 @@ const LoginPage = () => {
   whileHover={{ scale: 1.1 }}
   whileTap={{ scale: 0.9 }}
  
-   
-   
-    
-    
-
 >
   Login
 </motion.button>

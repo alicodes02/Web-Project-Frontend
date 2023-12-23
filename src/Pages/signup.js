@@ -172,6 +172,7 @@ const SignupPage = () => {
                     backgroundColor: 'transparent', // Set transparent background
                     outline: 'none', // Remove outline when focused
                     color: 'white', // Input text color
+                    height: '8vh',
                     marginBottom: '5px', // Some spacing at the bottom
                     width: '100%', // Set width to fill container
                     padding: '5px 10px', // Adjust padding
@@ -200,6 +201,7 @@ const SignupPage = () => {
                     borderBottom: 'none', // Show only bottom border
                     backgroundColor: 'transparent', // Set transparent background
                     outline: 'none', // Remove outline when focused
+                    height: '8vh',
                     color: 'white', // Input text color
                     marginBottom: '5px', // Some spacing at the bottom
                     width: '100%', // Set width to fill container
@@ -230,6 +232,7 @@ const SignupPage = () => {
                     backgroundColor: 'transparent', // Set transparent background
                     outline: 'none', // Remove outline when focused
                     color: 'white', // Input text color
+                    height: '8vh',
                     marginBottom: '5px', // Some spacing at the bottom
                     width: '100%', // Set width to fill container
                     padding: '5px 10px', // Adjust padding
@@ -245,7 +248,27 @@ const SignupPage = () => {
                 <label htmlFor="email" className="form-label">
                   <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '10px' }} /> Role
                 </label>
-                <select className="form-control" id="role" name="role" value={formData.role}>
+                <select className="form-control" id="role" name="role" value={formData.role}
+                
+                style={{
+
+   
+                  border:formData.role.length> 0 ? '1px solid white' : 'none', // Hide default border
+                  borderBottom: 'none', // Show only bottom border
+                  backgroundColor: 'transparent', // Set transparent background
+                  outline: 'none', // Remove outline when focused
+                  color: 'white', // Input text color
+                  marginBottom: '5px', // Some spacing at the bottom
+                  height: '8vh',
+                  width: '100%', // Set width to fill container
+                  padding: '5px 10px', // Adjust padding
+                  borderRadius: '10px',
+                  boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+                }}
+            
+                placeholder="Enter your role"
+                
+                >
                   <option value="employee">employee</option>
                   <option value="manager">manager</option>
                 </select>
@@ -273,6 +296,7 @@ const SignupPage = () => {
                     color: 'white', // Input text color
                     marginBottom: '5px', // Some spacing at the bottom
                     width: '90%', // Set width to fill container
+                    height: '8vh',
                     padding: '5px 10px', // Adjust padding
                     borderRadius: '10px',
                     boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
@@ -326,6 +350,7 @@ const SignupPage = () => {
         outline: 'none', // Remove outline when focused
         color: 'white', // Input text color
         marginBottom: '5px', // Some spacing at the bottom
+        height: '8vh',
         width: '90%', // Set width to fill container
         padding: '5px 10px', // Adjust padding
         borderRadius: '10px',
