@@ -21,23 +21,37 @@ const SignupPage = () => {
     color: '#FFFFFF',
     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.1)',
   };
+
   const [formData, setFormData] = useState({
     firstName:'',
     lastName:'',
     email: '',
     password: '',
     confirmPassword:'',
-    role: '',
+    role: 'manager',
     showPassword: false,
   });
 
   const handleInputChange = (e) => {
+
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    console.log(`Name: ${name}, Value: ${value}`);
+  
+    if (name === 'role') {
+      console.log(`Before: ${formData.role}`);
+      setFormData({
+        ...formData,
+        role: value,
+      });
+      console.log(`After: ${formData.role}`);
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
+  
 
   const handleTogglePassword = () => {
     setFormData({
@@ -53,7 +67,7 @@ const SignupPage = () => {
 
     try {
 
-      const response = await axios.post('http://localhost:3001/signup', formData);
+      const response = await axios.post('https://odd-jade-goshawk-vest.cyclic.app/signup', formData);
 
       const message = response.data.message;
 
@@ -154,7 +168,7 @@ const SignupPage = () => {
               }}
             />
 
-<h2>Sign Up</h2>
+            <h2>Sign Up</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="firstName" className="form-label">
@@ -251,12 +265,12 @@ const SignupPage = () => {
                 <label htmlFor="role" className="form-label">
                   <FontAwesomeIcon icon={faUserShield} style={{ marginRight: '10px' }} /> Role
                 </label>
-                <select className="form-control" id="role" name="role" value={formData.role}
+
+                <select className="form-control" id="role" name="role" value={formData.role} onChange={handleInputChange}
                 
                 style={{
 
-   
-                  border:formData.role.length> 0 ? '1px solid white' : 'none', // Hide default border
+                  border:formData.role? '1px solid white' : 'none', // Hide default border
                   borderBottom: 'none', // Show only bottom border
                   backgroundColor: 'transparent', // Set transparent background
                   outline: 'none', // Remove outline when focused
@@ -267,6 +281,7 @@ const SignupPage = () => {
                   padding: '5px 10px', // Adjust padding
                   borderRadius: '10px',
                   boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+                  
                 }}
             
                 placeholder="Enter your role"
@@ -274,6 +289,7 @@ const SignupPage = () => {
                 >
                   <option value="employee">Employee</option>
                   <option value="manager">Manager</option>
+
                 </select>
               </div>
 
