@@ -6,8 +6,7 @@ import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faEyeSlash, faEye ,faLock } from '@fortawesome/free-solid-svg-icons';
 
 const LoginPage = () => {
-
-
+  
   const textStyle = {
     backdropFilter: 'blur(5px)',
     backgroundColor: 'rgb(128,0,128,0.7)',
@@ -124,52 +123,101 @@ const LoginPage = () => {
 
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <label htmlFor="email" className="form-label">
-                <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '10px' }} /> Email {/* Email icon */}
-             
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                <FontAwesomeIcon icon={faLock} style={{ marginRight: '10px' }} /> Password {/* Password icon */}
-              </label>
-              <div className="input-group">
-                <input
-                  type={formData.showPassword ? 'text' : 'password'}
-                  className="form-control"
-                  id="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-                />
-                <button
-                  type="button"
-                  className="btn btn-outline-secondary"
-                  onClick={handleTogglePassword}
-                >
-                  <FontAwesomeIcon
-  icon={formData.showPassword ? faEyeSlash : faEye}
-  style={{ color: 'white' }}
-/>
+            <div className="mb-3" style={{ position: 'relative' }}>
+  <label htmlFor="email" className="form-label">
+    <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '10px' }} /> Email {/* Email icon */}
+  </label>
+  <input
+    type="email"
+    className="form-control"
+    id="email"
+    name="email"
+    value={formData.email}
+    onChange={handleInputChange}
+    style={{
 
-                </button>
-              </div>
-            </div>
+   
+      border:formData.email.length> 0 ? '1px solid white' : 'none',  // Hide default border
+      borderBottom: 'none', // Show only bottom border
+      backgroundColor: 'transparent', // Set transparent background
+      outline: 'none', // Remove outline when focused
+      color: 'white', // Input text color
+      marginBottom: '5px', // Some spacing at the bottom
+      width: '100%', // Set width to fill container
+      padding: '5px 10px', // Adjust padding
+      borderRadius: '10px',
+      boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+    }}
+
+    placeholder="Enter your email"
+  />
+</div>
+
+<div className="mb-3" style={{ position: 'relative' }}>
+  <label htmlFor="password" className="form-label">
+    <FontAwesomeIcon icon={faLock} style={{ marginRight: '10px' }} /> Password {/* Password icon */}
+  </label>
+  <div className="input-group">
+    <input
+      type={formData.showPassword ? 'text' : 'password'}
+      className="form-control"
+      id="password"
+      name="password"
+      value={formData.password}
+      onChange={handleInputChange}
+      style={{
+        border:formData.password.length> 0 ? '1px solid white' : 'none', // Hide default border
+        borderBottom:  'none', // Show only bottom border
+        backgroundColor: 'transparent', // Set transparent background
+        outline: 'none', // Remove outline when focused
+        color: 'white', // Input text color
+        marginBottom: '5px', // Some spacing at the bottom
+        width: 'calc(100% - 38px)', // Adjust width considering button width
+        padding: '5px 10px', // Adjust padding
+        borderRadius: '10px',
+        boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+      }}
+
+      placeholder="Enter your password"
+    />
+    <button
+      type="button"
+      className="btn btn-outline-secondary"
+      onClick={handleTogglePassword}
+      style={{
+        border: 'none', // Hide button border
+        backgroundColor: 'transparent', // Transparent background
+        outline: 'none', // Remove outline when focused
+        padding: '0', // Adjust padding
+        position: 'absolute',
+        right: '0',
+        top: '0',
+        bottom: '0',
+        display: 'flex',
+        alignItems: 'center',
+        cursor: 'pointer',
+        
+      }}
+    >
+      <FontAwesomeIcon
+        icon={formData.showPassword ? faEyeSlash : faEye}
+        style={{ color: 'white'  , marginRight:'10px' , marginBottom:'5px'}}
+      />
+    </button>
+  </div>
+</div>
             <motion.button
   type="submit"
   className="btn btn-dark mt-3 w-100"
-  style={{ backgroundColor: 'purple' }}
+  style={{ backgroundColor: 'purple',  boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)', border:'none' ,  borderRadius: '10px', }}
   whileHover={{ scale: 1.1 }}
   whileTap={{ scale: 0.9 }}
+ 
+   
+   
+    
+    
+
 >
   Login
 </motion.button>
@@ -184,15 +232,19 @@ const LoginPage = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               style={{
+                border:'none',
                 width: '100%',
                 marginTop: '10px',
-                backgroundColor: '#FFFFFF',
-                color: '#000000',
-                border: '1px solid black', // Add border style here
-                borderRadius: '4px', // Optional: Add border radius
+                backgroundColor: '#404040',
+                color: 'white',
+                borderRadius: '10px', // Optional: Add border radius
+                boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+                margin:'5px 0px',
+                
+                
               }}
             >
-              <FontAwesomeIcon icon={faGoogle} style={{ marginRight: '10px' }} />
+              <FontAwesomeIcon icon={faGoogle} style={{ marginRight: '10px', color:'white' }} />
               Continue with Google
             </motion.button>
 
@@ -202,7 +254,7 @@ const LoginPage = () => {
               className="btn btn-primary"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              style={{ width: '100%', marginTop: '10px' }}
+              style={{ width: '100%', marginTop: '10px',  boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',  borderRadius: '10px',}}
             >
               <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '10px' }} />
               Continue with Facebook

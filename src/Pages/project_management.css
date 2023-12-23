@@ -1,0 +1,11 @@
+option[value="privateToMe"] {
+    background-color: purple;
+  }
+  
+  option[value="public"] {
+    background-color: purple;
+  }
+  
+  option[value="privateToMembers"] {
+    background-color: purple;
+  }
