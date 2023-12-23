@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import axios from 'axios';
 import Base from '../Components/Base';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
@@ -15,11 +16,12 @@ const SignupPage = () => {
     marginTop: '30px',
     marginBottom: '30px',
     color: '#FFFFFF',
-    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.1)', // Adding a subtle shadow for depth
+    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.1)',
   };
   const [formData, setFormData] = useState({
     email: '',
     password: '',
+    role:'employee',
     showPassword: false,
   });
 
@@ -39,11 +41,35 @@ const SignupPage = () => {
   };
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
+
     e.preventDefault();
-    // Implement your login logic here
-    console.log('Form submitted:', formData);
+
+    try {
+
+      const response = await axios.post('http://localhost:3001/signup', formData);
+
+      const message = response.data.message;
+
+      alert(message);
+    }
+
+    catch(error) {
+
+      alert('Sign Up Un-Successfull');
+
+      console.log(error);
+
+      if (error.response) {
+        console.error('Error:', error.response.data.message);
+      } else if (error.request) {
+        console.error('Error: No response received');
+      } else {
+        console.error('Error:', error.message);
+      }
+    }
   };
+
 
   const handleGoogleLogin = () => {
     // Placeholder function for Google login
@@ -163,6 +189,17 @@ const SignupPage = () => {
                   onChange={handleInputChange}
                 />
               </div>
+
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label">
+                  <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '10px' }} /> Role
+                </label>
+                <select className="form-control" id="role" name="role" value={formData.role}>
+                  <option value="employee">employee</option>
+                  <option value="manager">manager</option>
+                </select>
+              </div>
+
               <div className="mb-3">
               <label htmlFor="password" className="form-label">
                 <FontAwesomeIcon icon={faLock} style={{ marginRight: '10px' }} /> Password {/* Password icon */}
