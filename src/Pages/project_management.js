@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Base from '../Components/Base';
 import './project_management.css'
-import ProjectorIcon from '@mui/icons-material/Projector';
+import ProjectIcon from '@mui/icons-material/Assignment';
 import DescriptionIcon from '@mui/icons-material/Description';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import PersonIcon from '@mui/icons-material/Person';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { IoMdApps } from 'react-icons/io';
+
+
 
 const ProjectManagement = () => {
 
@@ -115,7 +118,7 @@ const ProjectManagement = () => {
           <motion.form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="projectName" className="form-label">
-              <ProjectorIcon />Project Name
+              <ProjectIcon /> Project Name
               </label>
               <input
                 type="text"
@@ -168,7 +171,7 @@ const ProjectManagement = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="projectCategory" className="form-label">
-                Project Category
+              <IoMdApps /> Project Category
               </label>
               <input
                 type="text"
