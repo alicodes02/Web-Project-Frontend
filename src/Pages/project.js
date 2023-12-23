@@ -6,7 +6,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 // Import other necessary components and icons as needed
 
-const ProjectManagement = (props) => {
+
+const Project = (props) => {
   const [openEditDialog, setOpenEditDialog] = useState(false);
   const [editData, setEditData] = useState({
     projectName: props.projectName,
@@ -125,4 +126,4 @@ const ProjectManagement = (props) => {
   );
 };
 
-export default ProjectManagement;
+export default Project;
