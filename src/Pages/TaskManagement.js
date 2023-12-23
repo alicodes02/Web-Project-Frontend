@@ -68,6 +68,8 @@ const TaskManagement = () => {
             <th>Assignee</th>
             <th>Status</th>
             <th>Progress</th>
+            <th>Completed</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -111,7 +113,7 @@ const TaskManagement = () => {
         <Modal.Header closeButton>
           <Modal.Title>Add Task</Modal.Title>
         </Modal.Header>
-        <Modal.Body style={textStyle}>
+        <Modal.Body>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="title">Title</label>
