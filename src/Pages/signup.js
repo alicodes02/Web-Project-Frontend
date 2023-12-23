@@ -35,15 +35,14 @@ const SignupPage = () => {
   const handleInputChange = (e) => {
 
     const { name, value } = e.target;
-    console.log(`Name: ${name}, Value: ${value}`);
   
     if (name === 'role') {
-      console.log(`Before: ${formData.role}`);
+
       setFormData({
         ...formData,
         role: value,
       });
-      console.log(`After: ${formData.role}`);
+
     } else {
       setFormData({
         ...formData,
@@ -69,14 +68,14 @@ const SignupPage = () => {
 
       const response = await axios.post('https://odd-jade-goshawk-vest.cyclic.app/signup', formData);
 
-      const message = response.data.message;
+      var message = response.data.message;
 
       alert(message);
     }
 
     catch(error) {
 
-      alert('Sign Up Un-Successfull');
+      alert(message);
 
       console.log(error);
 
@@ -102,6 +101,7 @@ const SignupPage = () => {
   };
 
   return (
+
     <Base>
       <div className="container mt-5">
       <div className="container" style={textStyle}>
@@ -455,6 +455,7 @@ const SignupPage = () => {
         </div>
       </div>
     </Base>
+
   );
 };
 

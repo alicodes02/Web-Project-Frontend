@@ -1,5 +1,5 @@
 import React from 'react'
-import { IoBagHandle, IoPieChart, IoPeople, IoCart } from 'react-icons/io5'
+import { IoBagHandle, IoPeople} from 'react-icons/io5'
 
 export default function DashboardStatsGrid() {
 	return (

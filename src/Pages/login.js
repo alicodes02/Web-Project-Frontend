@@ -4,11 +4,9 @@ import Base from '../Components/Base';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faEyeSlash, faEye ,faLock } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 const LoginPage = () => {
-
-
-
 
   const textStyle = {
     backdropFilter: 'blur(5px)',
@@ -42,10 +40,36 @@ const LoginPage = () => {
       });
     };
   
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+
       e.preventDefault();
-      // Implement your login logic here
-      console.log('Form submitted:', formData);
+
+      try {
+
+        const response = await axios.post('https://odd-jade-goshawk-vest.cyclic.app/signin', formData);
+  
+        var message = response.data.message;
+        var firstName = response.data.userfirstName;
+  
+        alert(message);
+        alert(`Welcome ${firstName}`);
+      }
+  
+      catch(error) {
+  
+        alert(message);
+  
+        console.log(error);
+  
+        if (error.response) {
+          console.error('Error:', error.response.data.message);
+        } else if (error.request) {
+          console.error('Error: No response received');
+        } else {
+          console.error('Error:', error.message);
+        }
+      }
+      
     };
   const handleGoogleLogin = () => {
     // Placeholder function for Google login
