@@ -9,6 +9,7 @@ const LoginPage = () => {
 
 
   const textStyle = {
+    backdropFilter: 'blur(5px)',
     backgroundColor: 'rgb(128,0,128,0.7)',
     padding: '50px',
     borderRadius: '8px',

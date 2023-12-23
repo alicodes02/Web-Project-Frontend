@@ -12,12 +12,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import UserProfileCard from './Pages/UserProfileCard';
 import GetAllProjects from './Pages/all_projects';
 
-
-
-
-
-
-
 function App() {
   return (
     <BrowserRouter>

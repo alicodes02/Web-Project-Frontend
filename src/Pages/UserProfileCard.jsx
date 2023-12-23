@@ -5,6 +5,7 @@ import {  Button } from 'reactstrap';
 const UserProfileCard = () => {
   const textStyle = {
     backgroundColor: 'rgb(128,0,128,0.7)',
+    backdropFilter: 'blur(5px)',
     padding: '5%',
     borderRadius: '8px',
     marginTop: '5vh',

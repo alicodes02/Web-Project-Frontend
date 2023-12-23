@@ -4,9 +4,9 @@ import Base from '../Components/Base';
 
 const About = () => {
 
-
   const textStyle = {
     backgroundColor: 'rgb(128,0,128,0.7)',
+    backdropFilter: 'blur(5px)',
     padding: '100px',
     borderRadius: '8px',
     marginTop: '20px',

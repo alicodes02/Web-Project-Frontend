@@ -8,8 +8,8 @@ import './user.css';
 const Home = () => {
 
   const textStyle = {
-    //backgroundColor: 'rgba(255, 255, 255, 0.9)',
     backgroundColor: 'rgb(128,0,128,0.7)',
+    backdropFilter: 'blur(5px)',
     padding: '100px',
     borderRadius: '8px',
     marginTop: '3.5%',
