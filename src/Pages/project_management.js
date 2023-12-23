@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Base from '../Components/Base';
-
+import './project_management.css'
+import ProjectorIcon from '@mui/icons-material/Projector';
+import DescriptionIcon from '@mui/icons-material/Description';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import PersonIcon from '@mui/icons-material/Person';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 const ProjectManagement = () => {
 
   const textStyle = {
+    backdropFilter: 'blur(5px)',
     backgroundColor: 'rgb(128,0,128,0.7)',
     padding: '50px',
     borderRadius: '8px',
@@ -20,7 +26,7 @@ const ProjectManagement = () => {
     projectCategory: '',
     dueDate: '',
     assignTo: '',
-    visibility: 'privateToMe',
+    visibility: '',
     // Add more fields as needed for your project
   });
 
@@ -109,7 +115,7 @@ const ProjectManagement = () => {
           <motion.form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="projectName" className="form-label">
-                Project Name
+              <ProjectorIcon />Project Name
               </label>
               <input
                 type="text"
@@ -118,11 +124,25 @@ const ProjectManagement = () => {
                 name="projectName"
                 value={projectData.projectName}
                 onChange={handleInputChange}
+                style={{
+                  border:projectData.projectName.length> 0 ? '1px solid white' : 'none', // Hide default border
+                  borderBottom:  'none', // Show only bottom border
+                  backgroundColor: 'transparent', // Set transparent background
+                  outline: 'none', // Remove outline when focused
+                  color: 'white', // Input text color
+                  marginBottom: '5px', // Some spacing at the bottom
+                  width: 'calc(100% - 38px)', // Adjust width considering button width
+                  padding: '5px 10px', // Adjust padding
+                  borderRadius: '10px',
+                  boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+                }}
+          
+                placeholder="Enter project name"
               />
             </div>
             <div className="mb-3">
               <label htmlFor="description" className="form-label">
-                Description
+              <DescriptionIcon />Description
               </label>
               <textarea
                 className="form-control"
@@ -130,6 +150,20 @@ const ProjectManagement = () => {
                 name="description"
                 value={projectData.description}
                 onChange={handleInputChange}
+                style={{
+                  border:projectData.description.length> 0 ? '1px solid white' : 'none', // Hide default border
+                  borderBottom:  'none', // Show only bottom border
+                  backgroundColor: 'transparent', // Set transparent background
+                  outline: 'none', // Remove outline when focused
+                  color: 'white', // Input text color
+                  marginBottom: '5px', // Some spacing at the bottom
+                  width: 'calc(100% - 38px)', // Adjust width considering button width
+                  padding: '5px 10px', // Adjust padding
+                  borderRadius: '10px',
+                  boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+                }}
+          
+                placeholder="Enter project description"
               ></textarea>
             </div>
             <div className="mb-3">
@@ -143,11 +177,25 @@ const ProjectManagement = () => {
                 name="projectCategory"
                 value={projectData.projectCategory}
                 onChange={handleInputChange}
+                style={{
+                  border:projectData.projectCategory.length> 0 ? '1px solid white' : 'none', // Hide default border
+                  borderBottom:  'none', // Show only bottom border
+                  backgroundColor: 'transparent', // Set transparent background
+                  outline: 'none', // Remove outline when focused
+                  color: 'white', // Input text color
+                  marginBottom: '5px', // Some spacing at the bottom
+                  width: 'calc(100% - 38px)', // Adjust width considering button width
+                  padding: '5px 10px', // Adjust padding
+                  borderRadius: '10px',
+                  boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+                }}
+          
+                placeholder="Enter your category"
               />
             </div>
             <div className="mb-3">
               <label htmlFor="dueDate" className="form-label">
-                Due Date
+              <CalendarTodayIcon />Due Date
               </label>
               <input
                 type="date"
@@ -156,11 +204,25 @@ const ProjectManagement = () => {
                 name="dueDate"
                 value={projectData.dueDate}
                 onChange={handleInputChange}
+                style={{
+                  border:projectData.dueDate.length> 0 ? '1px solid white' : 'none', // Hide default border
+                  borderBottom:  'none', // Show only bottom border
+                  backgroundColor: 'transparent', // Set transparent background
+                  outline: 'none', // Remove outline when focused
+                  color: 'white', // Input text color
+                  marginBottom: '5px', // Some spacing at the bottom
+                  width: 'calc(100% - 38px)', // Adjust width considering button width
+                  padding: '5px 10px', // Adjust padding
+                  borderRadius: '10px',
+                  boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+                }}
+          
+                placeholder="Enter project due date"
               />
             </div>
             <div className="mb-3">
               <label htmlFor="assignTo" className="form-label">
-                Assign To
+              <PersonIcon /> Assign To
               </label>
               <input
                 type="text"
@@ -169,11 +231,25 @@ const ProjectManagement = () => {
                 name="assignTo"
                 value={projectData.assignTo}
                 onChange={handleInputChange}
+                style={{
+                  border:projectData.assignTo.length> 0 ? '1px solid white' : 'none', // Hide default border
+                  borderBottom:  'none', // Show only bottom border
+                  backgroundColor: 'transparent', // Set transparent background
+                  outline: 'none', // Remove outline when focused
+                  color: 'white', // Input text color
+                  marginBottom: '5px', // Some spacing at the bottom
+                  width: 'calc(100% - 38px)', // Adjust width considering button width
+                  padding: '5px 10px', // Adjust padding
+                  borderRadius: '10px',
+                  boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+                }}
+          
+                placeholder="Assign the project"
               />
             </div>
             <div className="mb-3">
               <label htmlFor="visibility" className="form-label">
-                Visibility
+              <VisibilityIcon /> Visibility
               </label>
               <select
                 className="form-select"
@@ -181,16 +257,32 @@ const ProjectManagement = () => {
                 name="visibility"
                 value={projectData.visibility}
                 onChange={handleInputChange}
+                
+                style={{
+                  border:projectData.visibility.length> 0 ? '1px solid white' : 'none', // Hide default border
+                  borderBottom:  'none', // Show only bottom border
+                  backgroundColor: 'transparent', // Set transparent background
+                  outline: 'none', // Remove outline when focused
+                  color: 'white', // Input text color
+                  marginBottom: '5px', // Some spacing at the bottom
+                  width: 'calc(100% - 38px)', // Adjust width considering button width
+                  padding: '5px 10px', // Adjust padding
+                  borderRadius: '10px',
+                  boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)',
+                }}
+          
+                placeholder="Visibility"
+              
               >
-                <option value="privateToMe">Private to Me</option>
-                <option value="public">Public</option>
-                <option value="privateToMembers">Private to Members</option>
+                <option value="privateToMe" background-color='purple'>Private to Me</option>
+                <option value="public" backgroundColor='purple'>Public</option>
+                <option value="privateToMembers" backgroundColor='purple'>Private to Members</option>
               </select>
             </div>
             <motion.button
                 type="submit"
                 className="btn btn-dark mt-3 btn-purple w-100"
-                style={{ backgroundColor: 'purple' }}
+                style={{ backgroundColor: 'purple',  boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)', border:'none' ,  borderRadius: '10px', }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >

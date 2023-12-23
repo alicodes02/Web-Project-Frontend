@@ -215,6 +215,12 @@ const LoginPage = () => {
   style={{ backgroundColor: 'purple',  boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)', border:'none' ,  borderRadius: '10px', }}
   whileHover={{ scale: 1.1 }}
   whileTap={{ scale: 0.9 }}
+ 
+   
+   
+    
+    
+
 >
   Login
 </motion.button>
