@@ -7,6 +7,8 @@ import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faEyeSlash, faEye,faLock,faUser,  } from '@fortawesome/free-solid-svg-icons';
 import { faUserShield } from '@fortawesome/free-solid-svg-icons';
 import './signup.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
 const SignupPage = () => {
@@ -66,6 +68,33 @@ const SignupPage = () => {
   const handleSubmit = async(e) => {
 
     e.preventDefault();
+
+    if (formData.firstName.trim() === '' || formData.lastName.trim() === '' || formData.email.trim() === '' || formData.password.trim() === '' || formData.confirmPassword.trim() === '' || formData.role.trim() === '' ) 
+    {
+
+      toast.error('Please fill in all input fields.', {
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: 3000, // Close the alert after 3 seconds
+        style: { backgroundColor: '#990099', color: '#fff', fontSize: '14px', padding: '10px' },
+      });
+      return;
+      
+    }
+
+    if (formData.password !==  formData.confirmPassword) 
+    {
+
+      toast.error('Password does not match!', {
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: 3000, // Close the alert after 3 seconds
+        style: { backgroundColor: '#990099', color: '#fff', fontSize: '14px', padding: '10px' },
+      });
+      return;
+      
+    }
+
+    
+
 
     try {
 

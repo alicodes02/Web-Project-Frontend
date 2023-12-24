@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faEyeSlash, faEye ,faLock } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
@@ -47,6 +49,19 @@ const LoginPage = () => {
 
       e.preventDefault();
 
+      
+      if (formData.email.trim() === '' || formData.password.trim() === '') 
+      {
+
+        toast.error('Please fill in both email and password fields.', {
+          position: toast.POSITION.BOTTOM_CENTER,
+          autoClose: 3000, // Close the alert after 3 seconds
+          style: { backgroundColor: '#990099', color: '#fff', fontSize: '14px', padding: '10px' },
+        });
+        return;
+        
+      }
+
       try {
 
         const response = await axios.post('https://odd-jade-goshawk-vest.cyclic.app/signin', formData);
@@ -67,9 +82,12 @@ const LoginPage = () => {
   
       catch(error) {
 
-        const failMessage = error.response.data.message;
-  
-        alert(failMessage);
+        toast.error('Invalid email or password.',
+         {
+          position: toast.POSITION.BOTTOM_CENTER,
+          autoClose: 3000, // Close the alert after 3 seconds
+          style: { backgroundColor: '#990099', color: '#fff', fontSize: '14px', padding: '10px' },
+        });
   
         console.log(error);
   
