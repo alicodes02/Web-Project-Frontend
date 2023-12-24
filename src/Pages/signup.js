@@ -98,7 +98,7 @@ const SignupPage = () => {
 
     try {
 
-      const response = await axios.post('https://odd-jade-goshawk-vest.cyclic.app/signup', formData);
+      const response = await axios.post('http://localhost:3001/signup', formData);
 
         const message = response.data.message;
         var firstName = response.data.userfirstName;

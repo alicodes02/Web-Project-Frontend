@@ -4,6 +4,7 @@ import CustomNavbar from '../Navbar/CustomNavbar';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import { useEffect } from 'react';
+import Task from './Task';
 
 const TaskManagement = () => {
 
@@ -20,10 +21,43 @@ const TaskManagement = () => {
     { id: 1, title: '', description: '', dueDate: '', priority: '', assignee: '', status: false, progress: 0 },
  ]);
 
+ const [employees, setEmployees] = useState([]);
+
  useEffect( () => {
 
     fetchAllTasks();
- }, []);
+    fetchEmployees();
+
+ }, [], []);
+
+ const fetchEmployees = async () => {
+
+  try {
+
+    const response = await axios.get('http://localhost:3001/employees');
+
+    setEmployees(response.data.employees);
+  }
+
+  catch(error) {
+
+    const failMessage = error.response.data.message;
+
+    alert(failMessage);
+
+    console.log(error);
+
+    if (error.response) {
+      console.error('Error:', error.response.data.message);
+    } else if (error.request) {
+      console.error('Error: No response received');
+    } else {
+      console.error('Error:', error.message);
+    }
+}
+
+
+ };
 
  const [show, setShow] = useState(false);
  const [formData, setFormData] = useState({ title: '', description: '', dueDate: '', priority: 'high', assignee: '65873b6c4833e5d57facce4a' });
@@ -52,20 +86,17 @@ const TaskManagement = () => {
 
  const handleAddTask = async(e) => {
 
-    e.preventDefault();
-    // const newTask = { id: tasks.length + 1, ...formData, status: false, progress: 0 };
-    // setTasks([...tasks, newTask]);
-    // setFormData({ title: '', description: '', dueDate: '', priority: 'High', assignee: '' });
-    // handleClose();
+  e.preventDefault();
 
   try {
 
-    const response =await axios.post('https://odd-jade-goshawk-vest.cyclic.app/add-task', formData);
+    const response =await axios.post('http://localhost:3001/add-task', formData);
 
     const message = response.data.message;
     alert(message);
 
     fetchAllTasks();
+    handleClose();
   }
 
   catch(error) {
@@ -91,7 +122,7 @@ const TaskManagement = () => {
 
   try {
 
-    const response = await axios.get('https://odd-jade-goshawk-vest.cyclic.app/all-tasks');
+    const response = await axios.get('http://localhost:3001/all-tasks');
 
     setTasks(response.data.tasks);
   }
@@ -116,15 +147,20 @@ const TaskManagement = () => {
  };
 
  const handleCheck = (id) => {
+
     const updatedTasks = tasks.map((task) =>
-      task.id === id ? { ...task, status: !task.status } : task
+      task._id === id ? { ...task, status: !task.status } : task
     );
+
     setTasks(updatedTasks);
  };
 
  const handleProgressChange = (id, value) => {
+
+    console.log(value);
+
     const updatedTasks = tasks.map((task) =>
-      task.id === id ? { ...task, progress: value } : task
+      task._id === id ? { ...task, progress: value } : task
     );
     setTasks(updatedTasks);
  };
@@ -150,38 +186,21 @@ const TaskManagement = () => {
         </thead>
         <tbody>
           {tasks.map((task) => (
-            <tr key={task._id}>
-              <td>{task.title}</td>
-              <td>{task.description}</td>
-              <td>{task.dueDate}</td>
-              <td>{task.priority}</td>
-              <td>{task.assignee}</td>
-              <td>
-                {task.status ? (
-                 <p className="text-success">Completed</p>
-                ) : (
-                 <p className="text-danger">Pending</p>
-                )}
-              </td>
-              <td>
-                <input
-                 type="range"
-                 min="0"
-                 max="100"
-                 value={task.progress}
-                 onChange={(e) => handleProgressChange(task.id, e.target.value)}
-                />
-              </td>
-              <td>
-                <input
-                 type="checkbox"
-                 checked={task.status}
-                 onChange={() => handleCheck(task.id)}
-                />
-              </td>
-            </tr>
+
+            <Task 
+
+              key={task._id} 
+              title = {task.title}
+              description = {task.description}
+              dueDate = {task.dueDate}
+              priority = {task.priority}
+              assignee = {task.assignee.firstName}
+              handleProgressChange = {handleProgressChange}
+              handleCheck = {handleCheck}  />
+
           ))}
         </tbody>
+
       </Table>
 
       <Modal show={show} onHide={handleClose}>
@@ -217,8 +236,10 @@ const TaskManagement = () => {
       
               <select name = "assignee" className='form-control' value = {formData.assignee} onChange = {handleChange} required>
 
-                <option value = "65873b6c4833e5d57facce4a">Emp1</option>
-                <option value = "6587416bb4dd99dc8ee87be1">Emp2</option>
+                {employees.map((employee) => (
+
+                  <option value = {employee._id}>{employee.firstName}</option>
+                ))}
 
               </select>
 
