@@ -6,9 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faEyeSlash, faEye,faLock,faUser,  } from '@fortawesome/free-solid-svg-icons';
 import { faUserShield } from '@fortawesome/free-solid-svg-icons';
-import './signup.css'
+import './signup.css';
+import { useNavigate } from 'react-router-dom';
 
 const SignupPage = () => {
+
+  const navigate = useNavigate();
 
   const textStyle = {
     backgroundColor: 'rgb(128,0,128,0.7)',
@@ -68,24 +71,34 @@ const SignupPage = () => {
 
       const response = await axios.post('https://odd-jade-goshawk-vest.cyclic.app/signup', formData);
 
-      var message = response.data.message;
+        const message = response.data.message;
+        var firstName = response.data.userfirstName;
+        var userId = response.data.userId;
+        var userEmail = response.data.userEmail;
+        var token = response.data.token;
 
-      alert(message);
+  
+        alert(message);
+        alert(`Welcome ${firstName}`);
+
+        navigate('/dashboard', { state: { userId,firstName,userEmail,token } });
     }
 
     catch(error) {
 
-      alert(message);
-
-      console.log(error);
-
-      if (error.response) {
-        console.error('Error:', error.response.data.message);
-      } else if (error.request) {
-        console.error('Error: No response received');
-      } else {
-        console.error('Error:', error.message);
-      }
+        const failMessage = error.response.data.message;
+  
+        alert(failMessage);
+  
+        console.log(error);
+  
+        if (error.response) {
+          console.error('Error:', error.response.data.message);
+        } else if (error.request) {
+          console.error('Error: No response received');
+        } else {
+          console.error('Error:', error.message);
+        }
     }
   };
 

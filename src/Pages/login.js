@@ -5,8 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faEyeSlash, faEye ,faLock } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
+
+  const navigate = useNavigate();
 
   const textStyle = {
     backdropFilter: 'blur(5px)',
@@ -48,16 +51,25 @@ const LoginPage = () => {
 
         const response = await axios.post('https://odd-jade-goshawk-vest.cyclic.app/signin', formData);
   
-        var message = response.data.message;
+        const message = response.data.message;
         var firstName = response.data.userfirstName;
+        var userId = response.data.userId;
+        var userEmail = response.data.userEmail;
+        var token = response.data.token;
+
   
         alert(message);
         alert(`Welcome ${firstName}`);
+
+        navigate('/dashboard', { state: { userId,firstName,userEmail,token } });
+
       }
   
       catch(error) {
+
+        const failMessage = error.response.data.message;
   
-        alert(message);
+        alert(failMessage);
   
         console.log(error);
   
