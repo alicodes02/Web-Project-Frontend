@@ -1,8 +1,15 @@
+
 import React, { useState } from 'react';
 import './project.css'; // Create your own CSS file for styling
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import Dialog from '@mui/material/Dialog'; // Import Dialog component
+import DialogTitle from '@mui/material/DialogTitle'; // Import DialogTitle component
+import DialogContent from '@mui/material/DialogContent'; // Import DialogContent component
+import DialogActions from '@mui/material/DialogActions'; // Import DialogActions component
+import TextField from '@mui/material/TextField'; // Import TextField component
+import Button from '@mui/material/Button'; // Import Button component
 import axios from 'axios';
 // Import other necessary components and icons as needed
 
@@ -82,16 +89,23 @@ const Project = (props) => {
 
   return (
     <div className="project-card">
-      <h3 className="project-card__title">{props.projectName}</h3>
-      <p className="project-card__description">{props.description}</p>
-      <div className="project-card__actions">
-        <IconButton color="error" aria-label="delete" onClick={handleDelete}>
-          <DeleteIcon />
-        </IconButton>
-        <IconButton color="primary" aria-label="edit" onClick={handleEditIconClick}>
-          <EditIcon />
-        </IconButton>
-      </div>
+    <h3 className="project-card__title">{props.projectName}</h3>
+    <p className="project-card__description">{props.description}</p>
+    <div className="project-card__details">
+      <p><strong>Category:</strong> {props.projectCategory}</p>
+      <p><strong>Due Date:</strong> {props.duedate}</p>
+      <p><strong>Assigned To:</strong> {props.assignto}</p>
+      <p><strong>Visibility:</strong> {props.visibility}</p>
+      {/* Additional project details */}
+    </div>
+    <div className="project-card__actions">
+      <IconButton color="error" aria-label="delete" onClick={handleDelete}>
+        <DeleteIcon />
+      </IconButton>
+      <IconButton color="primary" aria-label="edit" onClick={handleEditIconClick}>
+        <EditIcon />
+      </IconButton>
+    </div>
 
       {/* Edit Project Dialog */}
       <Dialog open={openEditDialog} onClose={handleEditClose}>
