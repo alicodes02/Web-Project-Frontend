@@ -50,7 +50,7 @@ const ProjectManagement = () => {
 
     try {
 
-      const response = await axios.post('https://odd-jade-goshawk-vest.cyclic.app/project', projectData);
+      const response = await axios.post('http://localhost:3001/project', projectData);
 
         const message = response.data.message;
        
