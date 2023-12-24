@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import axios from 'axios';
 import Base from '../Components/Base';
 import './project_management.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -44,11 +45,37 @@ const ProjectManagement = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you can implement logic to handle the submission of projectData
-    console.log('Project Data:', projectData);
-    // You can perform API calls, store the data, or perform any necessary actions here
+
+    try {
+
+      const response = await axios.post('https://odd-jade-goshawk-vest.cyclic.app/project', projectData);
+
+        const message = response.data.message;
+       
+
+  
+        alert(message);
+      
+    }
+
+    catch(error) {
+
+        const failMessage = error.response.data.message;
+  
+        alert(failMessage);
+  
+        console.log(error);
+  
+        if (error.response) {
+          console.error('Error:', error.response.data.message);
+        } else if (error.request) {
+          console.error('Error: No response received');
+        } else {
+          console.error('Error:', error.message);
+        }
+    }
   };
 
   return (
