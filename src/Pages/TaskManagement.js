@@ -12,6 +12,8 @@ const TaskManagement = () => {
     backgroundColor: 'rgb(128,0,128,0.7)',
     padding: '50px',
     borderRadius: '8px',
+    marginRight:'30px',
+    marginLeft:'30px',
     marginTop: '30px',
     marginBottom: '30px',
     color: '#FFFFFF'
