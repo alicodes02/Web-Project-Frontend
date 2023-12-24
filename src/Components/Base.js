@@ -2,13 +2,14 @@ import React from 'react';
 import CustomNavbar from '../Navbar/CustomNavbar';
 
 const Base = ({ children }) => {
+
   const backgroundStyle = {
     backgroundImage: `url('/background_vector1.jpg')`,
     backgroundSize: '100% 100%',
     backgroundPosition: 'center',
-    margin: '0', // Remove default margins
-    padding: '1%', // Remove default padding
-    height: '100vh', // Set the height to 100vh
+    margin: '0', 
+    padding: '1%', 
+    height: '100vh', 
     display: 'flex',
   };
 

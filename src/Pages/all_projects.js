@@ -55,7 +55,7 @@ const GetAllProjects = () => {
       const response = await axios.put(`http://localhost:3000/update-project/${updatedProject.id}`, updatedProject, {
         // Add your authorization headers if needed
       });
-
+      
       console.log('Project updated successfully:', response.data);
       // Update the projects list with the edited project
       setProjects(

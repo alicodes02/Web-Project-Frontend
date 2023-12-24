@@ -18,6 +18,7 @@ import Products from './Pages/Products.js'
 import Message from './Pages/Message.js'
 import Calendar from './Pages/Calendar.js'
 import Meet from './Pages/Meet.js'
+import TaskDetails from './Pages/TaskDetails';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/userprofile" element={<UserProfileCard />} />
         <Route path="/allprojects" element={<GetAllProjects/>} />
         <Route path="/meetingscheduler" element={<MeetingScheduler/>} />
+        <Route path="/taskdetails" element={<TaskDetails/>} />
 
         <Route path="/dashboard" element={<Layout />}>    
           <Route index element={<Dashboard />} />

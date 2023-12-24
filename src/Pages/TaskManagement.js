@@ -15,9 +15,22 @@ const TaskManagement = () => {
     marginRight:'30px',
     marginLeft:'30px',
     marginTop: '30px',
-    marginBottom: '30px',
-    color: '#FFFFFF'
+    marginBottom: '2%',
+    color: '#FFFFFF',
+    overflow: 'scroll'
   };
+
+  const backgroundStyle = {
+
+    backgroundImage: `url('/background_vector3.jpg')`,
+    backgroundSize: '100% 100%',
+    backgroundPosition: 'center',
+    margin: '0', 
+    padding: '1%', 
+    height: '100vh', 
+    display: 'flex',
+  };
+
 
  const [tasks, setTasks] = useState([
     { id: 1, title: '', description: '', dueDate: '', priority: '', assignee: '', status: false, progress: 0 },
@@ -221,9 +234,13 @@ const TaskManagement = () => {
  };
 
  return (
-    <div>
 
-        <CustomNavbar/>
+  <div>
+
+    <CustomNavbar/>
+
+    <div style={backgroundStyle}>
+
      <div style={textStyle}>
       <Table striped bordered hover>
         <thead>
@@ -343,6 +360,7 @@ const TaskManagement = () => {
       </div>
 
     </div>
+</div>
  );
 };
 

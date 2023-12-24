@@ -14,9 +14,8 @@ const Home = () => {
     borderRadius: '8px',
     marginTop: '3.5%',
     color: '#FFFFFF',
-
-
   };
+  
   return (
 
     <Base>
