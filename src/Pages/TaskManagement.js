@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Modal, Table } from 'react-bootstrap';
 import CustomNavbar from '../Navbar/CustomNavbar';
 import { motion } from 'framer-motion';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 const TaskManagement = () => {
-
 
   const textStyle = {
     backgroundColor: 'rgb(128,0,128,0.7)',
@@ -16,26 +17,102 @@ const TaskManagement = () => {
   };
 
  const [tasks, setTasks] = useState([
-    { id: 1, title: 'Task 1', description: 'Task 1 Description', dueDate: '2022-05-01', priority: 'High', assignee: 'John', status: false, progress: 0 },
-    { id: 2, title: 'Task 2', description: 'Task 2 Description', dueDate: '2022-05-10', priority: 'Low', assignee: 'Doe', status: false, progress: 0 },
+    { id: 1, title: '', description: '', dueDate: '', priority: '', assignee: '', status: false, progress: 0 },
  ]);
 
+ useEffect( () => {
+
+    fetchAllTasks();
+ }, tasks );
+
  const [show, setShow] = useState(false);
- const [formData, setFormData] = useState({ title: '', description: '', dueDate: '', priority: 'High', assignee: '' });
+ const [formData, setFormData] = useState({ title: '', description: '', dueDate: '', priority: 'high', assignee: '65873b6c4833e5d57facce4a' });
 
  const handleClose = () => setShow(false);
  const handleShow = () => setShow(true);
 
  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const { name, value } = e.target;
+  
+  if (name === 'assignee') {
+
+    setFormData({
+      ...formData,
+      assignee: value,
+    });
+
+  } else {
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  }
  };
 
- const handleSubmit = (e) => {
+ const handleAddTask = async(e) => {
+
     e.preventDefault();
-    const newTask = { id: tasks.length + 1, ...formData, status: false, progress: 0 };
-    setTasks([...tasks, newTask]);
-    setFormData({ title: '', description: '', dueDate: '', priority: 'High', assignee: '' });
-    handleClose();
+    // const newTask = { id: tasks.length + 1, ...formData, status: false, progress: 0 };
+    // setTasks([...tasks, newTask]);
+    // setFormData({ title: '', description: '', dueDate: '', priority: 'High', assignee: '' });
+    // handleClose();
+
+  try {
+
+    const response =await axios.post('https://odd-jade-goshawk-vest.cyclic.app/add-task', formData);
+
+    const message = response.data.message;
+    alert(message);
+
+    fetchAllTasks();
+  }
+
+  catch(error) {
+
+    const failMessage = error.response.data.message;
+
+    alert(failMessage);
+
+    console.log(error);
+
+    if (error.response) {
+      console.error('Error:', error.response.data.message);
+    } else if (error.request) {
+      console.error('Error: No response received');
+    } else {
+      console.error('Error:', error.message);
+    }
+}
+
+ };
+
+ const fetchAllTasks = async () => {
+
+  try {
+
+    const response = await axios.get('https://odd-jade-goshawk-vest.cyclic.app/all-tasks');
+
+    setTasks(response.data.tasks);
+  }
+
+  catch(error) {
+
+    const failMessage = error.response.data.message;
+
+    alert(failMessage);
+
+    console.log(error);
+
+    if (error.response) {
+      console.error('Error:', error.response.data.message);
+    } else if (error.request) {
+      console.error('Error: No response received');
+    } else {
+      console.error('Error:', error.message);
+    }
+}
+
  };
 
  const handleCheck = (id) => {
@@ -60,7 +137,6 @@ const TaskManagement = () => {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Task Id</th>
             <th>Title</th>
             <th>Description</th>
             <th>Due Date</th>
@@ -74,8 +150,7 @@ const TaskManagement = () => {
         </thead>
         <tbody>
           {tasks.map((task) => (
-            <tr key={task.id}>
-              <td>{task.id}</td>
+            <tr key={task._id}>
               <td>{task.title}</td>
               <td>{task.description}</td>
               <td>{task.dueDate}</td>
@@ -114,7 +189,8 @@ const TaskManagement = () => {
           <Modal.Title>Add Task</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleAddTask}>
+
             <div className="form-group">
               <label htmlFor="title">Title</label>
               <input type="text" name="title" className="form-control" value={formData.title} onChange={handleChange} required />
@@ -130,14 +206,22 @@ const TaskManagement = () => {
             <div className="form-group">
               <label htmlFor="priority">Priority</label>
               <select name="priority" className="form-control" value={formData.priority} onChange={handleChange} required>
-                <option value="High">High</option>
-                <option value="Medium">Medium</option>
-                <option value="Low">Low</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
               </select>
             </div>
             <div className="form-group">
+
               <label htmlFor="assignee">Assignee</label>
-              <input type="text" name="assignee" className="form-control" value={formData.assignee} onChange={handleChange} required />
+      
+              <select name = "assignee" className='form-control' value = {formData.assignee} onChange = {handleChange} required>
+
+                <option value = "65873b6c4833e5d57facce4a">Emp1</option>
+                <option value = "6587416bb4dd99dc8ee87be1">Emp2</option>
+
+              </select>
+
             </div>
 
             <div className='add-task-btn'>
