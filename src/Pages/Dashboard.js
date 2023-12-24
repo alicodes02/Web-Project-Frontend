@@ -1,9 +1,8 @@
 import React from 'react'
 import DashboardStatsGrid from '../Components/DashboardStatsGrid'
-import TransactionChart from '../Components/TransactionChart'
-import RecentOrders from '../Components/RecentOrders'
-import BuyerProfilePieChart from '../Components/BuyerProfilePieChart'
-import PopularProducts from '../Components/PopularProducts'
+import ProjectChart from '../Components/ProjectChart'
+import People from '../Components/People'
+import TasksPieChart from '../Components/TasksPieChart'
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -30,12 +29,11 @@ export default function Dashboard() {
 		<div className="flex flex-col gap-4">
 			<DashboardStatsGrid />
 			<div className="flex flex-row gap-4 w-full">
-				<TransactionChart />
-				<BuyerProfilePieChart />
+				<ProjectChart />
+				<TasksPieChart />
 			</div>
 			<div className="flex flex-row gap-4 w-full">
-				<RecentOrders />
-				<PopularProducts />
+				<People />
 			</div>
 		</div>
 	)

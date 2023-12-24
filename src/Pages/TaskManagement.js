@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Modal, Table } from 'react-bootstrap';
-import CustomNavbar from '../Navbar/CustomNavbar';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import { useEffect } from 'react';
@@ -170,7 +169,7 @@ const TaskManagement = () => {
  return (
     <div>
 
-        <CustomNavbar/>
+        {/* <CustomNavbar/> */}
      <div style={textStyle}>
       <Table striped bordered hover>
         <thead>
