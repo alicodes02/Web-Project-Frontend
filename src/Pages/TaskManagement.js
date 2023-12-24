@@ -146,23 +146,76 @@ const TaskManagement = () => {
 
  };
 
- const handleCheck = (id) => {
+ const handleCheck = async (taskId) => {
 
-    const updatedTasks = tasks.map((task) =>
-      task._id === id ? { ...task, status: !task.status } : task
-    );
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhcmhhZEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0MTg0NTF9.kIBrjD2PtyBa2Ghg-FmFmHB3D7nnXeMMljRhEYHkHYA';
 
-    setTasks(updatedTasks);
- };
+  const headers = {
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json',
+  };
 
- const handleProgressChange = (id, value) => {
+  try {
+    const response = await axios.patch(`http://localhost:3001/edit-status/${taskId}`, {}, { headers });
+    console.log(response);
+    fetchAllTasks();
+  } catch (error) {
+    const failMessage = error.response.data.message;
 
-    console.log(value);
+    alert(failMessage);
 
-    const updatedTasks = tasks.map((task) =>
-      task._id === id ? { ...task, progress: value } : task
-    );
-    setTasks(updatedTasks);
+    console.log(error);
+
+    if (error.response) {
+      console.error('Error:', error.response.data.message);
+    } else if (error.request) {
+      console.error('Error: No response received');
+    } else {
+      console.error('Error:', error.message);
+    }
+  }
+};
+
+ 
+
+ const handleProgressChange = async (taskId, value) => {
+  
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhcmhhZEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0MTg0NTF9.kIBrjD2PtyBa2Ghg-FmFmHB3D7nnXeMMljRhEYHkHYA';
+
+  console.log("Value",value);
+  console.log("Id", taskId);
+
+  
+  const headers = {
+  'Authorization': `Bearer ${token}`,
+  'Content-Type': 'application/json',
+  };
+
+    
+
+    try {
+
+      const response = await axios.patch(`http://localhost:3001/edit-progress/${taskId}`, {progress:value}, {headers});
+      console.log(response);
+      fetchAllTasks();
+    }
+
+    catch(error) {
+
+      const failMessage = error.response.data.message;
+  
+      alert(failMessage);
+  
+      console.log(error);
+  
+      if (error.response) {
+        console.error('Error:', error.response.data.message);
+      } else if (error.request) {
+        console.error('Error: No response received');
+      } else {
+        console.error('Error:', error.message);
+      }
+  }
  };
 
  return (
@@ -190,11 +243,14 @@ const TaskManagement = () => {
             <Task 
 
               key={task._id} 
+              taskId = {task._id}
               title = {task.title}
               description = {task.description}
               dueDate = {task.dueDate}
               priority = {task.priority}
               assignee = {task.assignee.firstName}
+              progress = {task.progress}
+              status = {task.completed}
               handleProgressChange = {handleProgressChange}
               handleCheck = {handleCheck}  />
 

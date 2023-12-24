@@ -1,5 +1,7 @@
 export default function Task (props) {
 
+    const taskId = props.taskId;
+
     return(
 
         <tr key={props._id}>
@@ -21,14 +23,17 @@ export default function Task (props) {
            min="0"
            max="100"
            value={props.progress}
-           onChange={(e) => props.handleProgressChange(props._id, e.target.value)}
+           onChange={(e) => {
+            e.preventDefault(); 
+            props.handleProgressChange(taskId, e.target.value);
+          }}
           />
         </td>
         <td>
           <input
            type="checkbox"
            checked={props.status}
-           onChange={() => props.handleCheck(props._id)}
+           onChange={() => props.handleCheck(taskId)}
           />
         </td>
       </tr>
