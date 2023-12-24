@@ -23,7 +23,7 @@ const TaskManagement = () => {
  useEffect( () => {
 
     fetchAllTasks();
- }, tasks );
+ }, []);
 
  const [show, setShow] = useState(false);
  const [formData, setFormData] = useState({ title: '', description: '', dueDate: '', priority: 'high', assignee: '65873b6c4833e5d57facce4a' });
