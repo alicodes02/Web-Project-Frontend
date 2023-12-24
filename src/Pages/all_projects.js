@@ -7,7 +7,7 @@ const GetAllProjects = () => {
   useEffect(() => {
     // Fetch projects from an API or a data source
     // Replace this with your actual API endpoint for projects
-    fetch('https://your-api-endpoint/projects')
+    fetch('http://localhost:3001/projects')
       .then((response) => response.json())
       .then((data) => {
         // Update state with fetched projects
