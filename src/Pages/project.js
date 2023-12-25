@@ -34,28 +34,47 @@ const Project = ({ project, onDelete, onEdit }) => {
 
 
   const handleEditOpen = () => {
+    
+    
     setOpenEditDialog(true);
   };
 
-  const handleEditClose = () => {
+  const handleEditClose = (e) => {
+
+    e.stopPropagation();
     setOpenEditDialog(false);
   };
-
   const handleEditInputChange = (e) => {
+    e.stopPropagation();
     setEditData({
       ...editData,
       [e.target.name]: e.target.value,
     });
   };
+  
+  const handleEditSubmit = async (e) => {
+    e.stopPropagation();
+    try {
+      console.log(editData);
+      await onEdit(editData);
+      handleEditClose(e);
+    } catch (error) {
+      console.error('Error updating project:', error);
+      alert('Error updating project');
+    }
+  };
 
 
   const handleCardClick = () => {
-    // Pass state along with the route
+    
    
-    navigate('/dashboard/tasks', { state:  { projectId: project._id } }); 
+    if (!openEditDialog) {
+      navigate('/dashboard/tasks', { state: { projectId: project._id } });
+    }
   };
 
-  const handleDelete = async () => {
+  const handleDelete = async (e) => {
+    e.stopPropagation();
     try {
       await onDelete(project._id);
       console.log(project);
@@ -66,19 +85,9 @@ const Project = ({ project, onDelete, onEdit }) => {
     }
   };
 
-  const handleEditSubmit = async () => {
-    try {
+  const handleEditIconClick = (e) => {
+    e.stopPropagation();
 
-      console.log(editData);
-      await onEdit(editData);
-      handleEditClose();
-    } catch (error) {
-      console.error('Error updating project:', error);
-      alert('Error updating project');
-    }
-  };
-
-  const handleEditIconClick = () => {
     handleEditOpen();
   };
 
