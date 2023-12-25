@@ -118,7 +118,14 @@
 
 .project-card__actions button {
   margin-right: 0.5rem;
+  transition: background-color 0.3s ease; /* Adding transition for smooth effect */
 }
+
+/* Hover effect */
+.project-card__actions button:hover {
+  background-color:white;
+}
+
 
 /* Additional Detail Sections (Due Date, Visibility, Assignment) */
 .project-card__due-date {
