@@ -3,10 +3,14 @@ import { Modal, Table } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import Dropdown from 'react-bootstrap/Dropdown';
-import CustomNavbar from '../Navbar/CustomNavbar';
 import Task from './Task';
+import { useLocation } from 'react-router-dom';
 
 const TaskManagement = () => {
+
+
+  const location = useLocation();
+  const projectId = location.state?.projectId;
 
   const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlicmFoZWVtcmVobWFuMTVAZ21haWwuY29tIiwiaWF0IjoxNzAzNDkwNjIwfQ.uCKrWdVcQnynMtrXskXPuRP523Cp8OJPMfhCaNAqTP0';
   const [tasks, setTasks] = useState([]);
@@ -43,12 +47,13 @@ const TaskManagement = () => {
 
   const fetchAllTasks = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/all-tasks');
+      const response = await axios.get(`http://localhost:3001/all-tasks/${projectId}`);
       setTasks(response.data.tasks);
     } catch (error) {
       handleFetchError(error);
     }
   };
+  
 
   const handleFetchError = (error) => {
     const failMessage = error.response ? error.response.data.message : 'An error occurred';
@@ -77,9 +82,9 @@ const TaskManagement = () => {
 
   const handleAddTask = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const response = await axios.post('http://localhost:3001/add-task', formData);
+      const response = await axios.post(`http://localhost:3001/add-task/${projectId}`, formData);
       alert(response.data.message);
       fetchAllTasks();
       handleClose();
@@ -88,6 +93,7 @@ const TaskManagement = () => {
     }
   };
 
+  
   const handleCheck = async (taskId) => {
     const token = TOKEN;
     const headers = {
