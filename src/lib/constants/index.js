@@ -3,7 +3,6 @@ import {
 	HiOutlineCube,
 	HiOutlineShoppingCart,
 	HiOutlineUsers,
-	//HiOutlineDocumentText,
 	HiOutlineAnnotation,
 	HiOutlineQuestionMarkCircle,
 	HiOutlineCog

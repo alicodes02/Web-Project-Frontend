@@ -46,8 +46,8 @@ export default function Header() {
 									'group inline-flex items-center rounded-sm p-1.5 text-gray-700 hover:bg-gray-100 hover:rounded-xl focus:outline-none active:bg-gray-150 active:rounded-xl'
 								)}
 							>
-								<HiOutlineBell fontSize={24} />
-								
+								<HiOutlineBell fontSize={24}/>
+							
 							</Popover.Button>
 							<Transition
 								as={Fragment}

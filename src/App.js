@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Layout from './Components/shared/Layout.js'
 import Dashboard from './Pages/Dashboard.js'
 import Message from './Pages/Message.js'
-import Calendar from './Pages/Calendar.js'
+import MyCalendar from './Pages/Calendar.js'
 import Meet from './Pages/Meet.js'
 import Home from './Pages/home';
 import About from './Pages/about';
@@ -36,7 +36,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="tasks" element={<TaskManagement />} />
           <Route path="messages" element={<Message />} />
-          <Route path="calendar" element={<Calendar />} />
+          <Route path="calendar" element={<MyCalendar />} />
           <Route path="meet" element={<Meet />} />
           <Route path="settings" element={<UserProfileCard />} />
           <Route path="support" element={<About />} />
