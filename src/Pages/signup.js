@@ -10,6 +10,7 @@ import './signup.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import CustomNavbar from '../Navbar/CustomNavbar';
 
 const SignupPage = () => {
 
@@ -144,7 +145,9 @@ const SignupPage = () => {
 
   return (
 
-    <Base>
+    <div>
+      <CustomNavbar/>
+      <Base>
       <div className="container mt-5">
       <div className="container" style={textStyle}>
         <div className="row" >
@@ -497,6 +500,7 @@ const SignupPage = () => {
         </div>
       </div>
     </Base>
+    </div>
 
   );
 };

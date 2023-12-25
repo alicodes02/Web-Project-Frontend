@@ -3,6 +3,7 @@ import Base from '../Components/Base';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import CustomNavbar from '../Navbar/CustomNavbar';
 import './user.css';
 
 const Home = () => {
@@ -18,7 +19,10 @@ const Home = () => {
   
   return (
 
-    <Base>
+    <div>
+      
+      <CustomNavbar/>
+      <Base>
 
       <div className="container mt-5">
         <div className="row">
@@ -35,6 +39,9 @@ const Home = () => {
         </div>
       </div>
     </Base>
+    </div>
+
+    
   );
 };
 

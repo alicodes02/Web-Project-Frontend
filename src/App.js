@@ -36,6 +36,8 @@ function App() {
         <Route path="/dashboard" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="tasks" element={<TaskManagement />} />
+          <Route path="projectmanagement" element={<ProjectManagement />} />
+          <Route path="allprojects" element={<GetAllProjects />} />
           <Route path="messages" element={<Message />} />
           <Route path="calendar" element={<MyCalendar />} />
           <Route path="meet" element={<Meet />} />

@@ -16,8 +16,7 @@ const Base = ({ children }) => {
   return (
     <div>
       {/* Common Header */}
-      <CustomNavbar />
-
+      
       {/* Main Content */}
       <main style={backgroundStyle}>
         {children}
