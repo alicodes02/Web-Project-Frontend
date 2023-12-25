@@ -22,13 +22,13 @@ export default function Task (props) {
 
     return(
 
-        <tr key={taskId} onClick = {navigateToTaskDetails}>
-        <td>{title}</td>
-        <td>{description}</td>
-        <td>{dueDate}</td>
-        <td>{priority}</td>
-        <td>{assignee}</td>
-        <td>
+        <tr key={taskId}>
+        <td onClick = {navigateToTaskDetails}>{title}</td>
+        <td onClick = {navigateToTaskDetails}>{description}</td>
+        <td onClick = {navigateToTaskDetails}>{dueDate}</td>
+        <td onClick = {navigateToTaskDetails}>{priority}</td>
+        <td onClick = {navigateToTaskDetails}>{assignee}</td>
+        <td onClick = {navigateToTaskDetails}>
           {status ? (
            <p className="text-success">Completed</p>
           ) : (

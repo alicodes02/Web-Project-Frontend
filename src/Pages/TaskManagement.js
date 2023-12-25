@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Modal, Table } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import Dropdown from 'react-bootstrap/Dropdown';
 import CustomNavbar from '../Navbar/CustomNavbar';
 import Task from './Task';
 
 const TaskManagement = () => {
+
+  const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlicmFoZWVtcmVobWFuMTVAZ21haWwuY29tIiwiaWF0IjoxNzAzNDkwNjIwfQ.uCKrWdVcQnynMtrXskXPuRP523Cp8OJPMfhCaNAqTP0';
   const [tasks, setTasks] = useState([]);
   const [employees, setEmployees] = useState([]);
   const [show, setShow] = useState(false);
@@ -22,6 +25,7 @@ const TaskManagement = () => {
   });
 
   const [sortedTasks, setSortedTasks] = useState([]);
+  const [sortOption, setSortOption] = useState('none');
 
   useEffect(() => {
     fetchAllTasks();
@@ -85,7 +89,7 @@ const TaskManagement = () => {
   };
 
   const handleCheck = async (taskId) => {
-    const token = 'your_token_here'; // Replace with your actual token
+    const token = TOKEN;
     const headers = {
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json',
@@ -101,7 +105,7 @@ const TaskManagement = () => {
   };
 
   const handleProgressChange = async (taskId, value) => {
-    const token = 'your_token_here'; // Replace with your actual token
+    const token = TOKEN;
     const headers = {
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json',
@@ -117,35 +121,43 @@ const TaskManagement = () => {
   };
 
   useEffect(() => {
+
     let filteredTasks = tasks;
     if (filterCriteria.priority !== 'all') {
       filteredTasks = filteredTasks.filter((task) => task.priority === filterCriteria.priority);
     }
-    // Add other filter conditions if needed
 
-    // Apply sorting
-    if (filterCriteria.dueDate !== 'all') {
-      handleSort('dueDate');
+    if (sortOption !== 'none') {
+      handleSort(sortOption, filteredTasks);
     } else {
       setSortedTasks(filteredTasks);
     }
-  }, [tasks, filterCriteria]);
+  }, [tasks, filterCriteria, sortOption]);
 
-  const handleFilterChange = (name, value) => {
-    setFilterCriteria({
-      ...filterCriteria,
-      [name]: value,
-    });
-  };
+  const handleSort = (criteria, tasksToSort) => {
 
-  const handleSort = (criteria) => {
-    // Implement sorting logic here
-    const sorted = [...tasks];
+    const sorted = [...tasksToSort];
+  
     sorted.sort((a, b) => {
-      // Example: Sorting by priority (high -> medium -> low)
-      return a.priority.localeCompare(b.priority);
+      if (criteria === 'priority') {
+        return a.priority.localeCompare(b.priority);
+      } else if (criteria === 'dueDate') {
+        const dueDateA = new Date(a.dueDate);
+        const dueDateB = new Date(b.dueDate);
+        return dueDateA - dueDateB;
+      } else if (criteria === 'progress') {
+        return a.progress - b.progress;
+      }
+      return 0;
     });
+  
     setSortedTasks(sorted);
+  };
+  
+
+  const handleSortOptionChange = (option) => {
+    setSortOption(option);
+    handleSort(option, tasks);
   };
 
   return (
@@ -160,21 +172,44 @@ const TaskManagement = () => {
           padding: '1%',
           height: '100vh',
           display: 'flex',
+          flexDirection: 'column',
         }}
       >
         <div
           style={{
-            backgroundColor: 'rgb(128,0,128,0.7)',
+            backgroundColor: 'rgba(128, 0, 128, 0.7)',
             padding: '50px',
             borderRadius: '8px',
-            marginRight: '30px',
-            marginLeft: '30px',
-            marginTop: '30px',
             marginBottom: '2%',
             color: '#FFFFFF',
             overflow: 'scroll',
           }}
         >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+
+            <h2 style={{fontWeight: 'bolder'}}>Task Management</h2>
+            
+          </div>
+
+          {/* Sort Button and Dropdown */}
+
+          <div style={{ textAlign: 'right', marginTop: '10px' }}>
+
+            <Dropdown>
+
+              <Dropdown.Toggle variant="secondary" id="sortDropdown" className="btn btn-dark" style={{ backgroundColor: 'purple', marginBottom: '1%' }}>
+                Sort
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={() => handleSortOptionChange('priority')}>Priority</Dropdown.Item>
+                <Dropdown.Item onClick={() => handleSortOptionChange('dueDate')}>Due Date</Dropdown.Item>
+                <Dropdown.Item onClick={() => handleSortOptionChange('progress')}>Progress</Dropdown.Item>
+                <Dropdown.Item onClick={() => handleSortOptionChange('none')}>None</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
+
           <Table striped bordered hover>
             <thead>
               <tr>
@@ -206,6 +241,20 @@ const TaskManagement = () => {
               ))}
             </tbody>
           </Table>
+
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+              <button
+                  className="btn btn-dark"
+                  style={{ backgroundColor: 'purple' }}
+                  onClick={handleShow}
+                >
+                  Add Task
+                </button>
+
+          </div>
+
+          
 
           <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -269,18 +318,6 @@ const TaskManagement = () => {
         </Modal.Body>
       </Modal>
 
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-            <motion.button
-              type="submit"
-              className="btn btn-dark mt-3"
-              style={{ width: '30%', backgroundColor: 'purple' }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={handleShow}
-            >
-              Add Task
-            </motion.button>
-          </div>
         </div>
       </div>
     </div>
@@ -288,3 +325,6 @@ const TaskManagement = () => {
 };
 
 export default TaskManagement;
+
+
+

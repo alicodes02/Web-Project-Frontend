@@ -169,7 +169,7 @@ export default function TaskDetails() {
                   />
                 </Form.Group>
                     <div className="d-flex justify-content-center" style={{marginTop:'2%'}}>
-                        <Button variant="info" onClick={handleAddComment}>Add Comment</Button>{' '}
+                        <Button variant="info" onClick={handleAddComment}  className="btn btn-dark" style={{ backgroundColor: 'purple', marginBottom: '1%' }} >Add Comment</Button>{' '}
                     </div>
 
               </Form>
