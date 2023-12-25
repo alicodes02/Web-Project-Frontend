@@ -42,7 +42,7 @@ export default function Task (props) {
            max="100"
            value={progress}
            onChange={(e) => {
-            e.preventDefault(); 
+            //e.preventDefault(); 
             props.handleProgressChange(taskId, e.target.value);
           }}
           />
