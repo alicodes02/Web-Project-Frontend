@@ -18,6 +18,7 @@ import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { faUserCheck } from '@fortawesome/free-solid-svg-icons';
 
 
+
 // Import other necessary components and icons as needed
 
 
@@ -114,10 +115,10 @@ const Project = ({ project, onDelete, onEdit }) => {
       </div>
   
       {/* Edit Project Dialog */}
-      <Dialog open={openEditDialog} onClose={handleEditClose}>
-        <DialogTitle>Edit Project</DialogTitle>
-        <DialogContent>
+      <Dialog open={openEditDialog} onClose={handleEditClose} className="custom-dialog">
+        <DialogContent className="dialog-content">
           <TextField
+              className="dialog-textfield"
             label="Project Name"
             name="projectName"
             value={editData.projectName}
@@ -133,11 +134,47 @@ const Project = ({ project, onDelete, onEdit }) => {
             multiline
             rows={4}
           />
+
+          <TextField
+  
+              label="Category"
+              name="projectCategory"
+              value={editData.projectCategory}
+              onChange={handleEditInputChange}
+              fullWidth
+          />
+
+       <TextField
+             label="Due Date"
+             type="date" // Depending on the data type for due date (this assumes a date input)
+             name="dueDate"
+             value={editData.dueDate}
+             onChange={handleEditInputChange}
+             fullWidth
+    // Add any necessary props for the due date field (e.g., inputProps, InputLabelProps)
+       />
+
+    <TextField
+           label="Assigned To"
+           name="assignTo"
+           value={editData.assignTo}
+           onChange={handleEditInputChange}
+           fullWidth
+    // Add any necessary props for the assigned to field
+     />
+  <TextField
+    label="Visibility"
+    name="visibility"
+    value={editData.visibility}
+    onChange={handleEditInputChange}
+    fullWidth
+    // Add any necessary props for the visibility field
+  />
           {/* Add other fields as necessary */}
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleEditClose}>Cancel</Button>
-          <Button onClick={handleEditSubmit} color="primary">
+        <DialogActions className="dialog-actions">
+          <Button onClick={handleEditClose} className="dialog-button">Cancel</Button>
+          <Button onClick={handleEditSubmit}className="dialog-button" color="primary">
             Update Project
           </Button>
         </DialogActions>
