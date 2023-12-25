@@ -31,7 +31,7 @@ const GetAllProjects = () => {
       try {
         const response = await axios.get('http://localhost:3001/projects');
         setProjects(response.data);
-        console.log(response);
+        console.log(response.data);
       } catch (error) {
         console.error('Error fetching projects:', error);
       }
@@ -45,10 +45,11 @@ const GetAllProjects = () => {
     alert('An error occurred while fetching data');
   };
 
+  
   const handleDeleteProject = async (projectId) => {
     try {
       await axios.delete(`http://localhost:3001/delete-project/${projectId}`);
-      setProjects((prevProjects) => prevProjects.filter((project) => project.id !== projectId));
+      setProjects((prevProjects) => prevProjects.filter((project) => project._id !== projectId));
     } catch (error) {
       handleAPIError(error);
     }

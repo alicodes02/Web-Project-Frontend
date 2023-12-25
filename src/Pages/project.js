@@ -36,7 +36,9 @@ const Project = ({ project, onDelete, onEdit }) => {
 
   const handleDelete = async () => {
     try {
-      await onDelete(project.id);
+      await onDelete(project._id);
+      console.log(project);
+
     } catch (error) {
       console.error('Error deleting project:', error);
       alert('Error deleting project');
