@@ -16,11 +16,26 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 		icon: <HiOutlineViewGrid />
 	},
 	{
-		key: 'products',
-		label: 'Tasks',
+		key: 'tasks',
+		label: 'Manage Tasks',
 		path: '/dashboard/tasks',
 		icon: <HiOutlineCube />
 	},
+
+	{
+		key: 'addproject',
+		label: 'Add Project',
+		path: '/dashboard/projectmanagement',
+		icon: <HiOutlineCube />
+	},
+
+	{
+		key: 'Manage Project',
+		label: 'Manage Projects',
+		path: '/dashboard/allprojects',
+		icon: <HiOutlineCube />
+	},
+
 	{
 		key: 'orders',
 		label: 'Calendar',

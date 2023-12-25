@@ -8,6 +8,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import CustomNavbar from '../Navbar/CustomNavbar';
 
 const LoginPage = () => {
 
@@ -112,7 +113,10 @@ const LoginPage = () => {
   };
 
   return (
-    <Base>
+
+    <div>
+      <CustomNavbar/>
+      <Base>
       <div className="container mt-5">
       <div className="container" style={textStyle}>
 
@@ -319,6 +323,8 @@ const LoginPage = () => {
       </div>
       </div>
     </Base>
+    </div>
+    
   );
 };
 

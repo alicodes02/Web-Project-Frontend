@@ -161,8 +161,8 @@ const TaskManagement = () => {
   };
 
   return (
+    
     <div>
-      <CustomNavbar />
       <div
         style={{
           backgroundImage: `url('/background_vector3.jpg')`,

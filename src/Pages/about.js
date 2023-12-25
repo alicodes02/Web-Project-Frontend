@@ -1,5 +1,6 @@
 import React from 'react';
-//import Base from '../Components/Base';
+import CustomNavbar from '../Navbar/CustomNavbar';
+import Base from '../Components/Base';
 
 
 const About = () => {
@@ -15,7 +16,10 @@ const About = () => {
   };
 
   return (
-    // <Base>
+
+    <div> 
+      <CustomNavbar/>
+      <Base>
       <div className="container mt-5" >
         <div className="row">
           <div className="col-md-8 offset-md-2" style={textStyle}>
@@ -51,7 +55,10 @@ const About = () => {
           </div>
         </div>
       </div>
-    // </Base>
+    </Base>
+    </div>
+
+    
   );
 };
 

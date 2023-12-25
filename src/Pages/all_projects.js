@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react';
 import './project.css'; // Import your custom CSS file for styling
 import Project from './project'; // Import the Project component you provided
 import axios from 'axios';
-import Base from '../Components/Base';
-
-
-
 const GetAllProjects = () => {
 
-
-  
+  const backgroundStyle = {
+    backgroundImage: `url('/background_vector1.jpg')`,
+    backgroundSize: '100% 100%',
+    backgroundPosition: 'center',
+    margin: '0', 
+    padding: '1%', 
+    height: '100vh', 
+    display: 'flex',
+  };
 
   const textStyle = {
     backdropFilter: 'blur(5px)',
@@ -67,19 +70,30 @@ const GetAllProjects = () => {
   };
 
   return (
-    <Base>
+
+    <div>
+
+      <main style={backgroundStyle}>
+        <div className="container mt-5" style={textStyle}>
+
+      {projects.map((project) => (
+        <Project
+          key={project.id}
+          project={project}
+          onDelete={handleDeleteProject}
+          onEdit={handleEditProject}
+        />
+      ))}
+
+    </div>
+
+
+      </main>
+
+      <footer>
+      </footer>
+    </div>
     
-      <div className="container mt-5" style={textStyle}>
-        {projects.map((project) => (
-          <Project
-            key={project.id}
-            project={project}
-            onDelete={handleDeleteProject}
-            onEdit={handleEditProject}
-          />
-        ))}
-      </div>
-    </Base>
   );
 };
 
