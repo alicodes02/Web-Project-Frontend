@@ -11,9 +11,15 @@ import { useNavigate } from 'react-router-dom';
 const linkClass ='flex items-center gap-2 font-light px-3 py-2 hover:bg-violet-200 hover:no-underline active:bg-violet-200 rounded-lg text-base';
 const activeLinkClass = 'bg-violet-200 text-black rounded-lg';  
 
-export default function Sidebar() {
+export default function Sidebar(props) {
+
+  console.log('In Side Bar Component User Email = ', props.userEmail);
+  console.log('In Side Bar Component User Token = ', props.userToken);
+  console.log('In Side Bar Component User Id = ', props.userId);
 
   const navigate = useNavigate();
+
+  const links = DASHBOARD_SIDEBAR_LINKS(props.userId, props.userFirstName,props.userEmail, props.userToken);
  
   return (
     <div className="w-60 p-3 flex flex-col" style={{ backgroundColor: '#990099' }}>
@@ -22,9 +28,9 @@ export default function Sidebar() {
         <span className="text-neutral-200 text-lg">CollaboraHub</span>
       </div>
       <div className="py-8 flex flex-1 flex-col gap-0.5" >
-        {DASHBOARD_SIDEBAR_LINKS.map((link) => (
-          <SidebarLink key={link.key} link={link} activeLinkClass={activeLinkClass}/>
-        ))}
+            {links.map((link) => (
+                <SidebarLink key={link.key} link={link} activeLinkClass={activeLinkClass} />
+          ))}
       </div>
       <div className="flex flex-col gap-0.5 pt-2 border-t border-neutral-100">
         {DASHBOARD_SIDEBAR_BOTTOM_LINKS.map((link) => (
@@ -46,8 +52,7 @@ export default function Sidebar() {
   )
 }
 
-function SidebarLink({ link,activeLinkClass }) {
-
+function SidebarLink({ link, activeLinkClass}) {
   const { pathname } = useLocation();
 
   return (
@@ -61,5 +66,5 @@ function SidebarLink({ link,activeLinkClass }) {
       <span className="text-xl">{link.icon}</span>
       {link.label}
     </Link>
-  )
+  );
 }

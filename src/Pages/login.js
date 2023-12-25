@@ -68,16 +68,16 @@ const LoginPage = () => {
         const response = await axios.post('http://localhost:3001/signin', formData);
   
         const message = response.data.message;
-        var firstName = response.data.userfirstName;
+        var userName = response.data.userfirstName;
         var userId = response.data.userId;
         var userEmail = response.data.userEmail;
-        var token = response.data.token;
+        var userToken = response.data.token;
 
   
         alert(message);
-        alert(`Welcome ${firstName}`);
+        alert(`Welcome ${userName}`);
 
-        navigate('/dashboard', { state: { userId,firstName,userEmail,token } });
+        navigate('/dashboard', { state: { userId, userName,userEmail,userToken } });
 
       }
   

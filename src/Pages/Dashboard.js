@@ -34,6 +34,8 @@ export default function Dashboard() {
 			</div>
 			<div className="flex flex-row gap-4 w-full">
 				<People />
+
+				{/* <TaskManagement/> */}
 			</div>
 		</div>
 	)

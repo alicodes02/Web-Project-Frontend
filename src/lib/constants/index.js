@@ -1,32 +1,41 @@
 import {
 	HiOutlineViewGrid,
 	HiOutlineCube,
-	HiOutlineShoppingCart,
 	HiOutlineUsers,
 	HiOutlineAnnotation,
 	HiOutlineQuestionMarkCircle,
 	HiOutlineCog
-} from 'react-icons/hi'
+} from 'react-icons/hi';
 
-export const DASHBOARD_SIDEBAR_LINKS = [
+import { GrTask } from "react-icons/gr";
+import { IoAddCircle } from "react-icons/io5";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import TaskManagement from '../../Pages/TaskManagement';
+import Layout from '../../Components/shared/Layout';
+
+export const DASHBOARD_SIDEBAR_LINKS = (userId, userName,userEmail, userToken) => [
+
 	{
 		key: 'dashboard',
 		label: 'Dashboard',
 		path: '/dashboard',
-		icon: <HiOutlineViewGrid />
+		icon: <HiOutlineViewGrid />,
+		component: <Layout userId = {userId} userName = {userName} userEmail={userEmail} userToken={userToken} />,
 	},
+
 	{
 		key: 'tasks',
 		label: 'Manage Tasks',
 		path: '/dashboard/tasks',
-		icon: <HiOutlineCube />
+		icon: <GrTask />,
+		component: <TaskManagement userEmail={userEmail} userToken={userToken} />,
 	},
 
 	{
 		key: 'addproject',
 		label: 'Add Project',
 		path: '/dashboard/projectmanagement',
-		icon: <HiOutlineCube />
+		icon: <IoAddCircle />
 	},
 
 	{
@@ -40,7 +49,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 		key: 'orders',
 		label: 'Calendar',
 		path: '/dashboard/calendar',
-		icon: <HiOutlineShoppingCart />
+		icon: <FaRegCalendarAlt />
 	},
 	{
 		key: 'customers',

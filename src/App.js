@@ -40,6 +40,7 @@ function App() {
           <Route path="allprojects" element={<GetAllProjects />} />
           <Route path="messages" element={<Message />} />
           <Route path="calendar" element={<MyCalendar />} />
+          <Route path="userprofile" element={<UserProfileCard />} />
           <Route path="meet" element={<Meet />} />
           <Route path="settings" element={<UserProfileCard />} />
           <Route path="support" element={<About />} />

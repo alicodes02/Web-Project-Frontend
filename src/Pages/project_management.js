@@ -11,9 +11,6 @@ import { faFileAlt } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { faUserCheck } from '@fortawesome/free-solid-svg-icons';
 
-
-
-
 const ProjectManagement = () => {
 
   const textStyle = {
