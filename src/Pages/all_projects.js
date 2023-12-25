@@ -14,17 +14,7 @@ const GetAllProjects = () => {
     display: 'flex',
   };
 
-  const textStyle = {
-    backdropFilter: 'blur(5px)',
-    backgroundColor: 'rgb(128,0,128,0.7)',
-    width:'80%',
-    padding: '50px',
-    height:"250vh",
-    borderRadius: '8px',
-    marginTop: '30px',
-    marginBottom: '30px',
-    color: '#FFFFFF'
-  };
+
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -75,7 +65,7 @@ const GetAllProjects = () => {
     <div>
 
       <main style={backgroundStyle}>
-        <div className="container mt-5" style={textStyle}>
+        <div className="container mt-5" >
 
       {projects.map((project) => (
         <Project

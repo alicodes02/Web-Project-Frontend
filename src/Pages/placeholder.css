@@ -1,0 +1,47 @@
+#email::placeholder {
+    color: white;
+  }
+  
+  /* For Password input */
+  #password::placeholder {
+    color: white;
+  }
+
+  
+  #firstName::placeholder {
+    color: white;
+  }
+
+
+  #lastName::placeholder {
+    color: white;
+  }
+
+
+  
+
+  #confirmPassword::placeholder {
+    color: white;
+  }
+
+  
+  #projectName::placeholder {
+    color: white;
+  }
+
+
+  
+  #description::placeholder {
+    color: white;
+  }
+
+  #projectCategory::placeholder {
+    color: white;
+  }
+
+
+
+  
+  #assignTo::placeholder {
+    color: white;
+  }
