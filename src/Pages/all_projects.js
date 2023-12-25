@@ -60,9 +60,9 @@ const GetAllProjects = () => {
 
   const handleEditProject = async (updatedProject) => {
     try {
-      await axios.put(`http://localhost:3001/update-project/${updatedProject.id}`, updatedProject);
+      await axios.patch(`http://localhost:3001/update-project/${updatedProject._id}`, updatedProject);
       setProjects((prevProjects) =>
-        prevProjects.map((project) => (project.id === updatedProject.id ? updatedProject : project))
+        prevProjects.map((project) => (project._id === updatedProject._id ? updatedProject : project))
       );
     } catch (error) {
       handleAPIError(error);

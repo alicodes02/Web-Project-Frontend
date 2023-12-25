@@ -47,6 +47,8 @@ const Project = ({ project, onDelete, onEdit }) => {
 
   const handleEditSubmit = async () => {
     try {
+
+      console.log(editData);
       await onEdit(editData);
       handleEditClose();
     } catch (error) {
