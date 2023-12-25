@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import Dialog from '@mui/material/Dialog'; // Import Dialog component
-import DialogTitle from '@mui/material/DialogTitle'; // Import DialogTitle component
+import { useNavigate } from 'react-router-dom';
 import DialogContent from '@mui/material/DialogContent'; // Import DialogContent component
 import DialogActions from '@mui/material/DialogActions'; // Import DialogActions component
 import TextField from '@mui/material/TextField'; // Import TextField component
@@ -23,8 +23,15 @@ import { faUserCheck } from '@fortawesome/free-solid-svg-icons';
 
 
 const Project = ({ project, onDelete, onEdit }) => {
+
+  const navigate = useNavigate();
+
+
+  
   const [openEditDialog, setOpenEditDialog] = useState(false);
   const [editData, setEditData] = useState({ ...project });
+
+
 
   const handleEditOpen = () => {
     setOpenEditDialog(true);
@@ -39,6 +46,13 @@ const Project = ({ project, onDelete, onEdit }) => {
       ...editData,
       [e.target.name]: e.target.value,
     });
+  };
+
+
+  const handleCardClick = () => {
+    // Pass state along with the route
+   
+    navigate('/dashboard/tasks', { state:  { projectId: project._id } }); 
   };
 
   const handleDelete = async () => {
@@ -69,7 +83,7 @@ const Project = ({ project, onDelete, onEdit }) => {
   };
 
   return (
-    <div className="project-card">
+    <div className="project-card" onClick={handleCardClick}>
       {/* Display project details */}
       <div className="project-card__top">
         <FontAwesomeIcon icon={faClipboard} style={{ marginRight: '10px', color:'white' }} />
