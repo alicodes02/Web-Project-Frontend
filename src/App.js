@@ -33,7 +33,6 @@ function App() {
         <Route path="/allprojects" element={<GetAllProjects />} />
         <Route path="/meetingscheduler" element={<MeetingScheduler />} />
         <Route path="/taskdetails" element={<TaskDetails/>} />
-
         <Route path="/dashboard" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="tasks" element={<TaskManagement />} />

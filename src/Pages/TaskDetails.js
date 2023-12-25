@@ -3,6 +3,9 @@ import { useLocation } from 'react-router-dom';
 import { Card, Container, Row, Col, Form,} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import CustomNavbar from '../Navbar/CustomNavbar';
+import axios from 'axios';
+import { useEffect } from 'react';
+
 export default function TaskDetails() {
 
   const backgroundStyle = {
@@ -41,6 +44,84 @@ export default function TaskDetails() {
       setComments([...comments, newComment]);
       setNewComment('');
     }
+  const fetchComments = async () => {
+
+    const token ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlicmFoZWVtcmVobWFuMTVAZ21haWwuY29tIiwiaWF0IjoxNzAzNDg3NDIzfQ.0Z8Us_0WOTOnLhWc7ySZcJdsFLLdqdqADjuZBw0S22k';
+
+    const headers = {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    };
+
+    try {
+
+      const response = await axios.get(`http://localhost:3001/get-comment/${taskId}`, {}, {headers});
+
+      const successMessage = response.data.message;
+
+      setComments(response.data.comments);
+    }
+
+    catch(error) {
+
+      const failMessage = error.response.data.message;
+  
+      alert(failMessage);
+  
+      console.log(error);
+  
+      if (error.response) {
+        console.error('Error:', error.response.data.message);
+      } else if (error.request) {
+        console.error('Error: No response received');
+      } else {
+        console.error('Error:', error.message);
+      }
+  }
+
+  };
+
+  useEffect( ()=> {
+
+    fetchComments();
+    console.log('Comments',comments);
+
+  }, [] );
+
+  const handleAddComment = async () => {
+
+    const token ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlicmFoZWVtcmVobWFuMTVAZ21haWwuY29tIiwiaWF0IjoxNzAzNDg3NDIzfQ.0Z8Us_0WOTOnLhWc7ySZcJdsFLLdqdqADjuZBw0S22k';
+
+    const headers = {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    };
+
+    console.log('Comment in handleComment = ', newComment);
+
+    try {
+
+      const response = await axios.post(`http://localhost:3001/add-comment/${taskId}`, { comment: newComment, userId: "65872eee5de4c786c9627705"}, {headers});
+      
+      fetchComments();
+    }
+
+    catch(error) {
+
+      const failMessage = error.response.data.message;
+  
+      alert(failMessage);
+  
+      console.log(error);
+  
+      if (error.response) {
+        console.error('Error:', error.response.data.message);
+      } else if (error.request) {
+        console.error('Error: No response received');
+      } else {
+        console.error('Error:', error.message);
+      }
+  }
   };
 
   return (
@@ -79,7 +160,7 @@ export default function TaskDetails() {
             <div className="mt-4">
               <h4 style={{ color: '#FFFFFF', marginBottom: '10px' }}>Comments</h4>
               {comments.map((comment, index) => (
-                <p key={index} style={{ color: '#FFFFFF' }}>{comment}</p>
+                <p key={index} style={{ color: '#FFFFFF' }}>{comment.text}</p>
               ))}
               <Form>
                 <Form.Group controlId="commentForm">
