@@ -17,6 +17,7 @@ import SignupPage from './Pages/signup';
 import UserProfileCard from './Pages/UserProfileCard';
 import GetAllProjects from './Pages/all_projects';
 import MeetingScheduler from './Pages/meeting_scheduler';
+import TaskDetails from './Pages/TaskDetails';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/userprofile" element={<UserProfileCard />} />
         <Route path="/allprojects" element={<GetAllProjects />} />
         <Route path="/meetingscheduler" element={<MeetingScheduler />} />
+        <Route path="/taskdetails" element={<TaskDetails/>} />
 
         <Route path="/dashboard" element={<Layout />}>
           <Route index element={<Dashboard />} />

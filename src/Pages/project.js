@@ -1,19 +1,23 @@
+
 import React, { useState } from 'react';
 import './project.css'; // Create your own CSS file for styling
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import axios from 'axios';
+import Dialog from '@mui/material/Dialog'; // Import Dialog component
+import DialogTitle from '@mui/material/DialogTitle'; // Import DialogTitle component
+import DialogContent from '@mui/material/DialogContent'; // Import DialogContent component
+import DialogActions from '@mui/material/DialogActions'; // Import DialogActions component
+import TextField from '@mui/material/TextField'; // Import TextField component
+import Button from '@mui/material/Button'; // Import Button component
+
+
 // Import other necessary components and icons as needed
 
 
-const Project = (props) => {
+const Project = ({ project, onDelete, onEdit }) => {
   const [openEditDialog, setOpenEditDialog] = useState(false);
-  const [editData, setEditData] = useState({
-    projectName: props.projectName,
-    description: props.description,
-    // Add other fields as needed
-  });
+  const [editData, setEditData] = useState({ ...project });
 
   const handleEditOpen = () => {
     setOpenEditDialog(true);
@@ -32,17 +36,7 @@ const Project = (props) => {
 
   const handleDelete = async () => {
     try {
-      const response = await axios.delete(`http://localhost:3000/delete-project/${props.id}`, {
-        headers: {
-          Authorization: `Bearer ${props.usertoken}`,
-        },
-      });
-
-      console.log('Project deleted successfully:', response.data);
-
-      if (props.onDelete) {
-        props.onDelete();
-      }
+      await onDelete(project.id);
     } catch (error) {
       console.error('Error deleting project:', error);
       alert('Error deleting project');
@@ -51,24 +45,7 @@ const Project = (props) => {
 
   const handleEditSubmit = async () => {
     try {
-      const updatedProject = {
-        projectName: editData.projectName,
-        description: editData.description,
-        // Add other fields as needed
-      };
-
-      const response = await axios.put(`http://localhost:3000/update-project/${props.id}`, updatedProject, {
-        headers: {
-          Authorization: `Bearer ${props.usertoken}`,
-        },
-      });
-
-      console.log('Project updated successfully:', response.data);
-
-      if (props.onEdit) {
-        props.onEdit();
-      }
-
+      await onEdit(editData);
       handleEditClose();
     } catch (error) {
       console.error('Error updating project:', error);
@@ -82,8 +59,18 @@ const Project = (props) => {
 
   return (
     <div className="project-card">
-      <h3 className="project-card__title">{props.projectName}</h3>
-      <p className="project-card__description">{props.description}</p>
+      {/* Display project details */}
+      <h3 className="project-card__title">{project.projectName}</h3>
+      <p className="project-card__description">{project.description}</p>
+      <div className="project-card__details">
+        <p><strong>Category:</strong> {project.projectCategory}</p>
+        <p><strong>Due Date:</strong> {project.dueDate}</p>
+        <p><strong>Assigned To:</strong> {project.assignTo}</p>
+        <p><strong>Visibility:</strong> {project.visibility}</p>
+        {/* Additional project details */}
+      </div>
+  
+      {/* Actions */}
       <div className="project-card__actions">
         <IconButton color="error" aria-label="delete" onClick={handleDelete}>
           <DeleteIcon />
@@ -92,7 +79,7 @@ const Project = (props) => {
           <EditIcon />
         </IconButton>
       </div>
-
+  
       {/* Edit Project Dialog */}
       <Dialog open={openEditDialog} onClose={handleEditClose}>
         <DialogTitle>Edit Project</DialogTitle>
@@ -123,7 +110,7 @@ const Project = (props) => {
         </DialogActions>
       </Dialog>
     </div>
-  );
-};
-
-export default Project;
+   );
+  };
+  
+  export default Project;

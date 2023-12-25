@@ -1,76 +1,52 @@
-/* ProjectManagement.css */
+/* project.css */
 
-.card {
-    --border-radius: 0.75rem;
-    --primary-color: #7257fa;
-    --secondary-color: #3c3852;
-    width: 80%;
-    font-family: "Arial";
-    padding: 1rem;
-    cursor: pointer;
-    border-radius: var(--border-radius);
-    background: #f1f1f3;
-    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 3%);
-    position: relative;
-    margin-top: 2%;
-  }
-  
-  .card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card__title {
-    font-size: 1.5rem;
-  }
-  
-  .card:hover .card__title {
-    color: var(--primary-color);
-    text-decoration: underline;
-  }
-  
-  .card > * + * {
-    margin-top: 1.1em;
-  }
-  
-  .card .card__content {
-    color: var(--secondary-color);
-    font-size: 0.86rem;
-  }
-  
-  .card .card__title {
-    padding: 0;
-    font-size: 1.3rem;
-    font-weight: bold;
-  }
-  
-  .card .card__date {
-    color: #6e6b80;
-    font-size: 0.8rem;
-  }
-  
-  .card .card__arrow {
-    position: absolute;
-    background: transparent;
-    padding: 0.4rem;
-    border-top-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-    bottom: 0;
-    right: 0;
-    transition: 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .card svg {
-    transition: 0.2s;
-  }
-  
-  .card:hover .card__arrow {
-    background: black;
-  }
-  
-  .card:hover .card__arrow svg {
-    transform: translateX(3px);
-  }
-  
+.project-card {
+  --border-radius: 0.75rem;
+  --primary-color: #7257fa;
+  --secondary-color: #3c3852;
+  width: 80%;
+  font-family: "Arial";
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  background: #f1f1f3; /* Adjust background color */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.03);
+  position: relative;
+  margin-top: 2%;
+  margin-left: 10%;
+}
+
+.project-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-card__title {
+  font-size: 1.5rem;
+  color: var(--primary-color); /* Title color */
+  margin-bottom: 0.5rem; /* Spacing between title and description */
+}
+
+.project-card__description {
+  color: var(--secondary-color); /* Description color */
+  font-size: 1rem; /* Adjust description font size */
+  margin-bottom: 1rem; /* Spacing between description and details */
+}
+
+.project-card__details {
+  color: #6e6b80; /* Details color */
+}
+
+.project-card__details p {
+  margin: 0.5rem 0; /* Adjust spacing between details */
+}
+
+.project-card__actions {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 1rem;
+}
+
+.project-card__actions button {
+  margin-right: 0.5rem; /* Adjust spacing between buttons */
+}
