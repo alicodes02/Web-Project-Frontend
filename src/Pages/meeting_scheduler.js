@@ -4,7 +4,7 @@ import Base from '../Components/Base';
 import MeetingForm from './MeetingForm';
 import MeetingList from './MeetingList';
 
-const MeetingScheduler = () => {
+const Meet = () => {
   const [proposedTime, setProposedTime] = useState('');
   const [scheduledMeetings, setScheduledMeetings] = useState([]);
   const [selectedMeeting, setSelectedMeeting] = useState(null);
@@ -77,4 +77,4 @@ const MeetingScheduler = () => {
   );
 };
 
-export default MeetingScheduler;
+export default Meet;

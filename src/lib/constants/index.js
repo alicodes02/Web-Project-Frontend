@@ -3,7 +3,6 @@ import {
 	HiOutlineCube,
 	HiOutlineShoppingCart,
 	HiOutlineUsers,
-	//HiOutlineDocumentText,
 	HiOutlineAnnotation,
 	HiOutlineQuestionMarkCircle,
 	HiOutlineCog
@@ -13,31 +12,31 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 	{
 		key: 'dashboard',
 		label: 'Dashboard',
-		path: '/',
+		path: '/dashboard',
 		icon: <HiOutlineViewGrid />
 	},
 	{
 		key: 'products',
 		label: 'Tasks',
-		path: '/products',
+		path: '/dashboard/tasks',
 		icon: <HiOutlineCube />
 	},
 	{
 		key: 'orders',
 		label: 'Calendar',
-		path: '/calendar',
+		path: '/dashboard/calendar',
 		icon: <HiOutlineShoppingCart />
 	},
 	{
 		key: 'customers',
 		label: 'Meet',
-		path: '/meet',
+		path: '/dashboard/meet',
 		icon: <HiOutlineUsers />
 	},
 	{
 		key: 'messages',
 		label: 'Messages',
-		path: '/messages',
+		path: '/dashboard/messages',
 		icon: <HiOutlineAnnotation />
 	}
 ]
@@ -46,13 +45,13 @@ export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
 	{
 		key: 'settings',
 		label: 'Settings',
-		path: '/settings',
+		path: '/dashboard/settings',
 		icon: <HiOutlineCog />
 	},
 	{
 		key: 'support',
 		label: 'Help & Support',
-		path: '/support',
+		path: '/dashboard/support',
 		icon: <HiOutlineQuestionMarkCircle />
 	},
 ]

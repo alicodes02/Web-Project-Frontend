@@ -1,5 +1,5 @@
 import React from 'react';
-import Base from '../Components/Base';
+//import Base from '../Components/Base';
 import {  Button } from 'reactstrap';
 
 const UserProfileCard = () => {
@@ -17,7 +17,7 @@ const UserProfileCard = () => {
 
   return (
     
-    <Base>
+     //<Base>
     
       <div className="row" >
         {/* User Profile Card */}
@@ -110,8 +110,7 @@ const UserProfileCard = () => {
           </div>
         </div>
       </div>
-    </Base>
-    
+    //</Base> 
   );
 };
 
