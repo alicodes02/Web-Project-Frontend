@@ -39,11 +39,6 @@ export default function TaskDetails() {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
 
-  const handleAddComment = () => {
-    if (newComment.trim() !== '') {
-      setComments([...comments, newComment]);
-      setNewComment('');
-    }
   const fetchComments = async () => {
 
     const token ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlicmFoZWVtcmVobWFuMTVAZ21haWwuY29tIiwiaWF0IjoxNzAzNDg3NDIzfQ.0Z8Us_0WOTOnLhWc7ySZcJdsFLLdqdqADjuZBw0S22k';
@@ -122,6 +117,7 @@ export default function TaskDetails() {
         console.error('Error:', error.message);
       }
   }
+    
   };
 
   return (
