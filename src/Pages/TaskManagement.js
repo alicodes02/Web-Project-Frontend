@@ -32,9 +32,13 @@ const TaskManagement = () => {
   const [sortOption, setSortOption] = useState('none');
 
   useEffect(() => {
-    fetchAllTasks();
+    if (projectId) {
+      fetchprojectTasks();
+    } else {
+      fetchAllTasks();
+    }
     fetchEmployees();
-  }, []);
+  }, [projectId]);
 
   const fetchEmployees = async () => {
     try {
@@ -46,6 +50,15 @@ const TaskManagement = () => {
   };
 
   const fetchAllTasks = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3001/all-tasks`);
+      setTasks(response.data.tasks);
+    } catch (error) {
+      handleFetchError(error);
+    }
+  };
+
+  const fetchprojectTasks = async () => {
     try {
       const response = await axios.get(`http://localhost:3001/all-tasks/${projectId}`);
       setTasks(response.data.tasks);
