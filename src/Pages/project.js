@@ -10,6 +10,12 @@ import DialogContent from '@mui/material/DialogContent'; // Import DialogContent
 import DialogActions from '@mui/material/DialogActions'; // Import DialogActions component
 import TextField from '@mui/material/TextField'; // Import TextField component
 import Button from '@mui/material/Button'; // Import Button component
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTh } from '@fortawesome/free-solid-svg-icons';
+import { faClipboard } from '@fortawesome/free-solid-svg-icons';
+import { faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUserCheck } from '@fortawesome/free-solid-svg-icons';
 
 
 // Import other necessary components and icons as needed
@@ -64,14 +70,37 @@ const Project = ({ project, onDelete, onEdit }) => {
   return (
     <div className="project-card">
       {/* Display project details */}
-      <h3 className="project-card__title">{project.projectName}</h3>
+      <div className="project-card__top">
+        <FontAwesomeIcon icon={faClipboard} style={{ marginRight: '10px', color:'white' }} />
+        <h3 className="project-card__title">{project.projectName}</h3>
+      </div>
+
+      <div className="project-card__top2">
+      <FontAwesomeIcon icon={faFileAlt} style={{ marginRight: '10px', color:'white' }}/>
       <p className="project-card__description">{project.description}</p>
+      </div>
       <div className="project-card__details">
-        <p><strong>Category:</strong> {project.projectCategory}</p>
+        <div className="project-card__category">
+          <FontAwesomeIcon icon={faTh} style={{ marginRight: '5px' }} />
+           <p><strong>Category:</strong>{project.projectCategory}</p>
+         </div>
+
+       <div className="project-card__due-date">
+        <FontAwesomeIcon icon={faCalendarAlt} style={{ marginRight: '10px', color:'white' }} />
         <p><strong>Due Date:</strong> {project.dueDate}</p>
+       </div>
+
+       <div className="project-card__assignment">
+        <FontAwesomeIcon icon={faUserCheck} style={{ marginRight: '10px', color:'white' }}/>
         <p><strong>Assigned To:</strong> {project.assignTo}</p>
+       </div>
+
+       <div className="project-card__visibility">
         <p><strong>Visibility:</strong> {project.visibility}</p>
         {/* Additional project details */}
+        </div>
+
+
       </div>
   
       {/* Actions */}

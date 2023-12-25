@@ -1,52 +1,151 @@
-/* project.css */
-
-.project-card {
+/* Base variables */
+:root {
   --border-radius: 0.75rem;
-  --primary-color: #7257fa;
-  --secondary-color: #3c3852;
+  --primary-color: #0a0a0b;
+  --secondary-color: white;
+}
+
+/* Project Card Container */
+.project-card {
   width: 80%;
   font-family: "Arial";
   padding: 1rem;
   cursor: pointer;
   border-radius: var(--border-radius);
-  background: #f1f1f3; /* Adjust background color */
+  background: purple; /* Adjust background color */
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.03);
   position: relative;
-  margin-top: 2%;
-  margin-left: 10%;
+  margin: 2% 10% 0; /* Top, Right/Left, Bottom */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.project-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+/* Top Section */
+.project-card__top {
+  display: flex;
+  align-items: center;
+}
+
+.project-card__top .fa-clipboard {
+  margin-right: 10px;
+  color: white;
+}
+
+/* Secondary Top Section */
+.project-card__top2 {
+  display: flex;
+  align-items: center;
+}
+
+.project-card__top2 .faFileAlt {
+  margin-right: 10px;
+  color: white;
 }
 
 .project-card__title {
-  font-size: 1.5rem;
-  color: var(--primary-color); /* Title color */
-  margin-bottom: 0.5rem; /* Spacing between title and description */
+  margin: 0;
 }
 
 .project-card__description {
-  color: var(--secondary-color); /* Description color */
-  font-size: 1rem; /* Adjust description font size */
-  margin-bottom: 1rem; /* Spacing between description and details */
+  color: var(--secondary-color);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
+/* Details Section */
 .project-card__details {
-  color: #6e6b80; /* Details color */
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-right: 10px;
+  width: 100%;
 }
 
 .project-card__details p {
-  margin: 0.5rem 0; /* Adjust spacing between details */
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
 }
 
+/* Category Section */
+.project-card__category {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  color: white;
+  margin-bottom: 2rem;
+  margin-left: 1rem; /* Adding space below the category */
+}
+
+/* Detail Sections */
+.project-card__category,
+.project-card__due-date,
+.project-card__assignment,
+.project-card__visibility {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+/* Adjustments for icons */
+.project-card__details p .fa-calendar-alt,
+.project-card__details p .fa-user-check {
+  margin-right: 0.5rem;
+}
+
+/* Actions Section */
 .project-card__actions {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 1rem;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .project-card__actions button {
-  margin-right: 0.5rem; /* Adjust spacing between buttons */
+  margin-right: 0.5rem;
+}
+
+/* Additional Detail Sections (Due Date, Visibility, Assignment) */
+.project-card__due-date {
+  bottom: 1rem;
+  left: 1rem;
+  gap: 1rem;
+}
+
+.project-card__visibility {
+  gap: 1rem;
+}
+
+.project-card__assignment {
+  bottom: 1rem;
+  left: 1rem;
+  gap: 1rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .project-card {
+    width: 90%;
+    margin: 2% 5% 0;
+    font-size: 0.8rem;
+  }
+  
+  /* Adjust other necessary styles for smaller screens */
+}
+
+@media screen and (max-width: 480px) {
+  .project-card {
+    width: 95%;
+    margin: 2% 2.5% 0;
+    font-size: 0.7rem;
+  }
+  
+  /* Adjust other necessary styles for even smaller screens */
 }
