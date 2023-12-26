@@ -1,7 +1,46 @@
 import React from 'react';
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 
 const Notifications = () => {
+  const [notifications, setNotifications] = useState([]);
+  
+  const formatTimestamp = (timestamp) => {
+    const date = new Date(timestamp);
+    const now = new Date();
+  
+    if (date.getDate() === now.getDate() && date.getMonth() === now.getMonth() && date.getFullYear() === now.getFullYear()) {
+      const hours = date.getHours().toString().padStart(2, '0');
+      const minutes = date.getMinutes().toString().padStart(2, '0');
+      return `${hours}:${minutes}`;
+    } else {
+      const timeDiff = now.getTime() - date.getTime();
+      const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      return `${daysDiff}d ago`;
+    }
+  };
 
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/notifications');
+        setNotifications(response.data);
+      } catch (error) {
+        console.error('Error fetching notifications:', error);
+      }
+    };
+
+    fetchNotifications();
+  }, []);
+
+  // const handleDelete = async (notificationId) => {
+  //   try {
+  //     await axios.delete(`http://localhost:3001/delete-notification:${notificationId}`);
+  //     setNotifications((prevNotifications) => prevNotifications.filter((n) => n.notificationId !== notificationId));
+  //   } catch (error) {
+  //     console.error('Error deleting notification:', error);
+  //   }
+  // };
   return (
     <div>
       <div className="w-full h-full bg-gray-800 bg-opacity-90 top-0 overflow-y-auto overflow-x-hidden fixed sticky-0" id="chec-div">
@@ -9,29 +48,34 @@ const Notifications = () => {
           <div className="2xl:w-9/12 bg-gray-50 h-screen overflow-y-auto p-8 absolute right-0">
             <div className="flex items-center justify-between">
               <p tabIndex="0" className="focus:outline-none text-2xl font-semibold leading-6 text-gray-800">Notifications</p>
-              {/* Remove the close button below */}
             </div>
 
-            <div className="w-full p-3 mt-8 bg-white rounded flex">
-              {/* Notification Item 1 */}
-            </div>
+            <div>
+            {notifications.length === 0 ? (
+               <p>No notifications found.</p>
+               ) : (
+             notifications.map((notification) => {
+             const isNew = (Date.now() - new Date(notification.createdAt).getTime()) < 7 * 24 * 60 * 60 * 1000;
+            return (
+            <div key={notification._id} className="flex items-center p-4 bg-white rounded-lg shadow-xl mx-auto max-w-sm relative m-10">
+              {isNew && (
+                <span className="text-xs font-bold uppercase px-2 mt-2 mr-2 text-green-900 bg-green-400 border rounded-full absolute top-0 right-0">New</span>
+              )}
+              <span className="text-xs font-semibold uppercase m-1 py-1 mr-3 text-gray-500 absolute bottom-0 right-0">{formatTimestamp(notification.createdAt)}</span>
 
-            <div className="w-full p-3 mt-4 bg-white rounded shadow flex flex-shrink-0">
-              {/* Notification Item 2 */}
-            </div>
-
-            <div className="w-full p-3 mt-4 bg-red-100 rounded flex items-center">
-              <div tabIndex="0" aria-label="storage icon" role="img" className="focus:outline-none w-8 h-8 border rounded-full border-red-200 flex items-center flex-shrink-0 justify-center">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14 2V14C14 14.1768 13.9298 14.3464 13.8047 14.4714C13.6797 14.5964 13.5101 14.6667 13.3333 14.6667H2.66667C2.48986 14.6667 2.32029 14.5964 2.19526 14.4714C2.07024 14.3464 2 14.1768 2 14V2C2 1.82319 2.07024 1.65362 2.19526 1.5286C2.32029 1.40357 2.48986 1.33334 2.66667 1.33334H13.3333C13.5101 1.33334 13.6797 1.40357 13.8047 1.5286C13.9298 1.65362 14 1.82319 14 2ZM3.33333 10.6667V13.3333H12.6667V10.6667H3.33333ZM10 11.3333H11.3333V12.6667H10V11.3333Z" fill="#B91C1C" />
-                </svg>
+              <div className="ml-5">
+                <h4 className="text-lg font-semibold leading-tight text-gray-900">{notification.title}</h4>
+                <p className="text-sm text-gray-600">{notification.description}</p>
               </div>
-
-              <div className="pl-3 w-full flex items-center justify-between">
-                <p tabIndex="0" className="focus:outline-none text-sm text-red-800">Your storage is almost full. Consider upgrading.</p>
-                <button tabIndex="0" className="focus:outline-none text-sm text-red-800">Upgrade</button>
-              </div>
+              <button className="p-2 text-black-500 ml-2 hover:cursor-pointer hover:rounded-[10px] hover:bg-gray-100 hover:p-2">
+                 X
+               </button>
+                {/*onClick={() => handleDelete(notification._id)}*/}
             </div>
+          );
+        })
+      )}
+    </div>
           </div>
         </div>
       </div>

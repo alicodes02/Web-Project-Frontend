@@ -1,20 +1,12 @@
 import {
 	HiOutlineViewGrid,
-	HiOutlineCube,
-	HiOutlineUsers,
-	HiOutlineAnnotation,
+
 	HiOutlineQuestionMarkCircle,
-	HiOutlineCog
-} from 'react-icons/hi';
-
-import { GrTask } from "react-icons/gr";
-import { IoAddCircle } from "react-icons/io5";
-import { FaRegCalendarAlt } from "react-icons/fa";
-import TaskManagement from '../../Pages/TaskManagement';
-import Layout from '../../Components/shared/Layout';
-
-export const DASHBOARD_SIDEBAR_LINKS = (userId, userName,userEmail, userToken) => [
-
+} from 'react-icons/hi'
+import { IoCalendarOutline,IoEarthOutline,IoAlbumsOutline,IoCopyOutline,IoSettingsOutline  } from "react-icons/io5";
+import { FaTasks } from "react-icons/fa";
+import Layout from '../../Components/shared/Layout'
+export const DASHBOARD_SIDEBAR_LINKS = (userId, userName,userEmail, userToken) =>[
 	{
 		key: 'dashboard',
 		label: 'Dashboard',
@@ -27,49 +19,35 @@ export const DASHBOARD_SIDEBAR_LINKS = (userId, userName,userEmail, userToken) =
 		key: 'tasks',
 		label: 'Manage Tasks',
 		path: '/dashboard/tasks',
-		icon: <GrTask />,
-		component: <TaskManagement userEmail={userEmail} userToken={userToken} />,
+		icon: <FaTasks />
 	},
 
 	{
 		key: 'addproject',
 		label: 'Add Project',
 		path: '/dashboard/projectmanagement',
-		icon: <IoAddCircle />
+		icon: <IoAlbumsOutline />
 	},
 
 	{
 		key: 'Manage Project',
 		label: 'Manage Projects',
 		path: '/dashboard/allprojects',
-		icon: <HiOutlineCube />
+		icon: <IoCopyOutline />
 	},
 
 	{
 		key: 'orders',
 		label: 'Calendar',
 		path: '/dashboard/calendar',
-		icon: <FaRegCalendarAlt />
+		icon: <IoCalendarOutline />
 	},
 	{
 		key: 'customers',
 		label: 'Meet',
 		path: '/dashboard/meet',
-		icon: <HiOutlineUsers />
+		icon: <IoEarthOutline/>
 	},
-
-	{
-		key: 'customers',
-		label: 'Manage Meetings',
-		path: '/dashboard/manage-meetings',
-		icon: <HiOutlineUsers />
-	},
-	{
-		key: 'messages',
-		label: 'Messages',
-		path: '/dashboard/messages',
-		icon: <HiOutlineAnnotation />
-	}
 ]
 
 export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
@@ -77,7 +55,7 @@ export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
 		key: 'settings',
 		label: 'Settings',
 		path: '/dashboard/settings',
-		icon: <HiOutlineCog />
+		icon: <IoSettingsOutline />
 	},
 	{
 		key: 'support',
