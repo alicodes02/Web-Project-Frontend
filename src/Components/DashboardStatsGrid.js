@@ -1,8 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiTask } from "react-icons/bi";
 import { GrProjects } from "react-icons/gr";
+import axios from 'axios';
 
 export default function DashboardStatsGrid() {
+	
+	const [tasks,setTasks] = useState(0);
+	const [projects,setProjects] = useState(0);
+
+	const getTotalTasks = async() => {
+
+		try {
+
+			const response = await axios.get('http://localhost:3001/tasks/count');
+			setTasks(response.data.count);
+		}
+
+		catch (error) {
+
+			alert(error.response.data.message)
+		}
+
+	};
+
+	const getTotalProjects = async() => {
+
+		try {
+			
+			const response = await axios.get('http://localhost:3001/count-projects');
+			setProjects(response.data.count);
+		}
+
+		catch (error) {
+
+			alert(error.response.data.message)
+		}
+
+	};
+
+	useEffect( () => {
+
+		getTotalTasks();
+		getTotalProjects();
+
+	},0,0);
+
 	return (
 		<div className="flex gap-4">
 			
@@ -11,9 +53,9 @@ export default function DashboardStatsGrid() {
 					<BiTask className="text-2xl text-white" />
 				</div>
 				<div className="pl-4">
-					<button className="text-sm text-gray-500 font-light">Tasks</button>
+					<button className="text-sm text-gray-500 font-light">Total Tasks</button>
 					<div className="flex items-center">
-						<strong className="text-xl text-gray-700 font-semibold">20</strong>
+						<strong className="text-xl text-gray-700 font-semibold">{tasks}</strong>
 					</div>
 				</div>
 			</BoxWrapper>
@@ -22,9 +64,9 @@ export default function DashboardStatsGrid() {
 					<GrProjects className="text-2xl text-white" />
 				</div>
 				<div className="pl-4">
-					<button className="text-sm text-gray-500 font-light">Projects</button>
+					<button className="text-sm text-gray-500 font-light">Total Projects</button>
 					<div className="flex items-center">
-						<strong className="text-xl text-gray-700 font-semibold">10</strong>
+						<strong className="text-xl text-gray-700 font-semibold">{projects}</strong>
 					</div>
 				</div>
 			</BoxWrapper>
