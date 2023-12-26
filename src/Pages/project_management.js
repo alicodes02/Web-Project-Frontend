@@ -11,6 +11,8 @@ import { faFileAlt } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { faUserCheck } from '@fortawesome/free-solid-svg-icons';
 import './placeholder.css'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProjectManagement = () => {
 
@@ -46,9 +48,30 @@ const ProjectManagement = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+     
+    if (projectData.projectName.trim() === '' || projectData.assignTo.trim() === '' || projectData.dueDate.trim() === '' || projectData.description.trim() === '' || projectData.projectCategory.trim()  === '' || projectData.visibility.trim() === '') 
+    {
+
+      toast.error('Please fill in all the fields.', {
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: 3000, // Close the alert after 3 seconds
+        style: { backgroundColor: '#990099', color: '#fff', fontSize: '14px', padding: '10px' },
+      });
+      return;
+      
+    }
+
     try {
 
       const response = await axios.post('http://localhost:3001/project', projectData);
+
+
+      toast.success('Project created Successfully.', {
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: 3000, // Close the alert after 3 seconds
+        style: { backgroundColor: '#990099', color: '#fff', fontSize: '14px', padding: '10px' },
+      });
+      return;
 
         const message = response.data.message;
        

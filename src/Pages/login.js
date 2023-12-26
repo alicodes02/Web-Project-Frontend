@@ -74,6 +74,17 @@ const LoginPage = () => {
         var userEmail = response.data.userEmail;
         var userToken = response.data.token;
 
+        toast.success(`Welcome ${userName}`, {
+          position: toast.POSITION.BOTTOM_CENTER,
+          autoClose: 3000,
+          style: {
+            backgroundColor: 'purple',
+            color: '#fff',
+            fontSize: '14px',
+            padding: '10px',
+          },
+        });
+
   
         alert(message);
         alert(`Welcome ${userName}`);

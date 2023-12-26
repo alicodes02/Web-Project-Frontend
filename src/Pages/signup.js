@@ -108,11 +108,21 @@ const SignupPage = () => {
         var userEmail = response.data.userEmail;
         var token = response.data.token;
 
-  
+        toast.success(`Successfully signed up!`, {
+          position: toast.POSITION.BOTTOM_CENTER,
+          autoClose: 3000,
+          style: {
+            backgroundColor: 'purple',
+            color: '#fff',
+            fontSize: '14px',
+            padding: '10px',
+          },
+        });
+
         alert(message);
         alert(`Welcome ${firstName}`);
 
-        navigate('/dashboard', { state: { userId,firstName,userEmail,token } });
+        
     }
 
     catch(error) {

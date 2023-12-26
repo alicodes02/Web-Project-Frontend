@@ -4,6 +4,8 @@ import axios from 'axios';
 import Base from '../Components/Base';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MeetingManagement = () => {
 
@@ -48,8 +50,26 @@ const MeetingManagement = () => {
   const scheduleMeeting = async (e) => {
     e.preventDefault();
 
+    if (meetingData.proposedTime.trim() === '' || meetingData.meetingDetails.title.trim() === '' || meetingData.meetingDetails.description.trim() === '') 
+    {
+
+      toast.error('Please fill in all the fields.', {
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: 3000, // Close the alert after 3 seconds
+        style: { backgroundColor: '#990099', color: '#fff', fontSize: '14px', padding: '10px' },
+      });
+      return;
+      
+    }
+
     try {
       const response = await axios.post('http://localhost:3001/meeting', meetingData);
+
+      toast.success('Meeting created Successfully.', {
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: 3000, // Close the alert after 3 seconds
+        style: { backgroundColor: '#990099', color: '#fff', fontSize: '14px', padding: '10px' },
+      });
 
       const message = response.data.message;
       alert(message);
