@@ -94,12 +94,34 @@ const TaskManagement = () => {
   };
 
   const handleAddTask = async (e) => {
+
     e.preventDefault();
+
+    let url = "";
+
+    if(projectId) {
+
+      url = `http://localhost:3001/add-task/${projectId}`;
+
+    }
+
+    else {
+
+      url = `http://localhost:3001/add-task`;
+    }
   
     try {
-      const response = await axios.post(`http://localhost:3001/add-task/${projectId}`, formData);
+      const response = await axios.post(url, formData);
       alert(response.data.message);
-      fetchAllTasks();
+
+      if(projectId) {
+        fetchprojectTasks();
+      }
+
+      else {
+        fetchAllTasks();
+      }
+      
       handleClose();
     } catch (error) {
       handleFetchError(error);
@@ -117,7 +139,14 @@ const TaskManagement = () => {
     try {
       const response = await axios.patch(`http://localhost:3001/edit-status/${taskId}`, {}, { headers });
       console.log(response);
-      fetchAllTasks();
+
+      if(projectId) {
+        fetchprojectTasks();
+      }
+
+      else {
+        fetchAllTasks();
+      }
     } catch (error) {
       handleFetchError(error);
     }
@@ -133,7 +162,15 @@ const TaskManagement = () => {
     try {
       const response = await axios.patch(`http://localhost:3001/edit-progress/${taskId}`, { progress: value }, { headers });
       console.log(response);
-      fetchAllTasks();
+
+      if(projectId) {
+        fetchprojectTasks();
+      }
+
+      else {
+        fetchAllTasks();
+      }
+      
     } catch (error) {
       handleFetchError(error);
     }
