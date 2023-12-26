@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import { Link, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
-import { HiOutlineLogout } from 'react-icons/hi'
 import { DASHBOARD_SIDEBAR_LINKS, DASHBOARD_SIDEBAR_BOTTOM_LINKS } from '../../lib/constants'
 import '../shared/styles/sidebar.css'
 import { useNavigate } from 'react-router-dom';
@@ -21,11 +20,14 @@ export default function Sidebar(props) {
 
   const links = DASHBOARD_SIDEBAR_LINKS(props.userId, props.userFirstName,props.userEmail, props.userToken);
  
+  const ReloadPage = ()=>{
+    navigate("/dashboard");
+  }
   return (
     <div className="w-60 p-3 flex flex-col" style={{ backgroundColor: '#990099' }}>
       <div className="flex items-center gap-2 px-1 py-3">
       <FontAwesomeIcon icon={faUsers}   style={{ marginRight: '10px'  , color:'white'}}/>
-        <span className="text-neutral-200 text-lg">CollaboraHub</span>
+        <button className="text-neutral-200 text-lg hover:cursor-pointer" onClick={ReloadPage}>CollaboraHub</button>
       </div>
       <div className="py-8 flex flex-1 flex-col gap-0.5" >
             {links.map((link) => (
@@ -36,17 +38,6 @@ export default function Sidebar(props) {
         {DASHBOARD_SIDEBAR_BOTTOM_LINKS.map((link) => (
           <SidebarLink key={link.key} link={link} activeLinkClass={activeLinkClass}/>
         ))}
-        <div className={classNames(linkClass, 'cursor-pointer text-neutral-200')}>
-          <span className="text-xl">
-            <HiOutlineLogout />
-          </span>
-          <button onClick={
-            () => {
-              navigate('/');
-            }
-
-          }>Logout</button>
-        </div>
       </div>
     </div>
   )

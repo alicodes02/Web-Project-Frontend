@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Menu, Popover, Transition } from '@headlessui/react'
-import { HiOutlineBell, HiOutlineSearch, HiOutlineChatAlt } from 'react-icons/hi'
+import { HiOutlineBell, HiOutlineSearch,} from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
 import classNames from 'classnames'
 import Notifications from '../Notifications'
@@ -8,9 +8,6 @@ import Notifications from '../Notifications'
 export default function Header() {
 	const navigate = useNavigate()
 
-	const GoToMessages = () =>{
-	    navigate('/dashboard/messages');
-	}
 	return (
 		<div className="bg-white h-16 px-4 flex items-center border-b border-gray-200 justify-between">
 			<div className="relative">
@@ -23,20 +20,6 @@ export default function Header() {
                 />
 			</div>
 			<div className="flex items-center gap-2 mr-2">
-				<Popover className="relative">
-					{({ open }) => (
-						<>
-							<Popover.Button onClick={GoToMessages}
-								className={classNames(
-									open && 'bg-gray-100',
-									'group inline-flex items-center rounded-sm p-1.5 text-gray-700 focus:outline-none hover:bg-gray-100 hover:rounded-xl active:bg-gray-150 active:rounded-xl'
-								)}
-							>
-								<HiOutlineChatAlt fontSize={24} />
-							</Popover.Button>
-						</>
-					)}
-				</Popover>
 				<Popover className="relative">
 					{({ open }) => (
 						<>
@@ -90,14 +73,14 @@ export default function Header() {
 						leaveFrom="transform opacity-100 scale-100"
 						leaveTo="transform opacity-0 scale-95"
 					>
-						<Menu.Items className="origin-top-right z-10 absolute right-0 mt-2 w-48 rounded-sm shadow-md p-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+						<Menu.Items className="origin-top-right z-10 absolute right-0 mt-2 w-48 rounded-[15px] shadow-md p-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
 							<Menu.Item>
 								{({ active }) => (
 									<div
-										onClick={() => navigate('userprofile')}
+										onClick={() => navigate('/dashboard/settings')}
 										className={classNames(
 											active && 'bg-gray-100',
-											'active:bg-gray-200 rounded-sm px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
+											'active:bg-gray-200 hover:rounded-[15px] active:rounded-[15px] px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
 										)}
 									>
 										Your Profile
@@ -110,7 +93,7 @@ export default function Header() {
 										onClick={() => navigate('/dashboard/settings')}
 										className={classNames(
 											active && 'bg-gray-100',
-											'active:bg-gray-200 rounded-sm px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
+											'active:bg-gray-200 hover:rounded-[15px] active:rounded-[15px] px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
 										)}
 									>
 										Settings
@@ -119,10 +102,10 @@ export default function Header() {
 							</Menu.Item>
 							<Menu.Item>
 								{({ active }) => (
-									<div
+									<div onClick={() => navigate('/')}
 										className={classNames(
 											active && 'bg-gray-100',
-											'active:bg-gray-200 rounded-sm px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
+											'active:bg-gray-200 hover:rounded-[15px] active:rounded-[15px] px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
 										)}
 									>
 										Sign out

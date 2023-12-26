@@ -7,7 +7,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts'
 
 
 const RADIAN = Math.PI / 180
-const COLORS = ['#00C49F', '#FFBB28']
+const COLORS = ['#38598b', '#113f67']
 
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
 	const radius = innerRadius + (outerRadius - innerRadius) * 0.5
@@ -57,7 +57,7 @@ export default function TasksPieChart() {
 	]
 
 	return (
-		<div className="w-[20rem] h-[22rem] bg-white p-4 rounded-[20px] border border-gray-200 flex flex-col">
+		<div className="w-[20rem] h-[22rem] bg-white p-4 rounded-[20px] border border-gray-200 flex flex-col hover:shadow-lg transition duration-10 ease-in-out cursor-pointer">
 			<strong className="text-gray-700 font-large">Tasks</strong>
 			<div className="mt-3 w-full flex-1 text-xs">
 				<ResponsiveContainer width="100%" height="100%">

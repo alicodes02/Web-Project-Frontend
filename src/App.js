@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Layout from './Components/shared/Layout.js'
 import Dashboard from './Pages/Dashboard.js'
-import Message from './Pages/Message.js'
 import MyCalendar from './Pages/Calendar.js'
 import Home from './Pages/home';
 import About from './Pages/about';
@@ -39,7 +38,6 @@ function App() {
           <Route path="tasks" element={<TaskManagement />} />
           <Route path="projectmanagement" element={<ProjectManagement />} />
           <Route path="allprojects" element={<GetAllProjects />} />
-          <Route path="messages" element={<Message />} />
           <Route path="calendar" element={<MyCalendar />} />
           <Route path="userprofile" element={<UserProfileCard />} />
           <Route path="meet" element={<MeetingManagement />} />
