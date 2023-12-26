@@ -7,7 +7,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts'
 
 
 const RADIAN = Math.PI / 180
-const COLORS = ['#38598b', '#113f67']
+const COLORS = ['#00C49F', '#FFBB28']
 
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
 	const radius = innerRadius + (outerRadius - innerRadius) * 0.5
