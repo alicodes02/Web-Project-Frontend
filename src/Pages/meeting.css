@@ -1,0 +1,193 @@
+/* Meeting Card Container */
+.meeting-card {
+    width: 80%;
+    font-family: "Arial";
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    background: purple; /* Adjust background color */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.03);
+    position: relative;
+    margin: 2% 10% 0; /* Top, Right/Left, Bottom */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: opacity 0.3s ease, box-shadow 0.3s ease; /* Transition effect for opacity and box-shadow */
+  }
+  
+  .meeting-card:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+    box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Top Section */
+  .meeting-card__top {
+    display: flex;
+    align-items: center;
+  }
+  
+  .meeting-card__top .fa-clipboard {
+    margin-right: 10px;
+    color: white;
+  }
+  
+  /* Secondary Top Section */
+  .meeting-card__top2 {
+    display: flex;
+    align-items: center;
+  }
+  
+  .meeting-card__top2 .faFileAlt {
+    margin-right: 10px;
+    color: white;
+  }
+  
+  .meeting-card__title {
+    margin: 0;
+  }
+  
+  .meeting-card__description {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Details Section */
+  .meeting-card__details {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-right: 10px;
+    width: 100%;
+  }
+  
+  .meeting-card__details p {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Category Section */
+  .meeting-card__category {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    color: white;
+    margin-bottom: 2rem;
+    margin-left: 1rem; /* Adding space below the category */
+  }
+  
+  /* Detail Sections */
+  .meeting-card__category,
+  .meeting-card__due-date,
+  .meeting-card__assignment,
+  .meeting-card__visibility {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+
+  .meeting-card__details p .fa-clock {
+    /* Your styling for the clock icon here */
+    margin-right: 0.5rem;
+    color: white; /* Example color */
+    font-size: 1.2rem; /* Example font size */
+  }
+  
+  /* Adjustments for icons */
+  .meeting-card__details p .FaClock-calendar-alt,
+  .meeting-card__details p .FaClock-user-check {
+    margin-right: 0.5rem;
+  }
+  
+  /* Actions Section */
+  .meeting-card__actions {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .meeting-card__actions button {
+    margin-right: 0.5rem;
+    transition: background-color 0.3s ease; /* Adding transition for smooth effect */
+  }
+  
+  /* Hover effect */
+  .meeting-card__actions button:hover {
+    background-color:white;
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 768px) {
+    .meeting-card {
+      width: 90%;
+      margin: 2% 5% 0;
+      font-size: 0.8rem;
+    }
+    
+    /* Adjust other necessary styles for smaller screens */
+  }
+  
+  @media screen and (max-width: 480px) {
+    .meeting-card {
+      width: 95%;
+      margin: 2% 2.5% 0;
+      font-size: 0.7rem;
+    }
+    
+    /* Adjust other necessary styles for even smaller screens */
+  }
+  
+  
+  /* Dialog Styles for Meeting */
+  .meeting-dialog-title {
+    background-color: purple;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+  }
+  
+  .meeting-dialog-content {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+  }
+  
+  .meeting-dialog-actions {
+    background-color: purple;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .meeting-dialog-button {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    margin-left: 1rem;
+  }
+  
+  /* Dialog Text Fields */
+  .meeting-dialog-textfield {
+    margin-bottom: 1.5rem;
+  }
+  
+  .meeting-dialog-textfield label {
+    color: var(--primary-color);
+  }
+  
+  .meeting-dialog-textfield input,
+  .meeting-dialog-textfield textarea {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+  
+  /* Add any other necessary adjustments or additions for the Meeting component */
+  

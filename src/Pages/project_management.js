@@ -326,7 +326,7 @@ Description
             </div>
             <motion.button
                 type="submit"
-                className="btn btn-dark mt-3 btn-purple w-100"
+                className="btn btn-dark mt-3 btn-purple w-80"
                 style={{ backgroundColor: 'purple',  boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)', border:'none' ,  borderRadius: '10px', }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}

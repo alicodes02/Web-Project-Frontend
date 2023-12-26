@@ -45,3 +45,7 @@
   #assignTo::placeholder {
     color: white;
   }
+
+  #title::placeholder {
+    color: white;
+  }

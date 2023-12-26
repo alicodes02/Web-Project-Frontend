@@ -16,8 +16,10 @@ import LoginPage from './Pages/login';
 import SignupPage from './Pages/signup';
 import UserProfileCard from './Pages/UserProfileCard';
 import GetAllProjects from './Pages/all_projects';
-import MeetingScheduler from './Pages/meeting_scheduler';
+import MeetingManagement from './Pages/meeting_management.js';
 import TaskDetails from './Pages/TaskDetails';
+import Helpandsupport from './Pages/helpandsupport.js'
+import GetAllMeetings from './Pages/all_meetings.js';
 
 function App() {
   return (
@@ -31,7 +33,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/userprofile" element={<UserProfileCard />} />
         <Route path="/allprojects" element={<GetAllProjects />} />
-        <Route path="/meetingscheduler" element={<MeetingScheduler />} />
+        <Route path="/meetingscheduler" element={<GetAllMeetings />} />
         <Route path="/taskdetails" element={<TaskDetails/>} />
         <Route path="/dashboard" element={<Layout />}>
           <Route index element={<Dashboard />} />
@@ -41,9 +43,9 @@ function App() {
           <Route path="messages" element={<Message />} />
           <Route path="calendar" element={<MyCalendar />} />
           <Route path="userprofile" element={<UserProfileCard />} />
-          <Route path="meet" element={<Meet />} />
+          <Route path="meet" element={<MeetingManagement />} />
           <Route path="settings" element={<UserProfileCard />} />
-          <Route path="support" element={<About />} />
+          <Route path="support" element={<Helpandsupport />} />
         </Route>
       </Routes>
       

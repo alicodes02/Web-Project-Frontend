@@ -96,23 +96,10 @@ function CustomNavbar(args) {
                   </NavLink>
                 </NavItem>
 
-                <NavItem>
-                  <NavLink tag={ReactLink} to="/userprofile" className="nav-link">
-                    User Profile
-                  </NavLink>
-                </NavItem>
+                
 
-                <NavItem>
-                  <NavLink tag={ReactLink} to="/projectmanagement" className="nav-link">
-                    Project Management
-                  </NavLink>
-                </NavItem>
 
-                <NavItem>
-                  <NavLink tag={ReactLink} to="/taskmanagement" className="nav-link">
-                    Task Management
-                  </NavLink>
-                </NavItem>
+                
               {/* Add other NavItems for mobile view */}
             </Nav>
           )}
