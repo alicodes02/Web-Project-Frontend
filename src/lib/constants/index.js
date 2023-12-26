@@ -57,6 +57,13 @@ export const DASHBOARD_SIDEBAR_LINKS = (userId, userName,userEmail, userToken) =
 		path: '/dashboard/meet',
 		icon: <HiOutlineUsers />
 	},
+
+	{
+		key: 'customers',
+		label: 'Manage Meetings',
+		path: '/dashboard/manage-meetings',
+		icon: <HiOutlineUsers />
+	},
 	{
 		key: 'messages',
 		label: 'Messages',

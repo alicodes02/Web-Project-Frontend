@@ -96,31 +96,31 @@ const Project = ({ project, onDelete, onEdit }) => {
       {/* Display project details */}
       <div className="project-card__top">
         <FontAwesomeIcon icon={faClipboard} style={{ marginRight: '10px', color:'white' }} />
-        <h3 className="project-card__title">{project.projectName}</h3>
+        <h3 className="project-card__title"><strong style={{ marginRight: '10px' }}>Project Name:</strong>{project.projectName}</h3>
       </div>
 
       <div className="project-card__top2">
       <FontAwesomeIcon icon={faFileAlt} style={{ marginRight: '10px', color:'white' }}/>
-      <p className="project-card__description">{project.description}</p>
+      <p className="project-card__description"><strong style={{ marginRight: '10px' }}>Description:</strong>{project.description}</p>
       </div>
       <div className="project-card__details">
         <div className="project-card__category">
           <FontAwesomeIcon icon={faTh} style={{ marginRight: '5px' }} />
-           <p><strong>Category:</strong>{project.projectCategory}</p>
+           <p><strong style={{ marginRight: '10px' }}>Category:</strong>{project.projectCategory}</p>
          </div>
 
        <div className="project-card__due-date">
         <FontAwesomeIcon icon={faCalendarAlt} style={{ marginRight: '10px', color:'white' }} />
-        <p><strong>Due Date:</strong> {project.dueDate}</p>
+        <p><strong style={{ marginRight: '10px' }}>Due Date:</strong> {project.dueDate}</p>
        </div>
 
        <div className="project-card__assignment">
         <FontAwesomeIcon icon={faUserCheck} style={{ marginRight: '10px', color:'white' }}/>
-        <p><strong>Assigned To:</strong> {project.assignTo}</p>
+        <p><strong style={{ marginRight: '10px' }}>Assigned To:</strong> {project.assignTo}</p>
        </div>
 
        <div className="project-card__visibility">
-        <p><strong>Visibility:</strong> {project.visibility}</p>
+        <p><strong style={{ marginRight: '10px' }}>Visibility:</strong> {project.visibility}</p>
         {/* Additional project details */}
         </div>
 

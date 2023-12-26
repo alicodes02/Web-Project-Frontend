@@ -7,7 +7,6 @@ import Layout from './Components/shared/Layout.js'
 import Dashboard from './Pages/Dashboard.js'
 import Message from './Pages/Message.js'
 import MyCalendar from './Pages/Calendar.js'
-import Meet from './Pages/Meet.js'
 import Home from './Pages/home';
 import About from './Pages/about';
 import ProjectManagement from './Pages/project_management';
@@ -44,6 +43,7 @@ function App() {
           <Route path="calendar" element={<MyCalendar />} />
           <Route path="userprofile" element={<UserProfileCard />} />
           <Route path="meet" element={<MeetingManagement />} />
+          <Route path="manage-meetings" element={<GetAllMeetings />} />
           <Route path="settings" element={<UserProfileCard />} />
           <Route path="support" element={<Helpandsupport />} />
         </Route>

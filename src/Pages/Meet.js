@@ -70,19 +70,19 @@ const Meeting = ({ meeting, onDelete, onEdit }) => {
     <div className="meeting-card">
       <div className="meeting-card__top">
         <FontAwesomeIcon icon={faClipboard} style={{ marginRight: '10px', color: 'white' }} />
-        <h3 className="meeting-card__title">{meeting.meetingDetails.title}</h3>
+        <h3 className="meeting-card__title"> <strong style={{ marginRight: '10px' }}>Title:</strong>{meeting.meetingDetails.title}</h3>
       </div>
 
       <div className="meeting-card__top2">
         <FontAwesomeIcon icon={faFileAlt} style={{ marginRight: '10px', color: 'white' }} />
-        <p className="meeting-card__description">{meeting.meetingDetails.description}</p>
+        <p className="meeting-card__description"><strong style={{ marginRight: '10px' }}>Description:</strong>{meeting.meetingDetails.description}</p>
       </div>
 
       <div className="meeting-card__details">
       <div className="meeting-card__category">
             <FontAwesomeIcon icon={faClock} style={{ marginRight: '5px' }} />
       <p>
-         <strong>Proposed Time:</strong>
+         <strong style={{ marginRight: '10px' }}>Proposed Time:</strong>
           {meeting.proposedTime}
       </p>
 </div>
