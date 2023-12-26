@@ -48,7 +48,7 @@ const data = [
 
 export default function ProjectChart() {
   return (
-    <div className="h-[22rem] bg-white p-4 rounded-[20px] border border-gray-200 flex flex-col flex-1">
+    <div className="h-[22rem] bg-white p-4 rounded-[20px] border border-gray-200 flex flex-col flex-1 hover:shadow-lg transition duration-10 ease-in-out cursor-pointer">
       <strong className="text-gray-700 font-large">Projects</strong>
       <div className="mt-3 w-full flex-1 text-xs items-center justify-center">
         <ResponsiveContainer width="100%" height="100%">
