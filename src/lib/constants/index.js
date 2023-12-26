@@ -48,7 +48,16 @@ export const DASHBOARD_SIDEBAR_LINKS = (userId, userName,userEmail, userToken) =
 		path: '/dashboard/meet',
 		icon: <IoEarthOutline/>
 	},
+
+	{
+		key: 'customers',
+		label: 'Manage Meetings',
+		path: '/dashboard/manage-meetings',
+		icon: <IoEarthOutline/>
+	},
 ]
+
+
 
 export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
 	{
