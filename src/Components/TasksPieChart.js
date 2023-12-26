@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { useState,useEffect } from 'react';
+import axios from 'axios';
+
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts'
 
-const data = [
-	{ name: 'Completed', value: 400 },
-	{ name: 'Remaining', value: 600 },
-]
+
 
 const RADIAN = Math.PI / 180
 const COLORS = ['#00C49F', '#FFBB28']
@@ -22,6 +22,40 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 }
 
 export default function TasksPieChart() {
+
+	const [tasksStatus, setTasksStatus] = useState({});
+	
+	const getCompletedAndRemainingTasks = async () => {
+
+		try {
+
+			const response = await axios.get('http://localhost:3001/tasks/status');
+			setTasksStatus(response.data);
+
+		}
+
+		catch(error) {
+
+			alert(error.response.data.message);
+		}
+	};
+
+
+	useEffect (
+		() => {
+
+			getCompletedAndRemainingTasks();
+
+		}, []
+	);
+
+
+
+	const data = [
+		{ name: 'Completed', value: tasksStatus.completedTasks },
+		{ name: 'Remaining', value: tasksStatus.remainingTasks },
+	]
+
 	return (
 		<div className="w-[20rem] h-[22rem] bg-white p-4 rounded-[20px] border border-gray-200 flex flex-col">
 			<strong className="text-gray-700 font-large">Tasks</strong>
