@@ -19,7 +19,7 @@ const GetAllMeetings = () => {
   useEffect(() => {
     const fetchMeetings = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/meetings');
+        const response = await axios.get('https://outrageous-teal-purse.cyclic.app/meetings');
         setMeetings(response.data);
         console.log(response.data);
       } catch (error) {
@@ -37,7 +37,7 @@ const GetAllMeetings = () => {
 
   const handleDeleteMeeting = async (meetingId) => {
     try {
-      await axios.delete(`http://localhost:3001/delete-meeting/${meetingId}`);
+      await axios.delete(`https://outrageous-teal-purse.cyclic.app/delete-meeting/${meetingId}`);
       setMeetings((prevMeetings) => prevMeetings.filter((meeting) => meeting._id !== meetingId));
     } catch (error) {
       handleAPIError(error);
@@ -49,7 +49,7 @@ const GetAllMeetings = () => {
       const updatedMeetings = meetings.map((meeting) =>
         meeting._id === updatedMeeting._id ? updatedMeeting : meeting
       );
-      await axios.patch(`http://localhost:3001/update-meeting/${updatedMeeting._id}`, updatedMeeting);
+      await axios.patch(`https://outrageous-teal-purse.cyclic.app/update-meeting/${updatedMeeting._id}`, updatedMeeting);
       setMeetings(updatedMeetings);
     } catch (error) {
       handleAPIError(error);

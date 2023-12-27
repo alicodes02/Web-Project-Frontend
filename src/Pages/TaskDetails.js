@@ -48,7 +48,7 @@ export default function TaskDetails() {
     };
 
     try {
-      const response = await axios.get(`http://localhost:3001/get-comment/${taskId}`, { headers });
+      const response = await axios.get(`https://outrageous-teal-purse.cyclic.app/get-comment/${taskId}`, { headers });
 
       const successMessage = response.data.message;
       setComments(response.data.comments);
@@ -88,7 +88,7 @@ export default function TaskDetails() {
 
     try {
       const response = await axios.post(
-        `http://localhost:3001/add-comment/${taskId}`,
+        `https://outrageous-teal-purse.cyclic.app/add-comment/${taskId}`,
         formData,
         {
           headers: {

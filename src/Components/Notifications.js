@@ -23,7 +23,7 @@ const Notifications = () => {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/notifications');
+        const response = await axios.get('https://outrageous-teal-purse.cyclic.app/notifications');
         setNotifications(response.data);
       } catch (error) {
         console.error('Error fetching notifications:', error);
@@ -35,7 +35,7 @@ const Notifications = () => {
 
   // const handleDelete = async (notificationId) => {
   //   try {
-  //     await axios.delete(`http://localhost:3001/delete-notification:${notificationId}`);
+  //     await axios.delete(`https://outrageous-teal-purse.cyclic.app/delete-notification:${notificationId}`);
   //     setNotifications((prevNotifications) => prevNotifications.filter((n) => n.notificationId !== notificationId));
   //   } catch (error) {
   //     console.error('Error deleting notification:', error);
