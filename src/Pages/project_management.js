@@ -63,7 +63,7 @@ const ProjectManagement = () => {
 
     try {
 
-      const response = await axios.post('https://outrageous-teal-purse.cyclic.app/project', projectData);
+      const response = await axios.post('http://localhost:3001/project', projectData);
 
 
       toast.success('Project created Successfully.', {

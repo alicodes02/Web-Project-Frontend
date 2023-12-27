@@ -45,7 +45,7 @@ const TaskManagement = () => {
 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get('https://outrageous-teal-purse.cyclic.app/employees');
+      const response = await axios.get('http://localhost:3001/employees');
       setEmployees(response.data.employees);
     } catch (error) {
       handleFetchError(error);
@@ -54,7 +54,7 @@ const TaskManagement = () => {
 
   const fetchAllTasks = async () => {
     try {
-      const response = await axios.get(`https://outrageous-teal-purse.cyclic.app/all-tasks`);
+      const response = await axios.get(`http://localhost:3001/all-tasks`);
       setTasks(response.data.tasks);
     } catch (error) {
       handleFetchError(error);
@@ -63,7 +63,7 @@ const TaskManagement = () => {
 
   const fetchprojectTasks = async () => {
     try {
-      const response = await axios.get(`https://outrageous-teal-purse.cyclic.app/all-tasks/${projectId}`);
+      const response = await axios.get(`http://localhost:3001/all-tasks/${projectId}`);
       setTasks(response.data.tasks);
     } catch (error) {
       handleFetchError(error);
@@ -104,13 +104,13 @@ const TaskManagement = () => {
 
     if(projectId) {
 
-      url = `https://outrageous-teal-purse.cyclic.app/add-task/${projectId}`;
+      url = `http://localhost:3001/add-task/${projectId}`;
 
     }
 
     else {
 
-      url = `https://outrageous-teal-purse.cyclic.app/add-task`;
+      url = `http://localhost:3001/add-task`;
     }
   
     try {
@@ -140,7 +140,7 @@ const TaskManagement = () => {
     };
 
     try {
-      const response = await axios.patch(`https://outrageous-teal-purse.cyclic.app/edit-status/${taskId}`, {}, { headers });
+      const response = await axios.patch(`http://localhost:3001/edit-status/${taskId}`, {}, { headers });
       console.log(response);
 
       if(projectId) {
@@ -163,7 +163,7 @@ const TaskManagement = () => {
     };
 
     try {
-      const response = await axios.patch(`https://outrageous-teal-purse.cyclic.app/edit-progress/${taskId}`, { progress: value }, { headers });
+      const response = await axios.patch(`http://localhost:3001/edit-progress/${taskId}`, { progress: value }, { headers });
       console.log(response);
 
       if(projectId) {

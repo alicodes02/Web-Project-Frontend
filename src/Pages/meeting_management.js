@@ -63,7 +63,7 @@ const MeetingManagement = () => {
     }
 
     try {
-      const response = await axios.post('https://outrageous-teal-purse.cyclic.app/meeting', meetingData);
+      const response = await axios.post('http://localhost:3001/meeting', meetingData);
 
       toast.success('Meeting created Successfully.', {
         position: toast.POSITION.BOTTOM_CENTER,

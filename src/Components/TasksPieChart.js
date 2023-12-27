@@ -29,7 +29,7 @@ export default function TasksPieChart() {
 
 		try {
 
-			const response = await axios.get('https://outrageous-teal-purse.cyclic.app/tasks/status');
+			const response = await axios.get('http://localhost:3001/tasks/status');
 			setTasksStatus(response.data);
 
 		}

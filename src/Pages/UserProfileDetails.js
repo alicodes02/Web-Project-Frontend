@@ -46,7 +46,7 @@ const handleUpdateClick = () => {
   const zipCode = document.getElementById('zIp').value;
 
   // Make API request to update user information
-  Axios.post('https://outrageous-teal-purse.cyclic.app/api/user/update', {
+  Axios.post('http://localhost:3001/api/user/update', {
     userId: '65899dae51ce00e6e9abef81',
     fullName,
     email,

@@ -14,7 +14,7 @@ export default function DashboardStatsGrid() {
 
 		try {
 
-			const response = await axios.get('https://outrageous-teal-purse.cyclic.app/tasks/count');
+			const response = await axios.get('http://localhost:3001/tasks/count');
 			setTasks(response.data.count);
 		}
 
@@ -29,7 +29,7 @@ export default function DashboardStatsGrid() {
 
 		try {
 			
-			const response = await axios.get('https://outrageous-teal-purse.cyclic.app/count-projects');
+			const response = await axios.get('http://localhost:3001/count-projects');
 			setProjects(response.data.count);
 		}
 
