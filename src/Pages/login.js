@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import CustomNavbar from '../Navbar/CustomNavbar';
 import './placeholder.css'
+import useUserStore from '../Components/userStore';
 
 const LoginPage = () => {
 
@@ -31,6 +32,9 @@ const LoginPage = () => {
       password: '',
       showPassword: false,
     });
+
+
+    const setUser = useUserStore((state) => state.setUser);
   
     const handleInputChange = (e) => {
       const { name, value } = e.target;
@@ -66,13 +70,14 @@ const LoginPage = () => {
 
       try {
 
-        const response = await axios.post('https://outrageous-teal-purse.cyclic.app/signin', formData);
-  
+        const response = await axios.post('http://localhost:3001/signin', formData);  
         const message = response.data.message;
         var userName = response.data.userfirstName;
         var userId = response.data.userId;
         var userEmail = response.data.userEmail;
         var userToken = response.data.token;
+
+        setUser({ userName, userToken, userId, userEmail });
 
         toast.success(`Welcome ${userName}`, {
           position: toast.POSITION.BOTTOM_CENTER,
