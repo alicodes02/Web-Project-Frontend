@@ -5,14 +5,17 @@ import axios from 'axios';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Task from './Task';
 import { useLocation } from 'react-router-dom';
+import useUserStore from '../Components/userStore';
 
 const TaskManagement = () => {
+
+  const { username, token, userId, userEmail } = useUserStore();
 
 
   const location = useLocation();
   const projectId = location.state?.projectId;
 
-  const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlicmFoZWVtcmVobWFuMTVAZ21haWwuY29tIiwiaWF0IjoxNzAzNDkwNjIwfQ.uCKrWdVcQnynMtrXskXPuRP523Cp8OJPMfhCaNAqTP0';
+  const TOKEN = token;
   const [tasks, setTasks] = useState([]);
   const [employees, setEmployees] = useState([]);
   const [show, setShow] = useState(false);
