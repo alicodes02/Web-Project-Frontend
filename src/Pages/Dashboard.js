@@ -5,6 +5,7 @@ import Priority from '../Components/Priority'
 import TasksPieChart from '../Components/TasksPieChart'
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import TaskManagement from './TaskManagement'
 
 export default function Dashboard() {
 
