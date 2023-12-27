@@ -128,6 +128,7 @@ const LoginPage = () => {
 
     <div>
       <CustomNavbar/>
+
       <Base>
       <div className="container mt-5">
       <div className="container" style={textStyle}>
@@ -282,7 +283,7 @@ const LoginPage = () => {
     </button>
   </div>
 </div>
-            <motion.button
+  <motion.button
   type="submit"
   className="btn btn-dark mt-3 w-100"
   style={{ backgroundColor: 'purple',  boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)', border:'none' ,  borderRadius: '10px', }}
@@ -292,9 +293,11 @@ const LoginPage = () => {
 >
   Login
 </motion.button>
+
             </form>
 
-            <p style={{ textAlign: 'center', marginTop: '10px', marginBottom: '10px' }}>OR</p>
+            <p style={{ textAlign: 'center', marginTop: '10px', marginBottom: '10px' }}>OR
+            </p>
 
            {/* Google Login Button as motion.button */}
            <motion.button
