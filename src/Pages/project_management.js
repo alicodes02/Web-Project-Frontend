@@ -63,7 +63,7 @@ const ProjectManagement = () => {
 
     try {
 
-      const response = await axios.post('http://localhost:3001/project', projectData);
+      const response = await axios.post(`${process.env.REACT_APP_URL}/project`, projectData);
 
 
       toast.success('Project created Successfully.', {

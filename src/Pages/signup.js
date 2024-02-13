@@ -16,6 +16,7 @@ import './placeholder.css'
 const SignupPage = () => {
 
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const textStyle = {
     backgroundColor: 'rgb(128,0,128,0.7)',
@@ -70,7 +71,7 @@ const SignupPage = () => {
   const handleSubmit = async(e) => {
 
     e.preventDefault();
-
+    
     if (formData.firstName.trim() === '' || formData.lastName.trim() === '' || formData.email.trim() === '' || formData.password.trim() === '' || formData.confirmPassword.trim() === '' || formData.role.trim() === '' ) 
     {
 
@@ -95,12 +96,11 @@ const SignupPage = () => {
       
     }
 
-    
-
-
     try {
 
-      const response = await axios.post('http://localhost:3001/signup', formData);
+      setLoading(true);
+
+      const response = await axios.post(`${process.env.REACT_APP_URL}/signup`, formData);
 
         const message = response.data.message;
         var firstName = response.data.userfirstName;
@@ -121,6 +121,8 @@ const SignupPage = () => {
 
         alert(message);
         alert(`Welcome ${firstName}`);
+
+        setLoading(false);
 
         
     }
@@ -176,6 +178,7 @@ const SignupPage = () => {
               overflow: 'hidden',
             }}
           >
+
             <motion.div
               initial={{ width: 0, left: 0 }}
               animate={{ width:  '0.2%', left: 0 }}
@@ -435,6 +438,7 @@ const SignupPage = () => {
       placeholder="Confirm your password"
       
     />
+
     <button
       type="button"
       className="btn btn-outline-secondary"
@@ -466,7 +470,13 @@ const SignupPage = () => {
                whileHover={{ scale: 1.1 }}
                whileTap={{ scale: 0.9 }}
               >
-                Signup
+                {loading ? (
+                      <div className="spinner-border spinner-border-sm" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </div>
+                    ) : (
+                      'Signup'
+                    )}
               </motion.button>
             </form>
 
@@ -502,17 +512,19 @@ const SignupPage = () => {
               style={{ width: '100%', marginTop: '10px',  borderRadius: '10px',
               boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.4)' }}
             >
+
               <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '10px' }} />
               Continue with Facebook
             </motion.button>
+            
           </motion.div>
         </div>
 
         </div>
       </div>
     </Base>
-    </div>
 
+    </div>
   );
 };
 

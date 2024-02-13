@@ -22,7 +22,7 @@ const GetAllProjects = () => {
     // Replace this with your actual API endpoint for projects
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/projects');
+        const response = await axios.get(`${process.env.REACT_APP_URL}/projects`);
         setProjects(response.data);
         console.log(response.data);
       } catch (error) {
@@ -41,7 +41,7 @@ const GetAllProjects = () => {
   
   const handleDeleteProject = async (projectId) => {
     try {
-      await axios.delete(`http://localhost:3001/delete-project/${projectId}`);
+      await axios.delete(`${process.env.REACT_APP_URL}/delete-project/${projectId}`);
       setProjects((prevProjects) => prevProjects.filter((project) => project._id !== projectId));
     } catch (error) {
       handleAPIError(error);
@@ -53,7 +53,7 @@ const GetAllProjects = () => {
       const updatedProjects = projects.map((project) =>
         project._id === updatedProject._id ? updatedProject : project
       );
-      await axios.patch(`http://localhost:3001/update-project/${updatedProject._id}`, updatedProject);
+      await axios.patch(`${process.env.REACT_APP_URL}/update-project/${updatedProject._id}`, updatedProject);
       setProjects(updatedProjects);
     } catch (error) {
       handleAPIError(error);

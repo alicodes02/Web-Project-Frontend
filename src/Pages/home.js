@@ -7,7 +7,7 @@ import CustomNavbar from '../Navbar/CustomNavbar';
 import './user.css';
 
 const Home = () => {
-
+  
   const textStyle = {
     backgroundColor: 'rgb(128,0,128,0.7)',
     backdropFilter: 'blur(5px)',

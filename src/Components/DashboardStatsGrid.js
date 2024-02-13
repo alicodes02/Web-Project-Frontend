@@ -14,7 +14,7 @@ export default function DashboardStatsGrid() {
 
 		try {
 
-			const response = await axios.get('http://localhost:3001/tasks/count');
+			const response = await axios.get(`${process.env.REACT_APP_URL}/tasks/count`);
 			setTasks(response.data.count);
 		}
 
@@ -29,7 +29,7 @@ export default function DashboardStatsGrid() {
 
 		try {
 			
-			const response = await axios.get('http://localhost:3001/count-projects');
+			const response = await axios.get(`${process.env.REACT_APP_URL}/count-projects`);
 			setProjects(response.data.count);
 		}
 

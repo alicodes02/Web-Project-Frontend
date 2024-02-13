@@ -45,7 +45,7 @@ const TaskManagement = () => {
 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/employees');
+      const response = await axios.get(`${process.env.REACT_APP_URL}/employees`);
       setEmployees(response.data.employees);
     } catch (error) {
       handleFetchError(error);
@@ -54,7 +54,7 @@ const TaskManagement = () => {
 
   const fetchAllTasks = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/all-tasks`);
+      const response = await axios.get(`${process.env.REACT_APP_URL}/all-tasks`);
       setTasks(response.data.tasks);
     } catch (error) {
       handleFetchError(error);
@@ -63,7 +63,7 @@ const TaskManagement = () => {
 
   const fetchprojectTasks = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/all-tasks/${projectId}`);
+      const response = await axios.get(`${process.env.REACT_APP_URL}/all-tasks/${projectId}`);
       setTasks(response.data.tasks);
     } catch (error) {
       handleFetchError(error);
@@ -104,13 +104,13 @@ const TaskManagement = () => {
 
     if(projectId) {
 
-      url = `http://localhost:3001/add-task/${projectId}`;
+      url = `${process.env.REACT_APP_URL}/add-task/${projectId}`;
 
     }
 
     else {
 
-      url = `http://localhost:3001/add-task`;
+      url = `${process.env.REACT_APP_URL}/add-task`;
     }
   
     try {
@@ -140,7 +140,7 @@ const TaskManagement = () => {
     };
 
     try {
-      const response = await axios.patch(`http://localhost:3001/edit-status/${taskId}`, {}, { headers });
+      const response = await axios.patch(`${process.env.REACT_APP_URL}/edit-status/${taskId}`, {}, { headers });
       console.log(response);
 
       if(projectId) {
@@ -163,7 +163,7 @@ const TaskManagement = () => {
     };
 
     try {
-      const response = await axios.patch(`http://localhost:3001/edit-progress/${taskId}`, { progress: value }, { headers });
+      const response = await axios.patch(`${process.env.REACT_APP_URL}/edit-progress/${taskId}`, { progress: value }, { headers });
       console.log(response);
 
       if(projectId) {

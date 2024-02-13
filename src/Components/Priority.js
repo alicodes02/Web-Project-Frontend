@@ -12,7 +12,7 @@ const Priority=()=>{
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/all-tasks'); 
+        const response = await axios.get(`${process.env.REACT_APP_URL}/all-tasks`); 
         const allTasks = response.data.tasks;
     
         // Filter high-priority tasks

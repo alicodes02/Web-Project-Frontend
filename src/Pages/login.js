@@ -15,6 +15,7 @@ import useUserStore from '../Components/userStore';
 const LoginPage = () => {
 
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const textStyle = {
     backdropFilter: 'blur(5px)',
@@ -70,7 +71,8 @@ const LoginPage = () => {
 
       try {
 
-        const response = await axios.post('http://localhost:3001/signin', formData);  
+        setLoading(true);
+        const response = await axios.post(`${process.env.REACT_APP_URL}/signin`, formData);  
         const message = response.data.message;
         var userName = response.data.userfirstName;
         var userId = response.data.userId;
@@ -93,6 +95,7 @@ const LoginPage = () => {
   
         alert(message);
         alert(`Welcome ${userName}`);
+        setLoading(false);
 
         navigate('/dashboard', { state: { userId, userName,userEmail,userToken } });
 
@@ -296,7 +299,14 @@ const LoginPage = () => {
   whileTap={{ scale: 0.9 }}
  
 >
-  Login
+
+                        {loading ? (
+                            <div className="spinner-border spinner-border-sm" role="status">
+                              <span className="visually-hidden">Loading...</span>
+                            </div>
+                          ) : (
+                            'Log In'
+                          )}
 </motion.button>
 
             </form>

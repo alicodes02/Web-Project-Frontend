@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { debounce } from 'lodash';
 
 export default function Task (props) {
 
@@ -19,6 +20,10 @@ export default function Task (props) {
       navigate('/taskdetails', { state: {taskId, title, description, dueDate, priority, assignee, status, progress} });
     
     }
+
+    const debouncedHandleProgressChange = debounce((taskId, value) => {
+      props.handleProgressChange(taskId, value);
+  }, 200);
 
     return(
 
@@ -43,7 +48,7 @@ export default function Task (props) {
            value={progress}
            onChange={(e) => {
             e.preventDefault(); 
-            props.handleProgressChange(taskId, e.target.value);
+            debouncedHandleProgressChange(taskId, e.target.value);
           }}
           />
         </td>

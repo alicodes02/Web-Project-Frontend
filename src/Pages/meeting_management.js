@@ -63,7 +63,7 @@ const MeetingManagement = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3001/meeting', meetingData);
+      const response = await axios.post(`${process.env.REACT_APP_URL}/meeting`, meetingData);
 
       toast.success('Meeting created Successfully.', {
         position: toast.POSITION.BOTTOM_CENTER,
